@@ -8,7 +8,7 @@
 	# Student info
 	$studentNumber = $phoneNumber = $email = $status = $type = $level = $program = $department = '';
 	$errStudentNumber = $errPhoneNumber = $errEmail = $errStatus = $errtype = $errLevel = $errProgram = $errDepartment = '';
-	
+
 	if (isset($_POST['submit'])) {
 		$firstName = $_POST['firstName'];
 		$lastName = $_POST['lastName'];
