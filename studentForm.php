@@ -145,7 +145,7 @@
             <div class="row">
              	<div class="col-md-6 col-md-offset-3">
                     <h1 class="page-header text-center" style="color:black">Student Information Form</h1>
-                    <form class="form-horizontal" role="form" method="post" action="formTest.php">
+                    <form class="form-horizontal" role="form" method="post" action="studentForm.php">
                         <div class="form-group">
                             <label for="firstName" class="col-sm-3 control-label">First Name :</label>
                             <div class="col-sm-9">
@@ -517,7 +517,7 @@
 						<div class="form-group">
                             <label for="level" class="col-sm-3 control-label">Level :</label>
                             <div class="col-sm-9">
-								<select name="name" class="form-control" value="<?php echo htmlspecialchars($level); ?>">
+								<select name="level" class="form-control" value="<?php echo htmlspecialchars($level); ?>">
 									<option value="" select="selected">--- Select a Level ---</option>
 									<option <?php if(isset($_POST['level']) && $_POST['level'] == 'Undergraduate')  echo ' selected="selected"';?> value="Undergraduate">Undergraduate (BS)</option>
 									<option <?php if(isset($_POST['level']) && $_POST['level'] == 'Graduate')  echo ' selected="selected"';?> value="Graduate">Graduate (MS)</option>
