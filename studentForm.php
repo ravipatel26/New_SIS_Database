@@ -3,11 +3,11 @@
 
 	# General info
 	$firstName = $lastName = $birthDate = $gender = $address = $city = $province = $postalCode = $country = '';
-	$errfirstName = $errlastName = $errBirthDate = $errGender = $errAddress = $errCity = $errProvince = $errPostalCode = $errCountry = '';
+	$errFirstName = $errLastName = $errBirthDate = $errGender = $errAddress = $errCity = $errProvince = $errPostalCode = $errCountry = '';
 
 	# Student info
 	$studentNumber = $phoneNumber = $email = $status = $type = $position = $level = $program = $department = '';
-	$errStudentNumber = $errPhoneNumber = $errEmail = $errStatus = $errtype = $errPosition = $errLevel = $errProgram = $errDepartment = '';
+	$errStudentNumber = $errPhoneNumber = $errEmail = $errStatus = $errType = $errPosition = $errLevel = $errProgram = $errDepartment = '';
 
 	if (isset($_POST['submit'])) {
 		$firstName = $_POST['firstName'];
@@ -37,10 +37,10 @@
 		
 		// Check if first name and last name has been entered
 		if (!$_POST['firstName']) {
-			$errfirstName = '*Enter your First Name';
+			$errFirstName = '*Enter your First Name';
 		}
 		if (!$_POST['lastName']) {
-			$errlastName = '*Enter your Last Name';
+			$errLastName = '*Enter your Last Name';
 		}
 		// Check if birth date has been entered
 		if (!$_POST['birthDate']) {
@@ -88,7 +88,7 @@
 		}
 		// Check if student status has been selected
 		if (!isset($_POST['type'])) {
-			$errtype = '*Select a Student Type';
+			$errType = '*Select a Student Type';
 		}
 		// Check if student status has been selected
 		if (!($_POST['position'])) {
@@ -105,6 +105,14 @@
 		// Check if student status has been selected
 		if (!$_POST['department']) {
 			$errDepartment = '*Enter a valid Department';
+		}
+		
+		// If there are no errors, send the email
+	//  if (!$errFirstName && !$errLastName && !$errBirthDate && !$errGender && !$errAddress && !$errCity && !$errProvince && !$errPostalCode && !$errCountry && !$errStudentNumber && !$errPhoneNumber && !$errEmail && !$errStatus && !$errtype && !$errPosition && $_POST['status'] == 'Graduated' && !$errLevel && !$errProgram && !$errDepartment) {
+		if (!$errFirstName && !$errLastName && !$errBirthDate && !$errGender && !$errAddress && !$errCity && !$errProvince && !$errPostalCode && !$errCountry && !$errStudentNumber && !$errPhoneNumber && !$errEmail && !$errType && !$errStatus && !$position && $_POST['status'] != 'Graduated' && !$errLevel && !$errProgram && !$errDepartment) {
+			$result='<div class="alert alert-success">Form has been submitted!</div>';
+		} else {
+			$result='<div class="alert alert-danger">Address the errors in the form!</div>';
 		}
 	}
 ?>
@@ -160,14 +168,14 @@
                             <label for="firstName" class="col-sm-3 control-label">First Name :</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" value="<?php echo htmlspecialchars($firstName); ?>">
-                                <?php echo '<p class="text-danger">'.$errfirstName.'</p>';?>
+                                <?php echo '<p class="text-danger">'.$errFirstName.'</p>';?>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="lastName" class="col-sm-3 control-label">Last Name :</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" value="<?php echo htmlspecialchars($lastName); ?>">
-                                <?php echo '<p class="text-danger">'.$errlastName.'</p>';?>
+                                <?php echo '<p class="text-danger">'.$errLastName.'</p>';?>
                             </div>
                         </div>
 						<div class="form-group">
@@ -507,7 +515,7 @@
 									<input id="inlineradio1" name="type" value="Local" type="radio" <?php echo (isset($_POST['type']) && $_POST['type']=='Local'? 'checked' : '') ?>>Local</label>
 								<label class="radio-inline">
 									<input id="inlineradio2" name="type" value="International" type="radio" <?php echo (isset($_POST['type']) && $_POST['type']=='International' ? 'checked' : '') ?>>International</label>
-								<?php echo '<p class="text-danger">'.$errtype.'</p>';?>
+								<?php echo '<p class="text-danger">'.$errType.'</p>';?>
 							</div>
                         </div>
 						<div class="form-group">
