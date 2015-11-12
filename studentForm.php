@@ -25,6 +25,10 @@
 		$status = isset($_POST['status']) ? $_POST['status'] : '';
 		$type = isset($_POST['type']) ? $_POST['type'] : '';
 		$position = $_POST['position'];
+		// if student type is not graduate then positio should be blank
+		if (isset($_POST['status']) && $_POST['status'] != 'Graduated') {
+			$position = '';
+		}
 		$level = $_POST['level'];
 		$program = $_POST['program'];
 		$department = $_POST['department'];
