@@ -6,8 +6,8 @@
 	$errfirstName = $errlastName = $errBirthDate = $errGender = $errAddress = $errCity = $errProvince = $errPostalCode = $errCountry = '';
 
 	# Student info
-	$studentNumber = $phoneNumber = $email = $status = $type = $level = $program = $department = '';
-	$errStudentNumber = $errPhoneNumber = $errEmail = $errStatus = $errtype = $errLevel = $errProgram = $errDepartment = '';
+	$studentNumber = $phoneNumber = $email = $status = $type = $position = $level = $program = $department = '';
+	$errStudentNumber = $errPhoneNumber = $errEmail = $errStatus = $errtype = $errPosition = $errLevel = $errProgram = $errDepartment = '';
 
 	if (isset($_POST['submit'])) {
 		$firstName = $_POST['firstName'];
@@ -24,6 +24,7 @@
 		$studentNumber = $_POST['studentNumber'];
 		$status = isset($_POST['status']) ? $_POST['status'] : '';
 		$type = isset($_POST['type']) ? $_POST['type'] : '';
+		$position = $_POST['position'];
 		$level = $_POST['level'];
 		$program = $_POST['program'];
 		$department = $_POST['department'];
@@ -84,6 +85,10 @@
 		// Check if student status has been selected
 		if (!isset($_POST['type'])) {
 			$errtype = '*Select a Student Type';
+		}
+		// Check if student status has been selected
+		if (!($_POST['position'])) {
+			$errPosition = '*Enter your Position';
 		}
 		// Check if student level has been selected
 		if (!$_POST['level']) {
@@ -505,17 +510,17 @@
                             <label for="status" class="col-sm-3 control-label">Status :</label>
                             <div class="col-sm-9">
 								<label class="radio-inline" >
-									<input id="fulltime" name="status" value="Full-Time" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Full-Time'? 'checked' : '') ?>>Full-Time</label>
+									<input id="fulltime" name="status" value="Full-Time" type="radio" onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Full-Time'? 'checked' : '') ?>>Full-Time</label>
 								<label class="radio-inline" >
-									<input id="parttime" name="status" value="Part-Time" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Part-Time'? 'checked' : '') ?>>Part-Time</label>
+									<input id="parttime" name="status" value="Part-Time" type="radio" onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Part-Time'? 'checked' : '') ?>>Part-Time</label>
 								<label class="radio-inline" >
-									<input id="onleave" name="status" value="On-Leave" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='On-Leave'? 'checked' : '') ?>>On-Leave</label>
+									<input id="onleave" name="status" value="On-Leave" type="radio" onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='On-Leave'? 'checked' : '') ?>>On-Leave</label>
 								<label class="radio-inline" >
-									<input id="graduated" name="status" value="Graduated" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Graduated'? 'checked' : '') ?>>Graduated</label>
+									<input id="graduated" name="status" value="Graduated" type="radio" onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Graduated'? 'checked' : '') ?>>Graduated</label>
 								<?php echo '<p class="text-danger">'.$errStatus.'</p>';?>
 							</div>
                         </div>
-						<div class="form-group" id="displayPosition" style="display:none">
+						<div class="form-group" id="displayPosition" <?php echo (isset($_POST['status']) && $_POST['status']=='Graduated')? 'style="display:block"' : 'style="display:none"' ?>>
                             <label for="position" class="col-sm-3 control-label">Position :</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="position" name="position" placeholder="ex: Software Developer" value="<?php echo htmlspecialchars($position); ?>">
