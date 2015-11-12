@@ -7,18 +7,18 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand dropdown" href="template.php">Home</a>
+                  <a class="navbar-brand dropdown" href="../template.php">Home</a>
                </div>
                <div class="collapse navbar-collapse" id="example-navbar-collapse">
                   <ul class="nav navbar-nav">
-				  	  <li><a href="#">page1</a></li>
-                  	  <li><a href="#">page2</a></li>
+				  	  <li><a href="StudentForm.php">Student Data Entry</a></li>
+                  	  <li><a href="#">Professor Data Entry</a></li>
                       <li><a href="#">page3</a></li>
 					  <li><a href="#">page4</a></li>
                       <li><a href="#">page5</a></li>
                       <li><a href="#">page6</a></li>
 					  <li><a href="#">page7</a></li>
-					  <li><a href="admin/adminLogin.php">Admin</a></li>
+					  <li><a href="../admin/logout.php">Logout</a></li>
                                         </ul>
                </div>
             </nav>';
