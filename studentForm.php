@@ -13,7 +13,7 @@
 		$firstName = $_POST['firstName'];
 		$lastName = $_POST['lastName'];
 		$birthDate = $_POST['birthDate'];
-		$gender = $_POST['gender'];
+		$gender = isset($_POST['gender']) ? $_POST['gender'] : '';
 		$address = $_POST['address'];
 		$city = $_POST['city'];
 		$province = $_POST['province'];
@@ -22,8 +22,8 @@
 		$phoneNumber = $_POST['phoneNumber'];
 		$email = $_POST['email'];
 		$studentNumber = $_POST['studentNumber'];
-		$status = $_POST['status'];
-		$type = $_POST['type'];
+		$status = isset($_POST['status']) ? $_POST['status'] : '';
+		$type = isset($_POST['type']) ? $_POST['type'] : '';
 		$level = $_POST['level'];
 		$program = $_POST['program'];
 		$department = $_POST['department'];
@@ -42,7 +42,7 @@
 			$errBirthDate = '*Enter your Date of Birth';
 		}
 		// Check if gender has been selected
-		if (!$_POST['gender']) {
+		if (!isset($_POST['gender'])) {
 			$errGender = '*Select a Gender';
 		}
 		// Check if address has been entered
@@ -78,14 +78,14 @@
 			$errStudentNumber = '*Enter your Student Number';
 		}
 		// Check if student status has been selected
-		if (!$_POST['status']) {
+		if (!isset($_POST['status'])) {
 			$errStatus = '*Choose a Status';
 		}
 		// Check if student status has been selected
-		if (!$_POST['type']) {
-			$errType = '*Select a Student Type';
+		if (!isset($_POST['type'])) {
+			$errtype = '*Select a Student Type';
 		}
-		// Check if student status has been selected
+		// Check if student level has been selected
 		if (!$_POST['level']) {
 			$errLevel = '*Select a Student Level';
 		}
@@ -119,10 +119,11 @@
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
+    <script src="js/control.js"></script>
 </head>
 
 <body>
-<div class="container-fluid" style="background-image:url(images/backgrounds/clouds.jpg)">
+<div class="container-fluid" >
 	<div id="body">
         <div id="header">
             <div class="row">
@@ -133,7 +134,7 @@
         </div>
     	<div id="navigation">
             <div class="row">
-                <?php require("navigation.php"); ?>
+                <?php require("navigationAdmin.php"); ?>
             </div>
         </div>
        <div class="row">
@@ -177,10 +178,10 @@
 						<div class="form-group">
                             <label for="gender" class="col-sm-3 control-label">Gender :</label>
 							<div class="col-sm-9">
-								<label class="radio-inline" value="<?php echo htmlspecialchars($gender); ?>">
-									<input id="inlineradio1" name="gender" value="Male" type="radio" <?php if(isset($_POST['gender']) && $_POST['gender'] == 'Male')  echo ' checked="checked"';?> >Male</label>
-								<label class="radio-inline" value="<?php echo htmlspecialchars($gender); ?>">
-									<input id="inlineradio2" name="gender" value="Female" type="radio" <?php if(isset($_POST['gender']) && $_POST['gender'] == 'Female')  echo ' checked="checked"';?> >Female</label>
+								<label class="radio-inline">
+									<input id="inlineradio1" name="gender" value="Male" type="radio"  <?php echo (isset($_POST['gender']) && $_POST['gender']=='Male'? 'checked' : '') ?>>Male</label>
+								<label class="radio-inline">
+									<input id="inlineradio2" name="gender" value="Female" type="radio" <?php echo (isset($_POST['gender']) && $_POST['gender']=='Female'? 'checked' : '') ?>>Female</label>
 								<?php echo '<p class="text-danger">'.$errGender.'</p>';?>
 							</div>
                         </div>
@@ -215,12 +216,9 @@
                         <div class="form-group">
                             <label for="country" class="col-sm-3 control-label">Country :</label>
                             <div class="col-sm-9">
-							<!-- RAVI - NEED CLARAFICATION HERE!!!! -->
-                                <!-- <input type="text" class="form-control" id="country" name="country" placeholder="country" value="<?php #echo htmlspecialchars($country); ?>">
-                                <?php #echo '<p class="text-danger">'.$errCountry.'</p>';?> -->
 								<select id="country" name="country" class="form-control" value="<?php echo htmlspecialchars($country); ?>">
 									<option value="" selected="selected">--- Select a Country ---</option>
-									<option <?php if(isset($_POST['country']) && $_POST['country'] == 'Canada')  echo ' selected="selected"';?> value="Canada">Canada</option>
+									<option value="Canada">Canada</option> <!-- Bad fix! -->
 									<option value="Afganistan">Afghanistan</option>
 									<option value="Albania">Albania</option>
 									<option value="Algeria">Algeria</option>
@@ -474,8 +472,9 @@
                         <div class="form-group">
                             <label for="phone" class="col-sm-3 control-label">Phone Number :</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="ex: (514) 123-4567" value="<?php echo htmlspecialchars($phone); ?>">
+                                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="ex: (514) 123-4567" value="<?php echo htmlspecialchars($phoneNumber); ?>" onchange="checkPhoneNumber()">
                                 <?php echo '<p class="text-danger">'.$errPhoneNumber.'</p>';?>
+
                             </div>
                         </div>
                         <div class="form-group">
@@ -493,36 +492,45 @@
                             </div>
                         </div>
 						<div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">Status :</label>
+                            <label for="type" class="col-sm-3 control-label">Type :</label>
                             <div class="col-sm-9">
-								<label class="radio-inline" value="<?php echo htmlspecialchars($gender); ?>">
-									<input id="inlineradio1" name="status" value="Full-Time" type="radio" <?php if(isset($_POST['status']) && $_POST['status'] == 'Full-Time')  echo ' checked="checked"';?> >Full-Time</label>
-								<label class="radio-inline" value="<?php echo htmlspecialchars($gender); ?>">
-									<input id="inlineradio2" name="status" value="Part-Time" type="radio" <?php if(isset($_POST['status']) && $_POST['status'] == 'Part-Time')  echo ' checked="checked"';?> >Part-Time</label>
-								<label class="radio-inline" value="<?php echo htmlspecialchars($gender); ?>">
-									<input id="inlineradio3" name="status" value="On-Leave" type="radio" <?php if(isset($_POST['status']) && $_POST['status'] == 'On-Leave')  echo ' checked="checked"';?> >On-Leave</label>
-								<?php echo '<p class="text-danger">'.$errStatus.'</p>';?>
+								<label class="radio-inline">
+									<input id="inlineradio1" name="type" value="Local" type="radio" <?php echo (isset($_POST['type']) && $_POST['type']=='Local'? 'checked' : '') ?>>Local</label>
+								<label class="radio-inline">
+									<input id="inlineradio2" name="type" value="International" type="radio" <?php echo (isset($_POST['type']) && $_POST['type']=='International' ? 'checked' : '') ?>>International</label>
+								<?php echo '<p class="text-danger">'.$errtype.'</p>';?>
 							</div>
                         </div>
 						<div class="form-group">
-                            <label for="type" class="col-sm-3 control-label">Type :</label>
+                            <label for="status" class="col-sm-3 control-label">Status :</label>
                             <div class="col-sm-9">
-								<label class="radio-inline" value="<?php echo htmlspecialchars($type); ?>">
-									<input id="inlineradio1" name="type" value="Local" type="radio" <?php if(isset($_POST['type']) && $_POST['type'] == 'Local')  echo ' checked="checked"';?> >Local</label>
-								<label class="radio-inline" value="<?php echo htmlspecialchars($type); ?>">
-									<input id="inlineradio2" name="type" value="International" type="radio" <?php if(isset($_POST['type']) && $_POST['type'] == 'International')  echo ' checked="checked"';?> >International</label>
-								<?php echo '<p class="text-danger">'.$errType.'</p>';?>
+								<label class="radio-inline" >
+									<input id="fulltime" name="status" value="Full-Time" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Full-Time'? 'checked' : '') ?>>Full-Time</label>
+								<label class="radio-inline" >
+									<input id="parttime" name="status" value="Part-Time" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Part-Time'? 'checked' : '') ?>>Part-Time</label>
+								<label class="radio-inline" >
+									<input id="onleave" name="status" value="On-Leave" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='On-Leave'? 'checked' : '') ?>>On-Leave</label>
+								<label class="radio-inline" >
+									<input id="graduated" name="status" value="Graduated" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Graduated'? 'checked' : '') ?>>Graduated</label>
+								<?php echo '<p class="text-danger">'.$errStatus.'</p>';?>
 							</div>
+                        </div>
+						<div class="form-group" id="displayPosition" style="display:none">
+                            <label for="position" class="col-sm-3 control-label">Position :</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="position" name="position" placeholder="ex: Software Developer" value="<?php echo htmlspecialchars($position); ?>">
+                                <?php echo '<p class="text-danger">'.$errPosition.'</p>';?>
+                            </div>
                         </div>
 						<div class="form-group">
                             <label for="level" class="col-sm-3 control-label">Level :</label>
                             <div class="col-sm-9">
-								<select name="level" class="form-control" value="<?php echo htmlspecialchars($level); ?>">
+								<select id="level" name="level" class="form-control">
 									<option value="" select="selected">--- Select a Level ---</option>
-									<option <?php if(isset($_POST['level']) && $_POST['level'] == 'Undergraduate')  echo ' selected="selected"';?> value="Undergraduate">Undergraduate (BS)</option>
-									<option <?php if(isset($_POST['level']) && $_POST['level'] == 'Graduate')  echo ' selected="selected"';?> value="Graduate">Graduate (MS)</option>
-									<option <?php if(isset($_POST['level']) && $_POST['level'] == 'Doctorate')  echo ' selected="selected"';?> value="Doctorate">Doctorate (PhD)</option>
-									<option <?php if(isset($_POST['level']) && $_POST['level'] == 'Post-Doctorate')  echo ' selected="selected"';?> value="Post-Doctorate">Post-Doctorate</option>
+									<option value="Undergraduate">Undergraduate (BS)</option>
+									<option value="Graduate">Graduate (MS)</option>
+									<option value="Doctorate">Doctorate (PhD)</option>
+									<option value="Post-Doctorate">Post-Doctorate</option>
 								</select>
 								<?php echo '<p class="text-danger">'.$errLevel.'</p>';?>
 							</div>
@@ -573,5 +581,17 @@ $(".date-picker").on("change", function () {
     $("#msg").text(val + " changed");
 });
 	</script>
+<script type="text/javascript">
+	document.getElementById('country').value = "<?php echo htmlspecialchars($country);?>";
+	document.getElementById('level').value = "<?php echo htmlspecialchars($level);?>";
+	
+	function displayPositionDiv() {
+		if (document.getElementById('graduated').checked) {
+			document.getElementById('displayPosition').style.display = 'block'
+		} else {
+			document.getElementById('displayPosition').style.display = 'none';
+		}
+	}
+</script>
 </body>
 </html>
