@@ -158,17 +158,17 @@ class UserManager
             $sitename= 'Contacts comp353';
             if($usr == "")
             {
-                $result= mysqli_query($this->connect,"SELECT usager_FIRSTNAME FROM usager WHERE usager_EMAIL='$email'");
+                $result= mysqli_query($this->connect,"SELECT user_FIRSTNAME FROM User WHERE user_EMAIL='$email'");
                 $fname=mysqli_fetch_assoc($result);
-                $firstName=$fname['usager_FIRSTNAME'];
+                $firstName=$fname['user_FIRSTNAME'];
 
-                $upload = mysqli_query($this->connect,"UPDATE usager SET usager_PASSWORD='$md5pwd', usager_SALT='$salt' WHERE usager_EMAIL='$email' ");
+                $upload = mysqli_query($this->connect,"UPDATE User SET user_PASSWORD='$md5pwd', user_SALT='$salt' WHERE user_EMAIL='$email' ");
             }else{
-                $result= mysqli_query($this->connect,"SELECT usager_FIRSTNAME,usager_EMAIL FROM usager WHERE usager_USERNAME='$usr'");
+                $result= mysqli_query($this->connect,"SELECT user_FIRSTNAME,user_EMAIL FROM User WHERE user_USERNAME='$usr'");
                 $fname=mysqli_fetch_assoc($result);
-                $firstName=$fname['usager_FIRSTNAME'];
-                $email=$fname['usager_EMAIL'];
-                $upload = mysqli_query($this->connect,"UPDATE usager SET usager_PASSWORD='$md5pwd', usager_SALT='$salt' WHERE usager_USERNAME='$usr' ");
+                $firstName=$fname['user_FIRSTNAME'];
+                $email=$fname['user_EMAIL'];
+                $upload = mysqli_query($this->connect,"UPDATE User SET user_PASSWORD='$md5pwd', user_SALT='$salt' WHERE user_USERNAME='$usr' ");
 
             }
             $headers  = 'MIME-Version: 1.0' . "\r\n";

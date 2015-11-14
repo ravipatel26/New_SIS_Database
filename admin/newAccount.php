@@ -11,7 +11,7 @@ require("../lib/config.php");
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Création de nouveau compte.</title>
+    <title>Admin Account</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
     <link href="css/masterNew.css" rel="stylesheet" type="text/css"  media="screen">

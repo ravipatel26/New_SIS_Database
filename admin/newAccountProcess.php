@@ -51,7 +51,7 @@ if(strlen($username) > 30|| strlen($username)<6)
 
 //////////////////////////////////////////////////////////////////////////////
 //verifies if username already exists
-$sql="SELECT usager_USERNAME FROM usager WHERE usager_USERNAME='$username'";
+$sql="SELECT user_USERNAME FROM User WHERE user_USERNAME='$username'";
 $result=$mysqli->query($sql);
 //if(!$result)
 //{
@@ -82,7 +82,7 @@ $email = trim($email);
 $firstName = $mysqli->real_escape_string($firstName );
 $lastName = $mysqli->real_escape_string($lastName );
 
-$query = "INSERT INTO usager ( usager_USERNAME, usager_PASSWORD, usager_EMAIL, usager_SALT, usager_FIRSTNAME, usager_LASTNAME) VALUES
+$query = "INSERT INTO User ( user_USERNAME, user_PASSWORD, user_EMAIL, user_SALT, user_FIRSTNAME, user_LASTNAME) VALUES
 		( '$username', '$password', '$email', '$salt', '$firstName', '$lastName')";
 
 $mysqli->query($query);
@@ -90,7 +90,7 @@ $_SESSION['sess_user_id'] = mysqli_insert_id($mysqli);
 
 //$query = "SELECT userID from users
 $userID = $_SESSION['sess_user_id'];
-$_SESSION["usager_ID"] = $userID;
+$_SESSION["user_ID"] = $userID;
 $_SESSION["manager"] = $username;
 
 

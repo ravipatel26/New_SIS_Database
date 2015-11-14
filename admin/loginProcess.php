@@ -15,7 +15,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 $username = $mysqli->real_escape_string($username);
-$query = "SELECT usager_ID, usager_USERNAME, usager_PASSWORD, usager_SALT FROM usager WHERE usager_USERNAME = '$username'";
+$query = "SELECT user_ID, user_USERNAME, user_PASSWORD, user_SALT FROM User WHERE user_USERNAME = '$username'";
 
 $result = $mysqli->query($query);
 
@@ -28,19 +28,19 @@ if($result->num_rows == 0) // User not found. So, redirect to login_form again.
 
 
 $userData = mysqli_fetch_array($result, MYSQL_ASSOC);
-$hash = hash('sha256', $userData['usager_SALT'] . hash('sha256', $password) );
+$hash = hash('sha256', $userData['user_SALT'] . hash('sha256', $password) );
 
-if($hash != $userData['usager_PASSWORD']) // Incorrect password. So, redirect to login_form again.
+if($hash != $userData['user_PASSWORD']) // Incorrect password. So, redirect to login_form again.
 {
     $_SESSION['logged'] = 'FALSE';
     redirect('<br><br>Mauvais mot de passe', '/comp353/comp353/index.php');
 
 }else{ // Redirect to home page after successful login.
     session_regenerate_id();
-    $_SESSION['sess_user_id'] = $userData['usager_ID'];
-    $_SESSION['sess_username'] = $userData['usager_USERNAME'];
+    $_SESSION['sess_user_id'] = $userData['user_ID'];
+    $_SESSION['sess_username'] = $userData['user_USERNAME'];
     $_SESSION['logged'] = 'TRUE';
-    $_SESSION["manager"] = $userData['usager_USERNAME'];
+    $_SESSION["manager"] = $userData['user_USERNAME'];
     session_write_close();
     header('Location: /comp353/comp353/management/studentForm.php');
 
