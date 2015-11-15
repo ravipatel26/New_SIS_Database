@@ -150,3 +150,11 @@ label.control-label span { cursor: pointer; }
 .container-fluid #body #plages #thumbnailsPlages #thumbs {
 	padding-top: 50px;
 }
+.form-horizontal .has-feedback .form-control-feedback {
+	top: 0;
+	right: 15px;
+}
+.form-horizontal .has-feedback .form-control-feedback {
+	top: 0;
+	right: -30px;
+}

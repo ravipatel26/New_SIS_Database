@@ -3,11 +3,11 @@
 
     require("../lib/sqlQueries.php");
 
-//# General info
-//    $firstName = $lastName = $birthDate = $gender = $address = $city = $province = $postalCode = $country = $name = $position = '';
-//
-//# Student info
-//    $studentNumber = $phoneNumber = $email = $status = $type = $level = $program = $department = '';
+# General info
+    $firstName = $lastName = $birthDate = $gender = $address = $city = $province = $postalCode = $country = $name = $position = '';
+
+# Student info
+    $studentNumber = $phoneNumber = $email = $status = $type = $level = $program = $department = '';
 
     $newStudent = new AdminSystem();
 
