@@ -36,12 +36,12 @@ function checkPhoneNumber()
                     validators : {
                         notEmpty : {
                             message : "Please provide a student first name"
-                        },
-                        stringLength: {
-                            min : 6,
-                            max: 35,
-                            message: "First name must between 6 and 35 characters."
                         }
+                        //stringLength: {
+                        //    min : 6,
+                        //    max: 35,
+                        //    message: "First name must between 6 and 35 characters."
+                        //}
                     }
                 },
                 lastName:{
@@ -49,12 +49,12 @@ function checkPhoneNumber()
                     validators : {
                         notEmpty : {
                             message : "Please provide a student last name"
-                        },
-                        stringLength: {
-                            min : 6,
-                            max: 35,
-                            message: "Last name must between 6 and 35 characters."
                         }
+                        //stringLength: {
+                        //    min : 6,
+                        //    max: 35,
+                        //    message: "Last name must between 6 and 35 characters."
+                        //}
                     }
                 },
                 birthDate: {
@@ -144,6 +144,11 @@ function checkPhoneNumber()
                     validators:{
                         notEmpty:{
                             message: "Please enter a studentNumber."
+                        },
+                        stringLength: {
+                            min : 8,
+                            max: 8,
+                            message: "Student number must be 8 digits long"
                         }
                     }
                 },

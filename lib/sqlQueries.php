@@ -75,5 +75,31 @@ class AdminSystem
 
     }
 
+    //////////////////////////////
+    //GET COUNTRIES
+    //////////////////////////////
+
+    public function getCountries()
+    {
+        $allCountry='';
+        $sql="SELECT * FROM countries ORDER BY countries_id ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $countryNames=$result->countries_name;
+            $allCountry.='<option>'.$countryNames.'</option>';
+        }
+
+        return $allCountry;
+
+    }
+
 }
 ?>

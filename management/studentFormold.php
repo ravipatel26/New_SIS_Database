@@ -58,7 +58,7 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
 					<h1 class="page-header text-center" style="color:black">Student Information Form</h1>
-					<form id="registration-form" class="form-horizontal" role="form" method="post" action="../lib/newStudentProcess.php">
+					<form id="registration-form" class="form-horizontal" role="form" method="post" action="../lib/newStudentSQLProcess.php">
 						<div class="form-control-group">
 							<label for="firstName" class="col-sm-3 control-label">First Name :</label>
 							<div class="col-sm-4">
