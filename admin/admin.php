@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<div class="container-fluid">
+<div class="container-fluid bg-info" style="height: 1500px">
 	<div id="body">
         <div id="header">
             <div class="row">

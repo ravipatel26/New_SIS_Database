@@ -58,13 +58,13 @@ require("../lib/studenFormValid.php");
 
 </head>
 <body>
-<div class="container-fluid bg-info">
+<div class="container-fluid bg-info" style="height: 1500px">
     <div id="navigation">
         <div class="row">
             <?php require("navigationManagement.php"); ?>
         </div>
     </div>
-    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%; height: 120%">
+    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">TEMPLATE MANAGEMENT FORMS</div>
         <div class="panel-body">
 

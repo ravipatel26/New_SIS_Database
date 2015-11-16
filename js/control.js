@@ -13,22 +13,40 @@ function checkPhoneNumber()
 };
 
 
+var j = jQuery.noConflict();
+    j(document).ready(function () {<!-- jQuery and Bootstrap JS -->
 
-    $(document).ready(function () {
-        $("#datePicker")
+        j("#datePicker")
             .datepicker({
                 format: 'mm/dd/yyyy'
             }).on("changeDate show", function(e) {
             // Revalidate the date field
-            $("#studentInforamtion").bootstrapValidator("revalidateField", "birthDate");
+            j("#studentInforamtion").bootstrapValidator("revalidateField", "birthDate");
         });
 
-
-        var validator = $("#studentInforamtion").bootstrapValidator({
+        var validator = j("#studentInforamtion").bootstrapValidator({
             feedbackIcons: {
                 valid: "glyphicon glyphicon-ok",
                 invalid: "glyphicon glyphicon-remove",
                 validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newStudentSQLProcess.php",
+                    data: $('#studentInforamtion').serialize(),
+                    success: function(msg){
+                        j("#studentInforamtion").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
             },
             fields : {
                 firstName:{
@@ -36,7 +54,7 @@ function checkPhoneNumber()
                     validators : {
                         notEmpty : {
                             message : "Please provide a student first name"
-                        }
+                        },
                         //stringLength: {
                         //    min : 6,
                         //    max: 35,
@@ -193,15 +211,12 @@ function checkPhoneNumber()
                             message: "Please enter a student department."
                         }
                     }
-                },
+                }
+
             }
         });
 
-        validator.on("success.form.bv", function (e) {
-            e.preventDefault();
-            $("#studentInforamtion").addClass("hidden");
-            $("#submission").addClass("hidden");
-            $("#confirmation").removeClass("hidden");
-        });
+
+
 
     });
