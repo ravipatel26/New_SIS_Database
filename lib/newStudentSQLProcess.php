@@ -86,6 +86,10 @@ if(isset($_POST['department'])) {
 $position = $_POST['position'];
 $position = $newStudent->escape($position);
 
+$summer = $_POST['summer'];
+
+
+
 $address = $address.','.$city.','.$province.','.$country.','.$postalcode;
 
 echo print_r($_POST).'</br>'.$address;
@@ -96,6 +100,18 @@ $_SESSION['success'] = false;
 $query = "INSERT INTO Students (studentName, studentNumber, studentEmail, studentStatus, studentPhone, studentGender, studentBirthDate, deptId, studentAdress) VALUES ( '$name', '$studentNumber', '$email', '$status', '$phoneNumber', '$gender', '$birthDate', '$deptId', '$address')";
 
 $studentId=$newStudent->addNewStudent($query);
+
+if(!empty($level)){
+    $query = "INSERT INTO GraduateStudent (studentId, studentLevel, currentPosition) VALUES ('$studentId', '$level', '$position')";
+    $newStudent->addGraduateStudent($query);
+}
+
+
+if(!empty($summer)){
+    $query = "INSERT INTO UnderGraduateStudent (studentId, summerStudent) VALUES ('$studentId', '$summer')";
+    $newStudent->addUnderGraduateStudent($query);
+}
+
 
 if($studentId>0){
     $_SESSION['success'] = true;

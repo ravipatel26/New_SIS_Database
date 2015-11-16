@@ -51,7 +51,13 @@ class AdminSystem
     }
 
 
-    public function addNewStudentPosition($sql)
+    public function addGraduateStudent($sql)
+    {
+        $this->connect->query($sql);
+
+    }
+
+    public function addUnderGraduateStudent($sql)
     {
         $this->connect->query($sql);
 
