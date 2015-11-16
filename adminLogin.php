@@ -5,37 +5,38 @@ ini_set('log_errors', 1);
 ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 ?>
 <?php
-include("../lib/config.php");
-require("../lib/sqlQueries.php");
+include("lib/config.php");
+require("lib/sqlQueries.php");
 ?>
 <!DOCTYPE html>
 <html>
-<?php require("headerAdmin.php");?>
+<?php require("header.php");?>
+
 <body>
 <div class="container-fluid bg-info" style="height: 1500px">
     <div id="navigation">
         <div class="row">
-            <?php require("navigationAdmin.php"); ?>
+            <?php require("navigation.php"); ?>
         </div>
     </div>
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Login</div>
         <div class="panel-body">
-            <form id="adminLogin" method="post" role="form" class="form-horizontal" action="loginProcess.php">
+            <form id="adminLogin" method="post" role="form" class="form-horizontal" action="admin/loginProcess.php">
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="username">User Name :</label>
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="username">User Name :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="username" name="username" placeholder="User Name" value="<?php echo htmlspecialchars($username); ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-md-2 control-label">PassWord :</label>
+                    <label for="password" class="col-md-2 col-xs-offset-2 control-label">PassWord :</label>
                     <div class="col-md-4">
                         <input type="password" class="form-control" id="password" name="password" placeholder="PassWord" value="">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="confirm_password" class="col-md-2 control-label">Confirm PassWord :</label>
+                    <label for="confirm_password" class="col-md-2 col-xs-offset-2 control-label">Confirm PassWord :</label>
                     <div class="col-md-4">
                         <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="PassWord Confirmation" value="">
                     </div>
@@ -51,12 +52,26 @@ require("../lib/sqlQueries.php");
 
                 <div class="row text-center">
                     <div class="form-group">
-                        <div class="col-md-2 col-xs-offset-2">
+                        <div class="col-md-2 col-xs-offset-3">
                             <button type="submit" class="btn btn-success">Send</button>
                         </div>
 
                         <div class="col-md-2">
                             <button class="btn btn-danger" type="reset" onclick="location.reload(); ">reset</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row text-center">
+                    <div class="form-group">
+                        <div class="col-md-2 col-xs-offset-10">
+                            <button type="button" class="btn btn-primary" id="changePassword" onclick="location.href = 'admin/changePassForm.php'">Change Password</button>
+                        </div>
+                     </div>
+                    <div class="form-group">
+                        <div class="col-md-2 col-xs-offset-10">
+                            <button class="btn btn-primary" type="button" id="newAdminAccount" onclick="location.href = 'admin/newAccountLogin.php'">New Admin Account</button>
                         </div>
                     </div>
                 </div>
@@ -71,11 +86,11 @@ require("../lib/sqlQueries.php");
 <!--<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
-<script src="../js/functions.js"></script>
+<script src="js/functions.js"></script>
 
 </body>
 
 
 
-<script src="../js/control.js"></script>
+<script src="js/control.js"></script>
 </html>

@@ -18,3 +18,4 @@ function displayPositionDiv() {
         document.getElementById('displaySummer').style.display = 'none';
     }
 }
+

@@ -17,7 +17,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
 					  <li><a href="#">Student Support</a></li>
                       <li><a href="#">Grades Info</a></li>
                       <li><a href="#">Committees Info</a></li>
-					  <li><a href="admin/adminLogin.php">Admin</a></li>
+					  <li><a href="adminLogin.php">Admin</a></li>
                                         </ul>
                </div>
             </nav>';
