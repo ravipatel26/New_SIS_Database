@@ -63,48 +63,8 @@ require("../lib/sqlQueries.php");
         </div>
     </div>
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
-        <div class="panel-heading h2 text-center">Login</div>
+        <div class="panel-heading h2 text-center">HOME PAGE</div>
         <div class="panel-body">
-            <form id="adminLogin" method="post" role="form" class="form-horizontal" action="loginProcess.php">
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="username">User Name :</label>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="User Name" value="<?php echo htmlspecialchars($username); ?>">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="col-md-2 control-label">PassWord :</label>
-                    <div class="col-md-4">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="PassWord" value="">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="confirm_password" class="col-md-2 control-label">Confirm PassWord :</label>
-                    <div class="col-md-4">
-                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="PassWord Confirmation" value="">
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-
-                <div class="row text-center">
-                    <div class="form-group">
-                        <div class="col-md-2 col-xs-offset-2">
-                            <button type="submit" class="btn btn-success">Send</button>
-                        </div>
-
-                        <div class="col-md-2">
-                            <button class="btn btn-danger" type="reset" onclick="location.reload(); ">reset</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
 
         </div>
     </div>
