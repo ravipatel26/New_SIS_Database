@@ -64,7 +64,7 @@ require("../lib/sqlQueries.php");
         </div>
     </div>
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
-        <div class="panel-heading h2 text-center">TEMPLATE MANAGEMENT FORMS</div>
+        <div class="panel-heading h2 text-center">Professor Information Form</div>
         <div class="panel-body">
 
         </div>

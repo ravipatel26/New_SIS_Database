@@ -12,12 +12,12 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                <div class="collapse navbar-collapse" id="navigationBar-collapse">
                   <ul class="nav navbar-nav">
 				  	  <li><a href="StudentForm.php">Student Info</a></li>
-                  	  <li><a href="#">Professor Info</a></li>
-                      <li><a href="#">Courses Info</a></li>
-					  <li><a href="#">Grants Info</a></li>
-                      <li><a href="#">Services Info</a></li>
-                      <li><a href="#">Reviews Info</a></li>
-					  <li><a href="#">Boards Info</a></li>
+                  	  <li><a href="professorInformationForm.php">Professor Info</a></li>
+                      <li><a href="courseInformationForm.php">Courses Info</a></li>
+					  <li><a href="grantsInformationForm.php">Grants Info</a></li>
+                      <li><a href="servicesInformationForm.php">Services Info</a></li>
+                      <li><a href="reviewsInformationForm.php">Reviews Info</a></li>
+					  <li><a href="boardsInformationForm.php">Boards Info</a></li>
 					  <li><a href="../admin/logout.php">Logout</a></li>
                                         </ul>
                </div>
