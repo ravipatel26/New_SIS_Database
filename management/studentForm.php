@@ -231,7 +231,7 @@ require("../lib/newStudentProcess.php");
                             </div>
 
                             <div class="col-md-2">
-                                <button class="btn btn-danger" type="reset" onclick="$('#studentInforamtion').data('bootstrapValidator').resetForm();">reset</button>
+                                <button class="btn btn-danger" type="reset" onclick="location.reload(); ">reset</button>
                             </div>
                         </div>
                     </div>
