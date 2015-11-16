@@ -18,7 +18,10 @@ $newStudent = new AdminSystem();
 
 if(isset($_POST['submit'])) var_dump($_POST);
 
-$name = $_POST['firstName']." ".$_POST['lastName'];
+$firstName = $newStudent->escape($_POST['firstName']);
+$lastName = $newStudent->escape($_POST['lastName']);
+
+$name = $firstName." ".$lastName;
 //$name = $newStudent->escape($name);
 
 $birthDate = $_POST['birthDate'];
@@ -83,10 +86,17 @@ if(isset($_POST['department'])) {
 $position = $_POST['position'];
 $position = $newStudent->escape($position);
 
+$address = $address.','.$city.','.$province.','.$country.','.$postalcode;
+
+echo print_r($_POST).'</br>'.$address;
+
 $studentId = 0;
 $_SESSION['success'] = false;
-$query = "INSERT INTO Student (studentName, studentNumber, studentEmail, studentStatus, studentPhone, studentGender, studentBirthDate, deptId) VALUES ( '$name', '$studentNumber', '$email', '$status', '$phoneNumber', '$gender', '$birthDate', '$deptId')";
+
+$query = "INSERT INTO Students (studentName, studentNumber, studentEmail, studentStatus, studentPhone, studentGender, studentBirthDate, deptId, studentAdress) VALUES ( '$name', '$studentNumber', '$email', '$status', '$phoneNumber', '$gender', '$birthDate', '$deptId', '$address')";
+
 $studentId=$newStudent->addNewStudent($query);
+
 if($studentId>0){
     $_SESSION['success'] = true;
     header("Location: ../management/studentForm.php");

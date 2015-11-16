@@ -1,3 +1,9 @@
+<?php
+session_start();
+ini_set('display_errors', 'on');
+ini_set('log_errors', 1);
+ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
+?>
 <!doctype html>
 <html>
 <head>
@@ -20,19 +26,11 @@
 
 <body>
 <div class="container-fluid bg-info" style="height: 1500px">
-	<div id="body">
-        <div id="header">
-            <div class="row">
-                <div class="col-xs-12 text-center">
-                    <h1></h1>
-                </div>
-            </div>
+    <div id="navigation">
+        <div class="row">
+            <?php require("navigationAdmin.php"); ?>
         </div>
-    	<div id="navigation">
-            <div class="row">
-                <?php require("navigationAdmin.php"); ?>
-            </div>
-        </div>
+    </div>
     	<div class="row">
                
         </div>

@@ -1,4 +1,10 @@
 <?php
+session_start();
+ini_set('display_errors', 'on');
+ini_set('log_errors', 1);
+ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
+?>
+<?php
 class AdminSystem
 {
     public $connect = "";
@@ -75,6 +81,33 @@ class AdminSystem
 
     }
 
+
+    //////////////////////////////
+    //GET DepartMent Name
+    //////////////////////////////
+
+    public function getDepartmentName()
+    {
+        $allDepartments='';
+        $sql="SELECT * FROM Department ORDER BY deptName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $departmentNames=$result->deptName;
+            $allDepartments.='<option>'.$departmentNames.'</option>';
+        }
+
+        return $allDepartments;
+
+    }
+
     //////////////////////////////
     //GET COUNTRIES
     //////////////////////////////
@@ -82,7 +115,7 @@ class AdminSystem
     public function getCountries()
     {
         $allCountry='';
-        $sql="SELECT * FROM countries ORDER BY countries_id ASC";
+        $sql="SELECT * FROM countries";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {

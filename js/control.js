@@ -198,13 +198,6 @@ var j = jQuery.noConflict();
                         }
                     }
                 },
-                program : {
-                    validators:{
-                        notEmpty:{
-                            message: "Please enter a student program."
-                        }
-                    }
-                },
                 department : {
                     validators:{
                         notEmpty:{

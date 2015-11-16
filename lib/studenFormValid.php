@@ -99,4 +99,6 @@ if (isset($_POST['submit'])) {
         $errDepartment = '*Enter a valid Department';
     }
 }
+
+echo print_r($_POST);
 ?>

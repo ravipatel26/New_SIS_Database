@@ -34,19 +34,19 @@ $lastName = $_POST['lastName'];
 
 if($password1 != $password2)
 {
-    redirect('<br><br>Les mots de passes ne sont pas les mêmes', '/comp353/comp353/admin/newAccount.php');
+    redirect('<br><br>Les mots de passes ne sont pas les mêmes', '/comp353/admin/newAccount.php');
 
 }else{
     if(strlen($password1)<8 || strlen($paswword1)>30)
 
-        redirect('<br><br>Le mots de passes doit avoir entre 8 et 30 charact&#232;res.', '/comp353/comp353/admin/newAccount.php');
+        redirect('<br><br>Le mots de passes doit avoir entre 8 et 30 charact&#232;res.', '/comp353/admin/newAccount.php');
 
 }
 
 //check size of username
 if(strlen($username) > 30|| strlen($username)<6)
 
-    redirect('<br><br>Le nom d\'usager doit avoir entre 6 et 30 charactères.', '/comp353/comp353/admin/newAccount.php');
+    redirect('<br><br>Le nom d\'usager doit avoir entre 6 et 30 charactères.', '/comp353/admin/newAccount.php');
     /////////////////
 
 //////////////////////////////////////////////////////////////////////////////
@@ -60,7 +60,7 @@ $result=$mysqli->query($sql);
 if($result->num_rows>0)
 {
     //throw new Exception('Ce nom d&acute;usag&eacute; n&acute;ai pas disponible!');
-    redirect('<br><br>Ce nom d&acute;usag&eacute; n&acute;ai pas disponible!', '/comp353/comp353/admin/newAccount.php');
+    redirect('<br><br>Ce nom d&acute;usag&eacute; n&acute;ai pas disponible!', '/comp353/admin/newAccount.php');
 }
 /////////////////////////////////////////////////////////////////////////////////////
 $_SESSION["password"] = $password;
@@ -82,8 +82,8 @@ $email = trim($email);
 $firstName = $mysqli->real_escape_string($firstName );
 $lastName = $mysqli->real_escape_string($lastName );
 
-$query = "INSERT INTO User ( user_USERNAME, user_PASSWORD, user_EMAIL, user_SALT, user_FIRSTNAME, user_LASTNAME) VALUES
-		( '$username', '$password', '$email', '$salt', '$firstName', '$lastName')";
+$query = "INSERT INTO User ( user_USERNAME, user_PASSWORD, user_EMAIL, user_SALT, user_FIRSTNAME, user_LASTNAME, user_PERMISSION) VALUES
+		( '$username', '$password', '$email', '$salt', '$firstName', '$lastName', 0)";
 
 $mysqli->query($query);
 $_SESSION['sess_user_id'] = mysqli_insert_id($mysqli);
@@ -96,7 +96,7 @@ $_SESSION["manager"] = $username;
 
 //$mysqli->close();
 
-redirect('<br><br>Merci de vous &ecirc;tres enregistr&eacute;.','/comp353/comp353/management/studentForm.php');
+redirect('<br><br>Merci de vous &ecirc;tres enregistr&eacute;.','/comp353/management/studentForm.php');
 ?>
 
 <? ob_end_flush(); ?>

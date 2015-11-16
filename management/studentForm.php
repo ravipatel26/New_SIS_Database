@@ -104,9 +104,9 @@ require("../lib/newStudentProcess.php");
                         <label for="gender" class="col-md-2 control-label">Gender :</label>
                         <div class="col-md-4">
                             <label class="radio-inline">
-                                <input id="gender1" name="gender" value="Local" type="radio" <?php echo (isset($_POST['gender']) && $_POST['gender']=='Male'? 'checked' : '') ?>>Male</label>
+                                <input id="gender1" name="gender" value="Male" type="radio" <?php echo (isset($_POST['gender']) && $_POST['gender']=='Male'? 'checked' : '') ?>>Male</label>
                             <label class="radio-inline">
-                                <input id="gender2" name="gender" value="International" type="radio" <?php echo (isset($_POST['gender']) && $_POST['gender']=='Female' ? 'checked' : '') ?>>Female</label>
+                                <input id="gender2" name="gender" value="Female" type="radio" <?php echo (isset($_POST['gender']) && $_POST['gender']=='Female' ? 'checked' : '') ?>>Female</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -198,19 +198,16 @@ require("../lib/newStudentProcess.php");
                                 <option value="Doctorate">Doctorate (PhD)</option>
                                 <option value="Post-Doctorate">Post-Doctorate</option>
                             </select>
-                            <?php echo '<p class="text-danger">'.$errLevel.'</p>';?>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="program" class="col-md-2 control-label">Program :</label>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="program" name="program" placeholder="ex: Software Engineering" value="<?php echo htmlspecialchars($program); ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="department" class="col-md-2 control-label">Department ID :</label>
                         <div class="col-md-4">
-                            <input type="text" class="form-control" id="department" name="department" placeholder="ex: ENCS" value="<?php echo htmlspecialchars($department); ?>">
+                                <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>">
+                                <option value="" selected="selected">--- Select a Department ---</option>
+                                <?php echo $newStudent->getDepartmentName();?>
+
+                            </select>
                         </div>
                     </div>
 
