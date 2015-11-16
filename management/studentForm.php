@@ -66,7 +66,7 @@ require("../lib/newStudentProcess.php");
 
 
 </head>
-<body onload="document.getElementById('displayPosition').style.display = 'none'">
+<body onload="document.getElementById('displayPosition').style.display = 'none';document.getElementById('displayLevel').style.display = 'none';document.getElementById('displaySummer').style.display = 'none';">
 
 <div class="container-fluid bg-info" style="height: 1500px">
     <div id="navigation">
@@ -171,7 +171,7 @@ require("../lib/newStudentProcess.php");
                     </div>
                     <div class="form-group">
                         <label for="status" class="col-md-2 control-label">Status :</label>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label class="radio-inline" >
                                 <input id="fulltime" name="status" value="Full-Time" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Full-Time'? 'checked' : '') ?>>Full-Time</label>
                             <label class="radio-inline" >
@@ -179,7 +179,10 @@ require("../lib/newStudentProcess.php");
                             <label class="radio-inline" >
                                 <input id="onleave" name="status" value="On-Leave" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='On-Leave'? 'checked' : '') ?>>On-Leave</label>
                             <label class="radio-inline" >
-                                <input id="graduated" name="status" value="Graduated" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Graduated'? 'checked' : '') ?>>Graduated</label>
+                                <input id="graduate" name="status" value="Graduate" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Graduate'? 'checked' : '') ?>>Graduate</label>
+                            <label class="radio-inline" >
+                                <input id="underGraduate" name="status" value="Under Graduate" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Under Graduate'? 'checked' : '') ?>>Under Graduate</label>
+
                         </div>
                     </div>
                     <div class="form-group" id="displayPosition" >
@@ -188,7 +191,7 @@ require("../lib/newStudentProcess.php");
                             <input type="text" class="form-control" id="position" name="position" placeholder="ex: Software Developer" value="<?php echo htmlspecialchars($position); ?>">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="displayLevel">
                         <label for="level" class="col-md-2 control-label">Level :</label>
                         <div class="col-md-4">
                             <select id="level" name="level" class="form-control" value="<?php echo htmlspecialchars($level); ?>">
@@ -198,6 +201,15 @@ require("../lib/newStudentProcess.php");
                                 <option value="Doctorate">Doctorate (PhD)</option>
                                 <option value="Post-Doctorate">Post-Doctorate</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="displaySummer" >
+                        <label for="summer" class="col-md-2 control-label">Summer Student :</label>
+                        <div class="col-md-4">
+                            <label class="radio-inline">
+                                <input id="yes" name="summer" value="Yes" type="radio" <?php echo (isset($_POST['summer']) && $_POST['summer']=='Yes'? 'checked' : '') ?>>Yes</label>
+                            <label class="radio-inline">
+                                <input id="no" name="summer" value="No" type="radio" <?php echo (isset($_POST['summer']) && $_POST['summer']=='No' ? 'checked' : '') ?>>No</label>
                         </div>
                     </div>
                     <div class="form-group">
