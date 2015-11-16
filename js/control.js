@@ -55,11 +55,10 @@ var j = jQuery.noConflict();
                         notEmpty : {
                             message : "Please provide a student first name"
                         },
-                        //stringLength: {
-                        //    min : 6,
-                        //    max: 35,
-                        //    message: "First name must between 6 and 35 characters."
-                        //}
+                        regexp: {
+                            regexp: /^[a-z\s]+$/i,
+                            message: 'The first name can consist of alphabetical characters and spaces only'
+                        }
                     }
                 },
                 lastName:{
@@ -67,12 +66,11 @@ var j = jQuery.noConflict();
                     validators : {
                         notEmpty : {
                             message : "Please provide a student last name"
+                        },
+                        regexp: {
+                            regexp: /^[a-z\s]+$/i,
+                            message: 'The last name can consist of alphabetical characters and spaces only'
                         }
-                        //stringLength: {
-                        //    min : 6,
-                        //    max: 35,
-                        //    message: "Last name must between 6 and 35 characters."
-                        //}
                     }
                 },
                 birthDate: {
@@ -120,6 +118,10 @@ var j = jQuery.noConflict();
                     validators:{
                         notEmpty:{
                             message: "Please enter the city."
+                        },
+                        regexp: {
+                            regexp: /^[a-z\s]+$/i,
+                            message: 'The City can consist of alphabetical characters and spaces only'
                         }
                     }
                 },
@@ -127,13 +129,18 @@ var j = jQuery.noConflict();
                     validators:{
                         notEmpty:{
                             message: "Please enter the province."
+                        },
+                        regexp: {
+                            regexp: /^[a-z\s]+$/i,
+                            message: 'The Province can consist of alphabetical characters and spaces only'
                         }
                     }
                 },
                 postalCode : {
-                    validators:{
-                        notEmpty:{
-                            message: "Please enter the Postal Code."
+                    validators: {
+                        zipCode: {
+                            country: 'CA',
+                            message: 'The value is not a valid Canadian Postal Code'
                         }
                     }
                 },
@@ -148,13 +155,10 @@ var j = jQuery.noConflict();
                     validators:{
                         notEmpty:{
                             message: "Please enter a phone number."
-                        }
-                    }
-                },
-                postalCode : {
-                    validators:{
-                        notEmpty:{
-                            message: "Please enter the Postal Code."
+                        },
+                        phone: {
+                            country: 'US',
+                            message: "Please enter a valid phone number"
                         }
                     }
                 },
@@ -167,6 +171,9 @@ var j = jQuery.noConflict();
                             min : 8,
                             max: 8,
                             message: "Student number must be 8 digits long"
+                        },
+                        integer: {
+                            message: 'Please enter only digits.'
                         }
                     }
                 },
@@ -188,6 +195,10 @@ var j = jQuery.noConflict();
                     validators:{
                         notEmpty:{
                             message: "Please enter a student position."
+                        },
+                        regexp: {
+                            regexp: /^[a-z\s]+$/i,
+                            message: 'The student position can consist of alphabetical characters and spaces only'
                         }
                     }
                 },
@@ -195,6 +206,13 @@ var j = jQuery.noConflict();
                     validators:{
                         notEmpty:{
                             message: "Please enter a student level."
+                        }
+                    }
+                },
+                summer : {
+                    validators:{
+                        notEmpty:{
+                            message: "Please choose a value."
                         }
                     }
                 },

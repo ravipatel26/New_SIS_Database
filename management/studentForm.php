@@ -144,7 +144,7 @@ require("../lib/newStudentProcess.php");
                     <div class="form-group">
                         <label for="phoneNumber" class="col-md-2 control-label">Phone Number :</label>
                         <div class="col-md-4">
-                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="ex: (514) 123-4567" value="<?php echo htmlspecialchars($phoneNumber); ?>" onchange="checkPhoneNumber()">
+                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="ex: 514-123-4567" value="<?php echo htmlspecialchars($phoneNumber); ?>" onchange="checkPhoneNumber()">
                         </div>
                     </div>
                     <div class="form-group">
