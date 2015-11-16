@@ -6,19 +6,7 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 ?>
 <!doctype html>
 <html>
-<head>
-    <title>Changer mot de passe</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
-    <link href="css/masterNew.css" rel="stylesheet" type="text/css"  media="screen">
-    <link href="css/masterLogin.css" rel="stylesheet" type="text/css"  media="screen">
-    <script src="../js/respond.min.js"></script>
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-</head>
-
+<?php require("headerAdmin.php");?>
 <body>
 <div id="page">
 
