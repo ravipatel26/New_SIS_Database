@@ -8,13 +8,7 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 include("../lib/config.php");
 require("../lib/newStudentProcess.php");
 ?>
-<?php
-    if($_SESSION['success']){
-    echo '<script> $("#studentInforamtion").addClass("hidden");
-            $("#submission").addClass("hidden");
-            $("#confirmation").removeClass("hidden");</script>';
-}
-?>
+
 
 <!DOCTYPE html>
 <html>
@@ -223,7 +217,7 @@ require("../lib/newStudentProcess.php");
 
                     <div class="row text-center">
                         <div class="form-group">
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-xs-offset-2">
                                 <button type="submit" class="btn btn-success">Send</button>
                             </div>
 
@@ -247,6 +241,14 @@ require("../lib/newStudentProcess.php");
 
 
 <script src="../js/functions.js"></script>
+<?php
+if($_SESSION['success']){
+    echo '<script> $("#studentInforamtion").addClass("hidden");
+            $("#submission").addClass("hidden");
+            $("#confirmation").removeClass("hidden");</script>';
+    $_SESSION['success'] = false;
+}
+?>
 
 </body>
 
