@@ -19,41 +19,41 @@ if(isset($_POST['submit']))
 
 
 
-    $query = "SELECT usager_ID, usager_PASSWORD, usager_SALT FROM usager WHERE usager_USERNAME = '$oldusername';";
+    $query = "SELECT user_ID, user_PASSWORD, user_SALT FROM User WHERE user_USERNAME = '$oldusername';";
 
     $result = $mysqli->query($query);
 
     if($result->num_rows == 0) // User not found. So, redirect to login_form again.
     {
 
-        redirect('<br><br>Mauvais nom d&acute;usag&eacute;.', '/comp353/comp353/admin/changePassForm.php');
+        redirect('<br><br>Mauvais nom d&acute;usag&eacute;.', '/comp353/admin/changePassForm.php');
     }
 
 
     $userData = mysqli_fetch_array($result, MYSQL_ASSOC);
-    $hash = hash('sha256', $userData['usager_SALT'] . hash('sha256', $oldPassword) );
+    $hash = hash('sha256', $userData['user_SALT'] . hash('sha256', $oldPassword) );
 
-    if($hash != $userData['usager_PASSWORD']) // Incorrect password. So, redirect to login_form again.
+    if($hash != $userData['user_PASSWORD']) // Incorrect password. So, redirect to login_form again.
     {
-        redirect('<br><br>Mauvais vieux mot de passe','/comp353/comp353/admin/changePassForm.php');
+        redirect('<br><br>Mauvais vieux mot de passe','/comp353/admin/changePassForm.php');
 
     }
 
     if($newPassword1 != $newPassword2)
     {
-        redirect('<br><br>Les mots de passes ne sont pas les mêmes', '/comp353/comp353/admin/changePassForm.php');
+        redirect('<br><br>Les mots de passes ne sont pas les mêmes', '/changePassForm.php');
 
     }else{
 
         if(strlen($newPassword1)<8 || strlen($newPassword1)>30)
         {
-            redirect('<br><br>Le mots de passes doit avoir entre 8 et 30 charact&#232;res.', '/comp353/comp353/admin/changePassForm.php');
+            redirect('<br><br>Le mots de passes doit avoir entre 8 et 30 charact&#232;res.', '/changePassForm.php');
         }
     }
 
     if(strlen($oldusername) > 30 || strlen($oldusername)<6)
     {
-        redirect('<br><br>Le nom d\'usager doit avoir entre 6 et 30 charactères.', '/comp353/comp353/admin/changePassForm.php');
+        redirect('<br><br>Le nom d\'usager doit avoir entre 6 et 30 charactères.', '/changePassForm.php');
     }
 }
 
@@ -71,7 +71,7 @@ $salt = createSalt();
 
 $newPassword = hash('sha256', $salt . $hash2);
 
-$stmt = mysqli_prepare($mysqli, "UPDATE usager SET usager_PASSWORD=?,usager_SALT=? WHERE usager_USERNAME='$oldusername'");
+$stmt = mysqli_prepare($mysqli, "UPDATE User SET user_PASSWORD=?,user_SALT=? WHERE user_USERNAME='$oldusername'");
 
 
 if ($stmt === false) {
@@ -91,7 +91,7 @@ if ($exec === false) {
 
 mysqli_stmt_close($stmt);
 
-redirect('<br><br>Changement de mot de passe effectu&eacute;.','/comp353/comp353/admin/adminLogin.php');
+redirect('<br><br>Changement de mot de passe effectu&eacute;.','/comp353/management/adminHome.php');
 
 
 ?>

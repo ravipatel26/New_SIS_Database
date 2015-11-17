@@ -35,7 +35,7 @@ include("../lib/config.php");
     }
     ?>
 
-    <form id="changePass" name="changePass" method="post" action="changingPass.php">
+    <form id="changePass" name="changePass" method="post" action="changingSQLPass.php">
         <table class="changePass" width="500" border="0" align="center"  bgcolor="#DBDBDB">
             <tr>
                 <th colspan="2" height="45"><h3>Changer le mot de passe temporaire</h3></th>

@@ -319,6 +319,109 @@ var j = jQuery.noConflict();
             }
         });
 
+        var validator = j("#changePassword").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "admin/changingSQLPass.php",
+                    data: $('#changePassword').serialize(),
+                    success: function(msg){
+                        j("#changePassword").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                username: {
+                    message: "User Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a User Name"
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 8,
+                            message: "User Name must between 6 and 8 characters."
+                        }
+                    }
+                },
+                email: {
+                    message: "Email address is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide an email address"
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 35,
+                            message: "Email address must be between 6 and 35 characters long"
+                        },
+                        emailAddress: {
+                            message: "Email address was invalid"
+                        }
+                    }
+                },
+                password: {
+                    message: "Password is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Password"
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 10,
+                            message: "PassWord must be between 6 and 10 characters long"
+                        }
+                    }
+                },
+                newPassword: {
+                    message: "Password is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Password"
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 10,
+                            message: "PassWord must be between 6 and 10 characters long"
+                        }
+                    }
+                },
+                confirm_NewPassword: {
+                    message: "Password is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Password confirmation."
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 10,
+                            message: "PassWord must be between 6 and 10 characters long"
+                        },
+                        identical: {
+                            field: 'newPassword',
+                            message: 'The password and its confirmation are not the same'
+                        }
+
+
+                    }
+
+                }
+            }
+        });
+
 
 
 

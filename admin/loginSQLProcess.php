@@ -22,7 +22,7 @@ $result = $mysqli->query($query);
 if($result->num_rows == 0) // User not found. So, redirect to login_form again.
 {
     $_SESSION['logged'] = 'FALSE';
-    redirect('<br><br>Mauvais nom d&acute;usag&eacute;.', '/comp353/index.php');
+    redirect('<br><br>Mauvais nom d&acute;usag&eacute;.', '/comp353/adminLogin.php');
 
 }else{
     $_SESSION['logged'] = 'TRUE';
@@ -35,7 +35,7 @@ $hash = hash('sha256', $userData['user_SALT'] . hash('sha256', $password) );
 if($hash != $userData['user_PASSWORD']) // Incorrect password. So, redirect to login_form again.
 {
     $_SESSION['logged'] = 'FALSE';
-    redirect('<br><br>Mauvais mot de passe', '/comp353/index.php');
+    redirect('<br><br>Mauvais mot de passe', '/comp353/adminLogin.php');
 
 }else{ // Redirect to home page after successful login.
     session_regenerate_id();
@@ -44,7 +44,7 @@ if($hash != $userData['user_PASSWORD']) // Incorrect password. So, redirect to l
     $_SESSION['logged'] = 'TRUE';
     $_SESSION["manager"] = $userData['user_USERNAME'];
 //    session_write_close();
-    header('Location: /comp353/management/studentForm.php');
+    header('Location: /comp353/management/adminHome.php');
 
 }
 //}

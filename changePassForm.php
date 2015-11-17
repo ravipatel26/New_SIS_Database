@@ -8,20 +8,9 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 include("lib/config.php");
 require("lib/sqlQueries.php");
 ?>
-
-<?php
-
-if(isset($_SESSION["manager"]))
-{
-    //already logged in so go back to desired page
-    header("location:/management/adminHome.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html>
 <?php require("header.php");?>
-
 <body>
 <div class="container-fluid bg-info" style="height: 1500px">
     <div id="navigation">
@@ -30,9 +19,9 @@ if(isset($_SESSION["manager"]))
         </div>
     </div>
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
-        <div class="panel-heading h2 text-center">Login</div>
+        <div class="panel-heading h2 text-center">Change Your Password</div>
         <div class="panel-body">
-            <form id="adminLogin" method="post" role="form" class="form-horizontal" action="admin/loginSQLProcess.php">
+            <form id="changePassword" method="post" role="form" class="form-horizontal" action="admin/changingSQLPass.php">
                 <div class="form-group">
                     <label class="col-md-2 col-xs-offset-2 control-label" for="username">User Name :</label>
                     <div class="col-md-4">
@@ -40,15 +29,22 @@ if(isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-md-2 col-xs-offset-2 control-label">PassWord :</label>
+                    <label for="oldPassword" class="col-md-2 col-xs-offset-2 control-label">Old PassWord :</label>
                     <div class="col-md-4">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="PassWord" value="">
+                        <input type="password" class="form-control" id="oldPassword" name="oldPassword" placeholder="Old PassWord" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="newPassword" class="col-md-2 col-xs-offset-2 control-label">New PassWord :</label>
+                    <div class="col-md-4">
+                        <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="New PassWord" value="">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="confirm_password" class="col-md-2 col-xs-offset-2 control-label">Confirm PassWord :</label>
+                    <label for="confirm_newPassword" class="col-md-2 col-xs-offset-2 control-label">Confirm New PassWord :</label>
                     <div class="col-md-4">
-                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="PassWord Confirmation" value="">
+                        <input type="password" class="form-control" id="confirm_newPassword" name="confirm_newPassword" placeholder="PassWord New Confirmation" value="">
                     </div>
                 </div>
                 <div class="row text-center">
@@ -62,27 +58,17 @@ if(isset($_SESSION["manager"]))
                         </div>
                     </div>
                 </div>
-
                 <div class="row text-center">
                     <div class="form-group">
                         <div class="col-md-2 col-xs-offset-10">
-                            <button type="button" class="btn btn-primary" id="changePassword" onclick="location.href = 'changePassForm.php'">Change Password</button>
-                        </div>
-                     </div>
-                    <div class="form-group">
-                        <div class="col-md-2 col-xs-offset-10">
-                            <button class="btn btn-primary" type="button" id="newAdminAccount" onclick="location.href = 'newAccount.php'">New Admin Account</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-md-2">
                             <button type="button" class="btn btn-primary" id="changePassword" onclick="location.href='index.php'">Cancel</button>
                         </div>
                     </div>
                 </div>
+
             </form>
+
+
 
         </div>
     </div>
