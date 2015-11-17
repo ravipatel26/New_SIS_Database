@@ -50,13 +50,13 @@
 	</head>
 
 	<body>
-		<div class="container-fluid bg-info" style="height: 1500px" >
+		<div class="container-fluid">
 			<div id="navigation">
 				<div class="row">
 					<?php require("navigationAdmin.php"); ?>
 				</div>
 			</div>
-			<div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
+			<div class="panel panel-default col-lg-6 col-lg-offset-1" style="width: 80%">
 				<div class="panel-heading h2 text-center">Technical Program Committee Form</div>
 				<div class="panel-body">
 					<form id="editorialBoardInforamtion" class="form-horizontal" role="form" method="post" action="techCommitteeForm.php"> <!-- CHANGE the ACTION! -->
@@ -79,9 +79,9 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="memberSinceYear" class="col-sm-5 control-label">Member Since (Year) :</label>
+							<label for="year" class="col-sm-5 control-label">Member Since (Year) :</label>
 							<div class="col-sm-2">
-								<input type="text" class="form-control" id="memberSinceYear" name="memberSinceYear" placeholder="Year" value="<?php echo htmlspecialchars($memberSinceYear); ?>">
+								<input type="text" class="form-control" id="year" name="year" placeholder="Year" value="<?php echo htmlspecialchars($memberSinceYear); ?>">
 							</div>
 						</div>
 						<div class="form-group">
@@ -103,14 +103,6 @@
 		<script src="js/jquery_min_1112.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/bootstrap-datepicker.js"></script>
-		<script src="js/formValidator.js"></script> <!-- Remvoe this! Ravi -->
-		<script type="text/javascript">
-			$("#memberSinceYear").datepicker({
-				format: " yyyy",
-				viewMode: "years", 
-				minViewMode: "years"
-			});
-		</script>
-		
+		<script src="js/formValidator.js"></script>
 	</body>
 </html>
