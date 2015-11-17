@@ -12,7 +12,7 @@ require("lib/sqlQueries.php");
 <html>
 <?php require("header.php");?>
 <body>
-<div class="container-fluid bg-info" style="height: 1500px">
+<div class="container-fluid bg-info" style="height: 900px">
     <div id="navigation">
         <div class="row">
             <?php require("navigation.php"); ?>

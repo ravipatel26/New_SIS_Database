@@ -23,7 +23,7 @@ require("lib/config.php");
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">New Account</div>
         <div class="panel-body">
-            <form id="adminLogin" method="post" role="form" class="form-horizontal" action="admin/newAccountProcess.php">
+            <form id="newAccount" method="post" role="form" class="form-horizontal" action="admin/newAccountSQLProcess.php">
                 <div class="form-group">
                     <label class="col-md-2 col-xs-offset-2 control-label" for="username">User Name :</label>
                     <div class="col-md-4">

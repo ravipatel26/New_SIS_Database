@@ -5,48 +5,32 @@ ini_set('log_errors', 1);
 ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 ?>
 
-<?php
-
-function IsChecked($chkname,$value)
-{
-    if(!empty($_POST[$chkname]))
-    {
-        if($chkval == $value)
-        {
-            return true;
-        }
-
-    }
-    return false;
-}
-
-?>
 
 <?php include("../lib/redirect.php");?>
 <?php include("../lib/config.php");?>
 <?php
 $username = $_POST['username'];
-$password1 = $_POST['password1'];
-$password2 = $_POST['password2'];
+$password1 = $_POST['password'];
+$password2 = $_POST['confirm_password'];
 $email = $_POST['email'];
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 
 if($password1 != $password2)
 {
-    redirect('<br><br>Les mots de passes ne sont pas les mêmes', '/comp353/admin/newAccount.php');
+    redirect('<br><br>Les mots de passes ne sont pas les mêmes', '/comp353/newAccount.php');
 
 }else{
-    if(strlen($password1)<8 || strlen($paswword1)>30)
+    if(strlen($password1)<6 || strlen($password1)>10)
 
-        redirect('<br><br>Le mots de passes doit avoir entre 8 et 30 charact&#232;res.', '/comp353/admin/newAccount.php');
+        redirect('<br><br>Le mots de passes doit avoir entre 8 et 30 charact&#232;res.', '/comp353/newAccount.php');
 
 }
 
 //check size of username
-if(strlen($username) > 30|| strlen($username)<6)
+if(strlen($username) > 8|| strlen($username)<6)
 
-    redirect('<br><br>Le nom d\'usager doit avoir entre 6 et 30 charactères.', '/comp353/admin/newAccount.php');
+    redirect('<br><br>Le nom d\'usager doit avoir entre 6 et 30 charactères.', '/comp353/newAccount.php');
     /////////////////
 
 //////////////////////////////////////////////////////////////////////////////
@@ -60,7 +44,7 @@ $result=$mysqli->query($sql);
 if($result->num_rows>0)
 {
     //throw new Exception('Ce nom d&acute;usag&eacute; n&acute;ai pas disponible!');
-    redirect('<br><br>Ce nom d&acute;usag&eacute; n&acute;ai pas disponible!', '/comp353/admin/newAccount.php');
+    redirect('<br><br>Ce nom d&acute;usag&eacute; n&acute;ai pas disponible!', '/comp353/newAccount.php');
 }
 /////////////////////////////////////////////////////////////////////////////////////
 $_SESSION["password"] = $password;
@@ -96,7 +80,7 @@ $_SESSION["manager"] = $username;
 
 //$mysqli->close();
 
-redirect('<br><br>Merci de vous &ecirc;tres enregistr&eacute;.','/comp353/management/studentForm.php');
+redirect('','/comp353/management/adminHome.php');
 ?>
 
 <? ob_end_flush(); ?>
