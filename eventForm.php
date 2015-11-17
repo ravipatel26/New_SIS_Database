@@ -1,13 +1,13 @@
-<?php
+ <?php
 
-	$result = $profFirstName = $profLastName = $editorialBoardName = $journalName = $journalYear = '';
+	$result = $profFirstName = $profLastName = $eventName = $eventType = $eventYear = '';
 
 	if (isset($_POST['submit'])) {
 		$profFirstName = $_POST['profFirstName'];
 		$profLastName = $_POST['profLastName'];
-		$editorialBoardName = $_POST['editorialBoardName'];
-		$journalName = $_POST['journalName'];
-		$journalYear = $_POST['journalYear'];
+		$eventName = $_POST['eventName'];
+		$eventType = isset($_POST['eventType']) ? $_POST['eventType'] : '';
+		$eventYear = $_POST['eventYear'];
 		
 		if (!$_POST['profFirstName']) {
 			$errFirstName = '*Enter your First Name';
@@ -15,13 +15,13 @@
 		if (!$_POST['profLastName']) {
 			$errLastName = '*Enter your Last Name';
 		}
-		if (!$_POST['editorialBoardName']) {
+		if (!$_POST['eventName']) {
 			$errBirthDate = '*Enter your Date of Birth';
 		}
-		if (!$_POST['journalName']) {
+		if (!isset($_POST['eventType'])) {
 			$errGender = '*Select a Gender';
 		}
-		if (!$_POST['journalYear']) {
+		if (!$_POST['eventYear']) {
 			$errAddress = '*Enter your address';
 		}
 		
@@ -37,7 +37,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Editorial Board</title>
+		<title>Conference/Worskhop</title>
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 		<!-- Latest compiled and minified CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -61,9 +61,9 @@
 				</div>
 			</div>
 			<div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
-				<div class="panel-heading h2 text-center">Editorial Board Form</div>
+				<div class="panel-heading h2 text-center">Conference/Worskhop Event Form</div>
 				<div class="panel-body">
-					<form id="editorialBoardInforamtion" class="form-horizontal" role="form" method="post" action="editorialBoardForm.php"> <!-- CHANGE the ACTION! -->
+					<form id="editorialBoardInforamtion" class="form-horizontal" role="form" method="post" action="eventForm.php"> <!-- CHANGE the ACTION! -->
 						<div class="form-group">
 							<label for="profFirstName" class="col-sm-5 control-label">Professor's First Name :</label>
 							<div class="col-sm-5">
@@ -77,21 +77,24 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="editorialBoardName" class="col-sm-5 control-label">Editorial Board Name :</label>
+							<label for="eventName" class="col-sm-5 control-label">Event Name :</label>
 							<div class="col-sm-5">
-								<input type="text" class="form-control" id="editorialBoardName" name="editorialBoardName" placeholder="Editorial Board Name" value="<?php echo htmlspecialchars($editorialBoardName); ?>">
+								<input type="text" class="form-control" id="eventName" name="eventName" placeholder="Editorial Board Name" value="<?php echo htmlspecialchars($eventName); ?>">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="journalName" class="col-sm-5 control-label">Journal Name :</label>
+							<label for="eventType" class="col-sm-5 control-label">Event Type :</label>
 							<div class="col-sm-5">
-								<input type="text" class="form-control" id="journalName" name="journalName" placeholder="Journal Name" value="<?php echo htmlspecialchars($journalName); ?>">
+								<label class="radio-inline">
+									<input id="radio1" name="eventType" value="Worskshop" type="radio" <?php echo (isset($_POST['event']) && $_POST['event']=='Worskshop'? 'checked' : '') ?>>Worskshop</label>
+								<label class="radio-inline">
+									<input id="radio2" name="eventType" value="Conference" type="radio" <?php echo (isset($_POST['event']) && $_POST['event']=='Conference' ? 'checked' : '') ?>>Conference</label>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="journalYear" class="col-sm-5 control-label">Journal Publication Year :</label>
+							<label for="eventYear" class="col-sm-5 control-label">Event Year :</label>
 							<div class="col-sm-2">
-								<input type="text" class="form-control" id="journalYear" name="journalYear" placeholder="Year" value="<?php echo htmlspecialchars($journalYear); ?>">
+								<input type="text" class="form-control" id="eventYear" name="eventYear" placeholder="Year" value="<?php echo htmlspecialchars($eventYear); ?>">
 							</div>
 						</div>
 						<div class="form-group">
@@ -115,7 +118,7 @@
 		<script src="js/bootstrap-datepicker.js"></script>
 		<script src="js/formValidator.js"></script> <!-- Remvoe this! Ravi -->
 		<script type="text/javascript">
-			$("#journalYear").datepicker({
+			$("#eventYear").datepicker({
 				format: " yyyy",
 				viewMode: "years", 
 				minViewMode: "years"
