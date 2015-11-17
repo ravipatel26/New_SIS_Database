@@ -9,7 +9,7 @@ include("../lib/config.php");
 require("../lib/sqlQueries.php");
 ?>
 <!DOCTYPE html>
-<html lang="en" xmlns:width="http://www.w3.org/1999/xhtml">
+<html>
 
 <?php require("headerManagement.php");?>
 

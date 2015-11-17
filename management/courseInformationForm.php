@@ -9,7 +9,7 @@ include("../lib/config.php");
 require("../lib/sqlQueries.php");
 ?>
 <!DOCTYPE html>
-<html lang="en" xmlns:width="http://www.w3.org/1999/xhtml">
+<html>
 
 <?php require("headerManagement.php");?>
 
@@ -23,6 +23,7 @@ require("../lib/sqlQueries.php");
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Course Information Form</div>
         <div class="panel-body">
+
 
         </div>
     </div>
