@@ -537,4 +537,228 @@ var j = jQuery.noConflict();
             }
         });
 
+
+
+        var validator = j("#eventForm").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newEventSQLProcess.php",
+                    data: $('#eventForm').serialize(),
+                    success: function(msg){
+                        j("#eventForm").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                profFirstName: {
+                    message: "Professor Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's first Name"
+                        }
+                    }
+                },
+                profLastName: {
+                    message: "Professor Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's last Name"
+                        }
+                    }
+                },
+                eventName:{
+                    message : "Event name is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide an Event name"
+                        }
+                    }
+                },
+                eventType:{
+                    message : "Event Type name is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the Event Type"
+                        }
+                    }
+                },
+                year:{
+                    message : "The year is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the year for the Event in question."
+                        },
+                        integer: {
+                            message: 'The year must be numbers (ex. 2015)'
+                        },
+                        stringLength: {
+                            min: 4,
+                            max: 4,
+                            message: "The year must have 4 digits."
+                        }
+                    }
+                }
+            }
+        });
+
+
+        var validator = j("#techCommitteeName").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newCommitteSQLProcess.php",
+                    data: $('#techCommitteeName').serialize(),
+                    success: function(msg){
+                        j("#techCommitteeName").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                profFirstName: {
+                    message: "Professor Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's first Name"
+                        }
+                    }
+                },
+                profLastName: {
+                    message: "Professor Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's last Name"
+                        }
+                    }
+                },
+                techCommitteeName:{
+                    message : "Technical Committee name is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide an Technical Committee name"
+                        }
+                    }
+                },
+                year:{
+                    message : "The year is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the year for the Event in question."
+                        },
+                        integer: {
+                            message: 'The year must be numbers (ex. 2015)'
+                        },
+                        stringLength: {
+                            min: 4,
+                            max: 4,
+                            message: "The year must have 4 digits."
+                        }
+                    }
+                }
+            }
+        });
+
+        var validator = j("#editorialBoardInforamtion").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newCommitteSQLProcess.php",
+                    data: $('#editorialBoardInforamtion').serialize(),
+                    success: function(msg){
+                        j("#editorialBoardInforamtion").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                profFirstName: {
+                    message: "Professor Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's first Name"
+                        }
+                    }
+                },
+                profLastName: {
+                    message: "Professor Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's last Name"
+                        }
+                    }
+                },
+                editorialBoardName:{
+                    message : "Editorial Board name is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide an Editorial Board  name"
+                        }
+                    }
+                },
+                journalName:{
+                    message : "The journal name is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the journal name."
+                        }
+                    }
+                }
+                ,
+                year:{
+                    message : "The year is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the year for the journal in question."
+                        },
+                        integer: {
+                            message: 'The year must be numbers (ex. 2015)'
+                        },
+                        stringLength: {
+                            min: 4,
+                            max: 4,
+                            message: "The year must have 4 digits."
+                        }
+                    }
+                }
+            }
+        });
+
     });

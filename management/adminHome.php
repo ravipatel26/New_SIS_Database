@@ -8,6 +8,14 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 include("../lib/config.php");
 require("../lib/sqlQueries.php");
 ?>
+
+<?php
+if(!isset($_SESSION["manager"]))
+{
+    header("location:/comp353/adminLogin.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <?php require("headerManagement.php");?>

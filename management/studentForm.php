@@ -8,7 +8,13 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 include("../lib/config.php");
 require("../lib/newStudentProcess.php");
 ?>
-
+<?php
+if(!isset($_SESSION["manager"]))
+{
+    header("location:/comp353/adminLogin.php");
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -188,7 +194,7 @@ require("../lib/newStudentProcess.php");
 
 
             </form>
-        </div>
+            </div>
 
             <div id="confirmation" class="alert alert-success hidden">
                 <span class="glyphicon glyphicon-star"></span> Student information successfully entered
