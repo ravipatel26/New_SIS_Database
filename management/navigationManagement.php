@@ -15,7 +15,21 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                   	  <li><a href="professorInformationForm.php">Professor Info</a></li>
                       <li><a href="courseInformationForm.php">Courses Info</a></li>
 					  <li><a href="grantsInformationForm.php">Grants Info</a></li>
-                      <li><a href="servicesInformationForm.php">Services Info</a></li>
+                      <li class="dropdown">
+                        <a href="servicesInformationForm.php" class="dropdown-toggle" data-toggle="dropdown">
+                           Services<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                           <li><a href="servicesInformationForm.php">Services Information</a></li>
+                           <li class="divider"></li>
+                           <li><a href="eventForm.php">Events Information</a></li>
+                           <li class="divider"></li>
+						   <li><a href="techCommitteeForm.php">Technical Committee Information</a></li>
+                           <li class="divider"></li>
+                           <li><a href="editorialBoardForm.php">Technical Boards Information</a></li>
+                           <li class="divider"></li>
+                         </ul>
+                      </li>
                       <li><a href="reviewsInformationForm.php">Reviews Info</a></li>
 					  <li><a href="boardsInformationForm.php">Boards Info</a></li>
 					  <li><a href="../admin/logout.php">Logout</a></li>

@@ -45,12 +45,6 @@ if(isset($_SESSION["manager"]))
                         <input type="password" class="form-control" id="password" name="password" placeholder="PassWord" value="">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="confirm_password" class="col-md-2 col-xs-offset-2 control-label">Confirm PassWord :</label>
-                    <div class="col-md-4">
-                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="PassWord Confirmation" value="">
-                    </div>
-                </div>
                 <div class="row text-center">
                     <div class="form-group">
                         <div class="col-md-2 col-xs-offset-3">
