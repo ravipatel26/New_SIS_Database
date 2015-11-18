@@ -75,11 +75,11 @@ CREATE TABLE IF NOT EXISTS Students (
 
 
 CREATE TABLE IF NOT EXISTS GraduateStudent (
-  graduateStudent int(5) NOT NULL AUTO_INCREMENT,
+  graduateStudentId int(5) NOT NULL AUTO_INCREMENT,
   studentType varchar(15) DEFAULT NULL,
   studentLevel varchar(15) DEFAULT NULL,
   currentPosition varchar(25) DEFAULT NULL,
-  PRIMARY KEY (graduateStudent)
+  PRIMARY KEY (graduateStudentId)
 ); 
 
   CREATE TABLE IF NOT EXISTS UnderGraduateStudent (
@@ -146,11 +146,8 @@ CREATE TABLE IF NOT EXISTS Department (
   deptPhone varchar(15) DEFAULT NULL,
   PRIMARY KEY (deptId)
 ); 
-
-INSERT INTO Department (`deptName`, `deptPhone`) VALUES
-('ENCS', '514-447-8899'),
-('COMP', '514-478-6655');
-
+INSERT INTO Department (deptName,deptPhone) VALUES
+('ENCS', '514-258-6655'),('COMP', '514-888-9999');
 
 CREATE TABLE IF NOT EXISTS UsesGrants (
   usesGrantId int(5) NOT NULL AUTO_INCREMENT,
@@ -204,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `countries` (
 
 INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`, `address_format_id`) VALUES
 ('Canada', 'CA', 'CAD', 1),
-('Ã‰tats Unis', 'US', 'USA', 1),
+('États Unis', 'US', 'USA', 1),
 ('Algeria', 'DZ', 'DZA', 1),
 ('American Samoa', 'AS', 'ASM', 1),
 ('Andorra', 'AD', 'AND', 1),
@@ -224,7 +221,9 @@ INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`
 ('Belarus', 'BY', 'BLR', 1),
 ('Belgium', 'BE', 'BEL', 1),
 ('Belize', 'BZ', 'BLZ', 1),
-('Benin', 'BJ', 'BEN', 1),
+('Benin', 'BJ', 'BEN', 1);
+
+INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`, `address_format_id`) VALUES
 ('Bermuda', 'BM', 'BMU', 1),
 ('Bhutan', 'BT', 'BTN', 1),
 ('Bolivia', 'BO', 'BOL', 1),
@@ -241,7 +240,9 @@ INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`
 ('Cayman Islands', 'KY', 'CYM', 1),
 ('Central African Republic', 'CF', 'CAF', 1),
 ('Chad', 'TD', 'TCD', 1),
-('Chile', 'CL', 'CHL', 1),
+('Chile', 'CL', 'CHL', 1);
+
+INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`, `address_format_id`) VALUES
 ('Christmas Island', 'CX', 'CXR', 1),
 ('Cocos (Keeling) Islands', 'CC', 'CCK', 1),
 ('Colombia', 'CO', 'COL', 1),
@@ -263,7 +264,9 @@ INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`
 ('Egypt', 'EG', 'EGY', 1),
 ('El Salvador', 'SV', 'SLV', 1),
 ('Equatorial Guinea', 'GQ', 'GNQ', 1),
-('Eritrea', 'ER', 'ERI', 1),
+('Eritrea', 'ER', 'ERI', 1);
+
+INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`, `address_format_id`) VALUES
 ('Estonia', 'EE', 'EST', 1),
 ('Ethiopia', 'ET', 'ETH', 1),
 ('Falkland Islands (Malvinas)', 'FK', 'FLK', 1),
@@ -288,7 +291,9 @@ INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`
 ('Guatemala', 'GT', 'GTM', 1),
 ('Guinea', 'GN', 'GIN', 1),
 ('Guinea-bissau', 'GW', 'GNB', 1),
-('Guyana', 'GY', 'GUY', 1),
+('Guyana', 'GY', 'GUY', 1);
+
+INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`, `address_format_id`) VALUES
 ('Haiti', 'HT', 'HTI', 1),
 ('Heard and Mc Donald Islands', 'HM', 'HMD', 1),
 ('Honduras', 'HN', 'HND', 1),
@@ -308,7 +313,9 @@ INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`
 ('Kenya', 'KE', 'KEN', 1),
 ('Kiribati', 'KI', 'KIR', 1),
 ('Kuwait', 'KW', 'KWT', 1),
-('Kyrgyzstan', 'KG', 'KGZ', 1),
+('Kyrgyzstan', 'KG', 'KGZ', 1);
+
+INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`, `address_format_id`) VALUES
 ('Latvia', 'LV', 'LVA', 1),
 ('Lebanon', 'LB', 'LBN', 1),
 ('Lesotho', 'LS', 'LSO', 1),
@@ -332,7 +339,9 @@ INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`
 ('Mexico', 'MX', 'MEX', 1),
 ('Moldova, Republic of', 'MD', 'MDA', 1),
 ('Monaco', 'MC', 'MCO', 1),
-('Mongolia', 'MN', 'MNG', 1),
+('Mongolia', 'MN', 'MNG', 1);
+
+INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`, `address_format_id`) VALUES
 ('Montserrat', 'MS', 'MSR', 1),
 ('Morocco', 'MA', 'MAR', 1),
 ('Mozambique', 'MZ', 'MOZ', 1),
@@ -354,7 +363,9 @@ INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`
 ('Oman', 'OM', 'OMN', 1),
 ('Pakistan', 'PK', 'PAK', 1),
 ('Palau', 'PW', 'PLW', 1),
-('Panama', 'PA', 'PAN', 1),
+('Panama', 'PA', 'PAN', 1);
+
+INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`, `address_format_id`) VALUES
 ('Papua New Guinea', 'PG', 'PNG', 1),
 ('Paraguay', 'PY', 'PRY', 1),
 ('Peru', 'PE', 'PER', 1),
@@ -375,7 +386,9 @@ INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`
 ('Sao Tome and Principe', 'ST', 'STP', 1),
 ('Saudi Arabia', 'SA', 'SAU', 1),
 ('Senegal', 'SN', 'SEN', 1),
-('Seychelles', 'SC', 'SYC', 1),
+('Seychelles', 'SC', 'SYC', 1);
+
+INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`, `address_format_id`) VALUES
 ('Sierra Leone', 'SL', 'SLE', 1),
 ('Singapore', 'SG', 'SGP', 4),
 ('Slovakia (Slovak Republic)', 'SK', 'SVK', 1),
@@ -398,7 +411,9 @@ INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`
 ('Togo', 'TG', 'TGO', 1),
 ('Tokelau', 'TK', 'TKL', 1),
 ('Tonga', 'TO', 'TON', 1),
-('Tunisia', 'TN', 'TUN', 1),
+('Tunisia', 'TN', 'TUN', 1);
+
+INSERT INTO `countries` (`countries_name`, `countryCode`, `countries_iso_code_3`, `address_format_id`) VALUES
 ('Turkey', 'TR', 'TUR', 1),
 ('Turkmenistan', 'TM', 'TKM', 1),
 ('Turks and Caicos Islands', 'TC', 'TCA', 1),

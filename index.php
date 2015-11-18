@@ -5,8 +5,8 @@ ini_set('log_errors', 1);
 ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 ?>
 <?php
-include("/lib/config.php");
-require("/lib/sqlQueries.php");
+include("lib/config.php");
+require("lib/sqlQueries.php");
 ?>
 <!DOCTYPE html>
 <html>

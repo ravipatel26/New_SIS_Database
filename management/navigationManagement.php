@@ -11,12 +11,32 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                </div>
                <div class="collapse navbar-collapse" id="navigationBar-collapse">
                   <ul class="nav navbar-nav">
-				  	  <li><a href="StudentForm.php">Student Info</a></li>
-                  	  <li><a href="professorInformationForm.php">Professor Info</a></li>
+				  	  <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                           Student Info<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                           <li><a href="studentForm.php">Student Information</a></li>
+                           <li class="divider"></li>
+                           <li><a href="coursesTaken.php">Courses Taken</a></li>
+                           <li class="divider"></li>
+                         </ul>
+                      </li>
+                  	  <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                           Professor Info<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                           <li><a href="professorInformationForm.php">Professor Information</a></li>
+                           <li class="divider"></li>
+                           <li><a href="coursesTeaching.php">Courses Teaching</a></li>
+                           <li class="divider"></li>
+                         </ul>
+                      </li>
                       <li><a href="courseInformationForm.php">Courses Info</a></li>
 					  <li><a href="grantsInformationForm.php">Grants Info</a></li>
                       <li class="dropdown">
-                        <a href="servicesInformationForm.php" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                            Services<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">

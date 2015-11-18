@@ -44,8 +44,6 @@ $html = <<<eob
     <script src="../js/html5shiv.min.js"></script>
     <script src="../js/respond.min.js"></script>
     <![endif]-->
-    <script src="../js/control.js"></script>
-
 </head>
 eob;
 
