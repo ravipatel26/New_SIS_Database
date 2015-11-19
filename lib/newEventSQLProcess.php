@@ -20,11 +20,5 @@ if (isset($_POST['submit'])) {
     }
 
 
-    // Final result
-    if (!$errFirstName && !$errLastName && !$errBirthDate && !$errGender && !$errAddress) {
-        $result='<div class="alert alert-success">Form has been submitted!</div>';
-    } else {
-        $result='<div class="alert alert-danger">Errors in the form!</div>';
-    }
 }
 ?>

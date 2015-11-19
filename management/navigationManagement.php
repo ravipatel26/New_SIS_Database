@@ -18,7 +18,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                         <ul class="dropdown-menu">
                            <li><a href="studentForm.php">Student Information</a></li>
                            <li class="divider"></li>
-                           <li><a href="coursesTaken.php">Courses Taken</a></li>
+                           <li><a href="coursesTakenForm.php">Courses Taken</a></li>
                            <li class="divider"></li>
                          </ul>
                       </li>
@@ -46,7 +46,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                            <li class="divider"></li>
 						   <li><a href="techCommitteeForm.php">Technical Committee Information</a></li>
                            <li class="divider"></li>
-                           <li><a href="editorialBoardForm.php">Technical Boards Information</a></li>
+                           <li><a href="editorialBoardForm.php">Editorial Boards Information</a></li>
                            <li class="divider"></li>
                          </ul>
                       </li>

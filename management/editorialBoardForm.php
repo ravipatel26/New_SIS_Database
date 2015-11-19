@@ -57,7 +57,7 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="year" class="col-md-2 col-xs-offset-2 control-label">Journal Publication Year :</label>
+                    <label for="year" class="col-md-3 col-xs-offset-1 control-label">Journal Publication Year :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="year" name="year" placeholder="Year" value="<?php echo htmlspecialchars($journalYear); ?>">
                     </div>

@@ -169,7 +169,7 @@ if(!isset($_SESSION["manager"]))
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="department" class="col-md-2 control-label">Department ID :</label>
+                        <label for="department" class="col-md-2 control-label">Department Name :</label>
                         <div class="col-md-4">
                                 <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>">
                                 <option value="" selected="selected">--- Select a Department ---</option>

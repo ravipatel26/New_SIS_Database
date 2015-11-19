@@ -7,7 +7,7 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-require("../lib/sqlQueries.php");
+require("../lib/courseListProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
@@ -31,7 +31,28 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Course Information Form</div>
         <div class="panel-body">
-            <form id="" class="form-horizontal" role="form" method="post" action="">
+            <form id="courseList" class="form-horizontal" role="form" method="post" action="../lib/newCourseSQLProcess.php">
+                <div class="form-group">
+                    <label for="department" class="col-md-2 control-label">Department Name :</label>
+                    <div class="col-md-4">
+                        <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($departmentName); ?>">
+                            <option value="" selected="selected">--- Select a Department ---</option>
+                            <?php echo $courseList->getDepartmentName();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="courseName">Course Name :</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="courseName" name="courseName" placeholder="Course Name" value="<?php echo htmlspecialchars($courseName); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="courseCode">Course code :</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="courseCode" name="courseCode" placeholder="Course code" value="<?php echo htmlspecialchars($courseCode); ?>">
+                    </div>
+                </div>
 
 
 
@@ -51,6 +72,9 @@ if(!isset($_SESSION["manager"]))
 
 
         </div>
+        <div id="confirmation" class="alert alert-success hidden">
+            <span class="glyphicon glyphicon-star"></span> Student information successfully entered
+        </div>
     </div>
 
 
@@ -60,6 +84,14 @@ if(!isset($_SESSION["manager"]))
 <!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
 <script src="../js/functions.js"></script>
+<?php
+if($_SESSION['success']){
+    echo '<script> $("#courseList").addClass("hidden");
+            $("#submission").addClass("hidden");
+            $("#confirmation").removeClass("hidden");</script>';
+    $_SESSION['success'] = false;
+}
+?>
 
 </body>
 

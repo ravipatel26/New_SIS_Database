@@ -19,13 +19,14 @@ class AdminSystem
 //        $dbName = "ykc353_2";
 //        $dbUsername = "ykc353_2";
 //        $dbPass = "hello007";
+
         $dbHost = "localhost";
         $dbName = "ykc353_2";
         $dbUsername = "root";
         $dbPass = "";
 
         $this->connect=mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
-        mysqli_select_db($this->connect,$dbName) or die ("Ne peu pas selectioner la base de donnee");
+        mysqli_select_db($this->connect,$dbName) or die ("Can not use the database");
 
         /* change character set to utf8 */
         if (!$this->connect->set_charset("utf8")) {
@@ -62,6 +63,12 @@ class AdminSystem
     }
 
     public function addUnderGraduateStudent($sql)
+    {
+        $this->connect->query($sql);
+
+    }
+
+    public function addCourses($sql)
     {
         $this->connect->query($sql);
 
@@ -117,6 +124,143 @@ class AdminSystem
         return $allDepartments;
 
     }
+
+
+
+    //////////////////////////////
+    //GET DepartMent Name from ID
+    //////////////////////////////
+
+    public function getDepartmentNameID($id)
+    {
+        $departmentName = '';
+        $sql = "SELECT deptName FROM Department WHERE deptId=$id";
+        $results = mysqli_query($this->connect, $sql);
+        if ($results->num_rows) {
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+
+            foreach ($records as $result) {
+                $departmentName = $result->deptName;
+            }
+
+        }
+
+        return $departmentName;
+    }
+
+    //////////////////////////////
+    //GET STUDENT DEPARTEMENTS
+    //////////////////////////////
+    public function getStudentDepartmentName($name)
+    {
+        $sql="SELECT deptId FROM Students WHERE studentName='$name'";
+        $results = mysqli_query($this->connect, $sql);
+        if ($results->num_rows) {
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+
+            foreach($records as $result)
+            {
+                $departmnentID = $result->deptId;
+            }
+        }
+
+
+        return $this->getDepartmentNameID($departmnentID);
+
+    }
+
+
+
+    //////////////////////////////
+    //GET Courses Taken Name
+    //////////////////////////////
+
+    public function getCoursesTaken($departmentName)
+    {
+        $departmentID = $this->getDepartementID($departmentName);
+        $coursesNames='';
+        $sql="SELECT courseName FROM courses WHERE deptId = '$departmentID'";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $names=$result->courseName;
+            $coursesNames.='<option>'.$names.'</option>';
+
+        }
+
+        return $coursesNames;
+
+    }
+
+    //////////////////////////////
+    //GET Student Name
+    //////////////////////////////
+
+    public function getStudentName()
+    {
+        $studentNames='';
+        $sql="SELECT * FROM Students ORDER BY studentName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $names=$result->studentName;
+            $studentNames.='<option>'.$names.'</option>';
+
+        }
+
+        return $studentNames;
+
+    }
+
+
+    //////////////////////////////
+    //GET Course Name
+    //////////////////////////////
+
+    public function getCourseName()
+    {
+        $courseNames='';
+        $sql="SELECT * FROM Courses ORDER BY courseName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $courses=$result->courseName;
+            $courseNames.='<option>'.$courses.'</option>';
+        }
+
+        return $courseNames;
+
+    }
+
 
     //////////////////////////////
     //GET COUNTRIES

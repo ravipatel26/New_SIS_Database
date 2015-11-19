@@ -761,4 +761,155 @@ var j = jQuery.noConflict();
             }
         });
 
+        var validator = j("#courseTaken").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/courseTakenSQLProcess.php",
+                    data: $('#courseTaken').serialize(),
+                    success: function(msg){
+                        j("#courseTaken").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                studentName: {
+                    message: "Student Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Student's Name"
+                        }
+                    }
+                },
+                courses: {
+                    message: "Course Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Course's last Name"
+                        }
+                    }
+                },
+                asignements:{
+                    message : "Assginements grade is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide total Assginements grade"
+                        }
+                    }
+                },
+                projects:{
+                    message : "Projects grade is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide total Projects grade."
+                        }
+                    }
+                }
+                ,
+                midTerms:{
+                    message : "MidTerms grade is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the total MidTerms grade."
+                        }
+                    }
+                },
+                finalExams:{
+                    message : "Final Exam grade is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the total Final Exam grade."
+                        }
+                    }
+                },
+                finalLetterGrades:{
+                    message : "The Final Letter grade is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the Final Letter grade."
+                        }
+                    }
+                }
+            }
+        });
+
+
+        var validator = j("#courseList").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newCourseSQLProcess.php",
+                    data: $('#courseList').serialize(),
+                    success: function(msg){
+                        j("#courseList").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                courseName: {
+                    message: "Course Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Course Name"
+                        }
+                    }
+                },
+                courseCode: {
+                    message: "Course Code is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Course Code"
+                        },
+                        integer: {
+                            message: 'The Course Code must be numbers.'
+                        },
+                        stringLength: {
+                            min: 3,
+                            max: 3,
+                            message: "The Course Code must have 3 digits."
+                        }
+                    }
+                },
+                department:{
+                    message : "The department is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the Department"
+                        }
+                    }
+                },
+
+            }
+        });
+
+
+
+
+
     });
