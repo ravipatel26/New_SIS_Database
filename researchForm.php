@@ -1,5 +1,5 @@
 <?php
-	$result = $researchName = $profFirstName = $profLastName = $studFirstName = $studLastName = $resStartDate = $resEndDate = '';
+	$result = $researchName = $profFirstName = $profLastName = $studFirstName = $studLastName = $resStartDate = $resEndDate = $grantName = '';
 	if (isset($_POST['submit'])) {
 		$researchName = $_POST['researchName'];
 		$profFirstName = $_POST['profFirstName'];
@@ -8,6 +8,7 @@
                 $studFirstName = $_POST['studLastName'];
                 $resStartDate = $_POST['resStartDate'];
                 $resEndDate = $_POST['resEndDate'];
+                $grantName = $_POST['grantName'];
 		
 		if (!$_POST['researchName']) {
 			$errResearchName = '*Enter Research Name';
@@ -30,9 +31,12 @@
                 if (!$_POST['resEndDate']) {
                         $errResEndDate = '*Enter Research End Date';
                 }
+                if (!$_POST['grantName']) {
+                        $errGrantName = '*Enter Grant Name';
+                }
 		
 		// Final result
-		if (!$errResearchName && !$errProfFirstName && !$errProfLastName && !$errStudFirstName && !$errStudLastName && !$errResStartDate && !$errResEndDate) {
+		if (!$errResearchName && !$errProfFirstName && !$errProfLastName && !$errStudFirstName && !$errStudLastName && !$errResStartDate && !$errResEndDate && !errGrantName) {
 			$result='<div class="alert alert-success">Form has been submitted!</div>';
 		} else {
 			$result='<div class="alert alert-danger">Errors in the form!</div>';
@@ -43,7 +47,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Grant</title>
+		<title>Research</title>
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 		<!-- Latest compiled and minified CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -110,6 +114,12 @@
 							<label for="resEndDate" class="col-sm-5 control-label">Research End Date :</label>
 							<div class="col-sm-5">
 								<input type="text" class="form-control" id="resEndDate" name="resEndDate" placeholder="Research End Date" value="<?php echo htmlspecialchars($resEndDate); ?>">
+							</div>
+						</div>
+                                                <div class="form-group">
+							<label for="grantName" class="col-sm-5 control-label">Grant Name :</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="grantName" name="grantName" placeholder="Grant Name" value="<?php echo htmlspecialchars($grantName); ?>">
 							</div>
 						</div>
                             <div class="col-sm-5 col-sm-offset-5">

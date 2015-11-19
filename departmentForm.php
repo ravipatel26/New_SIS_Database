@@ -23,7 +23,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Grant</title>
+		<title>Department</title>
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 		<!-- Latest compiled and minified CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
