@@ -207,6 +207,35 @@ class AdminSystem
 
     }
 
+
+    //////////////////////////////
+    //GET Courses Taken Name from depid
+    //////////////////////////////
+
+    public function getCoursesNameTaken($depID)
+    {
+
+        $coursesNames1='';
+        $sql="SELECT courseName FROM courses WHERE deptId = '$depID'";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach((array)$records as $result)
+        {
+            $names=$result->courseName;
+            $coursesNames1.='<input type="text">'.$names.'</input>';
+
+        }
+
+        return $coursesNames1;
+
+    }
+
     //////////////////////////////
     //GET Student Name
     //////////////////////////////

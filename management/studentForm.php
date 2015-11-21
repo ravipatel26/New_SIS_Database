@@ -135,7 +135,7 @@ if(!isset($_SESSION["manager"]))
                             <label class="radio-inline" >
                                 <input id="onleave" name="status" value="On-Leave" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='On-Leave'? 'checked' : '') ?>>On-Leave</label>
                             <label class="radio-inline" >
-                                <input id="graduate" name="status" value="Graduate" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Graduate'? 'checked' : '') ?>>Graduate</label>
+                                <input id="graduate" name="status" value="Graduate" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Graduate'? 'checked' : '') ?>>Graduated</label>
                             <label class="radio-inline" >
                                 <input id="underGraduate" name="status" value="Under Graduate" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Under Graduate'? 'checked' : '') ?>>Under Graduate</label>
 

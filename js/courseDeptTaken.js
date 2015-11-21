@@ -16,6 +16,8 @@ function receiveDepartmentName(){
         var result = xhr.responseText;
         var num = result.split(',');
         document.getElementById("department").value =num[0];
+        document.getElementById("depID").value =num[1];
+
 
     }
 

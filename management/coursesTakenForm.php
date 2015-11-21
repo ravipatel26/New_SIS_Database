@@ -17,27 +17,7 @@ if(!isset($_SESSION["manager"]))
 }
 ?>
 <?php
-//$mandatsAll=$nouveauProjet->getMandats2();
-//$departmentID=$nouveauProjet->getDepartmentID();
-//for($i=0;$i<sizeof($mandatsAll);$i++){
-//
-//    if($mandatsAll[$i][0]==0){
-//        $choiceMandat0[]='';
-//    }else if($mandatsAll[$i][0]==1){
-//        $choiceMandat1[]=$mandatsAll[$i][1];
-//    }else if($mandatsAll[$i][0]==2){
-//        $choiceMandat2[]=$mandatsAll[$i][1];
-//    }else if($mandatsAll[$i][0]==3){
-//        $choiceMandat3[]=$mandatsAll[$i][1];
-//    }else if($mandatsAll[$i][0]==4){
-//        $choiceMandat4[]=$mandatsAll[$i][1];
-//    }else if($mandatsAll[$i][0]==5){
-//        $choiceMandat5[]=$mandatsAll[$i][1];
-//    }else{
-//        $choiceMandat6[]=$mandatsAll[$i][1];
-//    }
-
-//}
+$courses = $courseTaken->getCoursesNameTaken($depID);
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,7 +34,7 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Courses Taken</div>
         <div class="panel-body">
-            <form id="courseTaken" class="form-horizontal" role="form" method="post" action="courseTakenSQL.php">
+            <form id="courseTaken" class="form-horizontal" role="form" method="post" action="../lib/courseTakenSQLProcess.php">
                 <div class="form-group">
                     <label for="studentName" class="col-md-2 control-label">Student Name :</label>
                     <div class="col-md-4">
@@ -68,7 +48,7 @@ if(!isset($_SESSION["manager"]))
                 <div class="form-group">
                     <label for="department" class="col-md-2 control-label">Department Name :</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="department" name="department" value="<?php echo $deptName;?>"  onchange="getCoursesTaken(this.value)" readonly>
+                        <input type="text" class="form-control" id="department" name="department" value="<?php echo $deptName;?>" readonly>
                     </div>
                 </div>
 
@@ -98,7 +78,7 @@ if(!isset($_SESSION["manager"]))
         </div>
     </div>
 
-
+    <?php echo $deptName;?>
 
 </div>
 
@@ -122,30 +102,8 @@ if($_SESSION['success']){
 <script src="../js/control.js"></script>
 <script src="../js/courseDeptTaken.js"></script>
 
-<script>
-    //var studentName = document.getElementById("studentName").val;
+<script src="../js/courseTaken.js"></script>
 
 
-//    var departementsList=document.projetNouveau.departementProjet
-//    var mandaList=document.projetNouveau.mandatProjet
-//
-//    //pass a php array with jason encode
-//    var mandats=new Array()
-//    mandats[0]='';
-//    mandats[1]=[""];
-//    mandats[2]=["Olfactométrie","Dispersion","Demande de CA","Chauffage Biomasse","Vente équipement","Location équipement","Expertise légale","Traitement odeur","Traitement Biomasse","Mandats spéciaux","RS & DE"];
-//    mandats[3]=["Égout","Aqueduc","Fosse septique commerciale","Fosse septique résidentielle","Eau potable","Eaux usées"];
-//    mandats[4]=["Bâtiment laitier","Bâtiment porcin","Bâtiment avicole","Bâtiment élevage autre","Bâtiment agricole autre","Bâtiment industriel","Entreposage grain"];
-//    mandats[5]=["Bâtiment laitier","Bâtiment porcin","Bâtiment avicole","Bâtiment élevage autre","Bâtiment agricole autre","Bâtiment industriel","Entreposage grain","Bâtiment commercial","Bâtiment autre"];
-//    mandats[6]=["Plan de fertilisation"];
-//
-//    function updateMandats(selectedmandatsgroup){
-//        mandaList.options.length=0
-//        if (selectedmandatsgroup>0){
-//            for (i=0; i<mandats[selectedmandatsgroup].length; i++)
-//                mandaList.options[mandaList.options.length]=new Option(mandats[selectedmandatsgroup][i].split("|")[0], mandats[selectedmandatsgroup][i].split("|")[1])
-//        }
-//    }
-</script>
 
 </html>

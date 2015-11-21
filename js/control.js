@@ -10,7 +10,7 @@ function checkPhoneNumber()
         return false;
     }
     return true;
-};
+}
 
 
 var j = jQuery.noConflict();
@@ -18,8 +18,9 @@ var j = jQuery.noConflict();
 
         j("#datePicker")
             .datepicker({
-                format: 'mm/dd/yyyy'
-            }).on("changeDate show", function(e) {
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            }).on("changeDate show", function() {
             // Revalidate the date field
             j("#studentInforamtion").bootstrapValidator("revalidateField", "birthDate");
         });
@@ -538,6 +539,16 @@ var j = jQuery.noConflict();
         });
 
 
+        j("#eventFormYear")
+            .datepicker({
+                format: 'yyyy',
+                viewMode: "years",
+                minViewMode: "years",
+                autoclose: true
+            }).on("changeDate show", function(e) {
+            // Revalidate the date field
+            j("#eventForm").bootstrapValidator("revalidateField", "eventYear");
+        });
 
         var validator = j("#eventForm").bootstrapValidator({
             feedbackIcons: {
@@ -596,7 +607,7 @@ var j = jQuery.noConflict();
                         }
                     }
                 },
-                year:{
+                eventYear:{
                     message : "The year is required",
                     validators : {
                         notEmpty : {
@@ -614,6 +625,7 @@ var j = jQuery.noConflict();
                 }
             }
         });
+
 
 
         var validator = j("#techCommitteeName").bootstrapValidator({
