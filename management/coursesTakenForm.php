@@ -49,8 +49,10 @@ $courses = $courseTaken->getCoursesNameTaken($depID);
                 <div class="form-group">
                     <label for="department" class="col-md-2 control-label">Department Name :</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="department" name="department" value="<?php echo $deptName;?>" readonly>
-
+                        <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>">
+                            <option value="" selected="selected">--- Select a Department ---</option>
+                            <?php echo $courseTaken->getDepartmentName();?>
+                        </select>
                     </div>
                 </div>
 

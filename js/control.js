@@ -1,17 +1,3 @@
-function checkPhoneNumber()
-{
-    var phoneNumber = document.getElementById('phoneNumber').value;
-    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-
-    if(!phoneNumber.match(phoneno) ){
-        //alert('Please enter a valid phone number. ex: (514) 123-4567.');
-        document.getElementById('phoneError').value = 'Please enter a valid phone number. ex: (514) 123-4567.';
-        document.getElementById('phoneNumber').focus();
-        return false;
-    }
-    return true;
-}
-
 
 var j = jQuery.noConflict();
     j(document).ready(function () {<!-- jQuery and Bootstrap JS -->
@@ -228,7 +214,107 @@ var j = jQuery.noConflict();
             }
         });
 
+        var validator = j("#professorInformationForm").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
 
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newProfessorSQLProcess.php",
+                    data: $('#professorInformationForm').serialize(),
+                    success: function(msg){
+                        j("#professorInformationForm").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                firstName:{
+                    message : "First name is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide a student first name"
+                        },
+                        regexp: {
+                            regexp: /^[a-z\s]+$/i,
+                            message: 'The first name can consist of alphabetical characters and spaces only'
+                        }
+                    }
+                },
+                lastName:{
+                    message : "Last name is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide a student last name"
+                        },
+                        regexp: {
+                            regexp: /^[a-z\s]+$/i,
+                            message: 'The last name can consist of alphabetical characters and spaces only'
+                        }
+                    }
+                },
+                email :{
+                    message : "Email address is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide an email address"
+                        },
+                        stringLength: {
+                            min : 6,
+                            max: 35,
+                            message: "Email address must be between 6 and 35 characters long"
+                        },
+                        emailAddress: {
+                            message: "Email address was invalid"
+                        }
+                    }
+                },
+                phoneNumber : {
+                    validators:{
+                        notEmpty:{
+                            message: "Please enter a phone number."
+                        },
+                        phone: {
+                            country: 'US',
+                            message: "Please enter a valid phone number"
+                        }
+                    }
+                },
+                professorNumber : {
+                    validators:{
+                        notEmpty:{
+                            message: "Please enter a studentNumber."
+                        },
+                        stringLength: {
+                            min : 8,
+                            max: 8,
+                            message: "Student number must be 8 digits long"
+                        },
+                        integer: {
+                            message: 'Please enter only digits.'
+                        }
+                    }
+                },
+                department : {
+                    validators:{
+                        notEmpty:{
+                            message: "Please enter a student department."
+                        }
+                    }
+                }
+
+            }
+        });
 
         var validator = j("#adminLogin").bootstrapValidator({
             feedbackIcons: {
@@ -875,6 +961,14 @@ var j = jQuery.noConflict();
                             message : "Please provide the Final Letter grade."
                         }
                     }
+                },
+                department:{
+                    message : "The department is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the Department"
+                        }
+                    }
                 }
             }
         });
@@ -936,7 +1030,7 @@ var j = jQuery.noConflict();
                             message : "Please provide the Department"
                         }
                     }
-                },
+                }
 
             }
         });

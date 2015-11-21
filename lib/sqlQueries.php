@@ -52,9 +52,15 @@ class AdminSystem
         $studentId = mysqli_insert_id($this->connect);
 
         return $studentId;
-
     }
 
+    public function addNewProfessor($sql)
+    {
+        $this->connect->query($sql);
+        $professorId = mysqli_insert_id($this->connect);
+
+        return $professorId;
+    }
 
     public function addGraduateStudent($sql)
     {

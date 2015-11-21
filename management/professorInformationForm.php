@@ -7,7 +7,7 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-require("../lib/sqlQueries.php");
+require("../lib/newProfessorProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
@@ -31,8 +31,47 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Professor Information Form</div>
         <div class="panel-body">
-            <form id="" class="form-horizontal" role="form" method="post" action="">
+            <form id="professorInformationForm" class="form-horizontal" role="form" method="post" action="../lib/newProfessorSQLProcess.php">
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="firstName">Professor First Name :</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" value="<?php echo htmlspecialchars($firstName); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="lastName">Professor Last Name :</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" value="<?php echo htmlspecialchars($lastName); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber" class="col-md-2 control-label">Phone Number :</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="ex: 514-123-4567" value="<?php echo htmlspecialchars($phoneNumber); ?>" onchange="checkPhoneNumber()">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-md-2 control-label">Email</label>
+                    <div class="col-md-4">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($email); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="professorNumber" class="col-md-2 control-label">Professor  Number :</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="professorNumber" name="professorNumber" placeholder="ex: 12345678" value="<?php echo htmlspecialchars($professorNumber); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="department" class="col-md-2 control-label">Department Name :</label>
+                    <div class="col-md-4">
+                        <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>">
+                            <option value="" selected="selected">--- Select a Department ---</option>
+                            <?php echo $newProfessor->getDepartmentName();?>
 
+                        </select>
+                    </div>
+                </div>
 
 
                 <!--                submit and reset buttons-->
@@ -59,6 +98,14 @@ if(!isset($_SESSION["manager"]))
 <!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
 <script src="../js/functions.js"></script>
+<?php
+if($_SESSION['success']){
+    echo '<script> $("#studentInforamtion").addClass("hidden");
+            $("#submission").addClass("hidden");
+            $("#confirmation").removeClass("hidden");</script>';
+    $_SESSION['success'] = false;
+}
+?>
 
 </body>
 
