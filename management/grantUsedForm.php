@@ -31,7 +31,7 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Grant Usage Form</div>
         <div class="panel-body">
-            <form id="" class="form-horizontal" role="form" method="post" action="">
+            <form id="grantUsage" class="form-horizontal" role="form" method="post" action="../lib/grantUsageSQLProcess.php">
 
 
 

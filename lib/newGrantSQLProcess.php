@@ -8,38 +8,29 @@ ob_start();
 <?php require("../lib/sqlQueries.php");?>
 
 <?php
+# Professor info
+$professorName = $grantName = $grantAmount = $grantYear = $department = $researchName = $studentName = '';
 
-# General info
-$firstName = $lastName = $name = '';
-
-# Student info
-$professNumber = $phoneNumber = $email = $department = '';
-
-$newProfessor = new AdminSystem();
+$newGrant = new AdminSystem();
 
 if(isset($_POST['submit'])) var_dump($_POST);
 
-$firstName = $newProfessor->escape($_POST['firstName']);
-$lastName = $newProfessor->escape($_POST['lastName']);
+$professorName = $newGrant->escape($_POST['professorName']);
 
-$name = $firstName." ".$lastName;
-//$name = $newStudent->escape($name);
+$grantName = $_POST['grantName'];
+$grantName = $newGrant->escape($grantName);
 
-$phoneNumber = $_POST['phoneNumber'];
-$phoneNumber = $newProfessor->escape($phoneNumber);
+$grantAmount = $_POST['grantAmount'];
+$grantAmount = $newGrant->escape($grantAmount);
 
-$email = $_POST['email'];
-$email = $newProfessor->escape($email);
+$grantYear = $_POST['grantYear'];
+$grantYear = $newGrant->escape($grantYear);
 
-$professNumber = $_POST['professorNumber'];
-$professNumber = $newProfessor->escape($professNumber);
+$researchName = $_POST['researchName'];
+$researchName = $newGrant->escape($researchName);
 
-if(isset($_POST['department'])) {
-    $department = $_POST['department'];
-    $department = $newProfessor->escape($department);
-    $deptId = $newProfessor->getDepartementID($department);
-}
-
+$studentName = $_POST['studentName'];
+$studentName = $newGrant->escape($studentName);
 
 echo print_r($_POST).'</br>';
 
@@ -48,17 +39,17 @@ $_SESSION['success'] = false;
 
 $query = "INSERT INTO Professor (professorName, professorNumber, professorEmail, professorPhone,deptId) VALUES ( '$name', '$professNumber', '$email', '$phoneNumber', '$deptId')";
 
-$professorId=$newProfessor->addNewProfessor($query);
+$professorId=$newGrant->addNewProfessor($query);
 
 //if(!empty($level)){
 //    $query = "INSERT INTO GraduateStudent (studentId, studentLevel, currentPosition) VALUES ('$studentId', '$level', '$position')";
-//    $newStudent->addGraduateStudent($query);
+//    $newGrant->addGraduateStudent($query);
 //}
 //
 //
 //if(!empty($summer)){
 //    $query = "INSERT INTO UnderGraduateStudent (studentId, summerStudent) VALUES ('$studentId', '$summer')";
-//    $newStudent->addUnderGraduateStudent($query);
+//    $newGrant->addUnderGraduateStudent($query);
 //}
 
 

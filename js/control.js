@@ -1222,6 +1222,103 @@ var j = jQuery.noConflict();
         });
 
 
+        j("#grantYearForm")
+            .datepicker({
+                format: 'yyyy',
+                viewMode: "years",
+                minViewMode: "years",
+                autoclose: true
+            }).on("changeDate show", function(e) {
+            // Revalidate the date field
+            j("#grantInformationForm").bootstrapValidator("revalidateField", "grantYear");
+        });
+
+        var validator = j("#grantInformationForm").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newGrantSQLProcess.php",
+                    data: $('#coursesTeaching').serialize(),
+                    success: function(msg){
+                        j("#coursesTeaching").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                professorName: {
+                    message: "Professor's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's Name"
+                        }
+                    }
+                },
+                grantName: {
+                    message: "Grant Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Grant's Name"
+                        }
+                    }
+                },
+                grantAmount:{
+                    message : "Grant Amount grade is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide Grant Amount."
+                        }
+
+                    }
+                },
+                grantYear:{
+                    message : "The year is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the year for the grant."
+                        },
+                        integer: {
+                            message: 'The year must be numbers (ex. 2015)'
+                        },
+                        stringLength: {
+                            min: 4,
+                            max: 4,
+                            message: "The year must have 4 digits."
+                        }
+                    }
+                },
+                researchName: {
+                    message: "Research Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Research's Name"
+                        }
+                    }
+                },
+                studentName: {
+                    message: "Student Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Student's Name"
+                        }
+                    }
+                }
+            }
+        });
+
+
 
 
     });

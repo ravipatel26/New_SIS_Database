@@ -56,10 +56,10 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="eventYear" class="col-md-2 control-label">Event Year :</label>
+                    <label for="grantYear" class="col-md-2 control-label">Event Year :</label>
                     <div class="col-md-3 date">
-                        <div class="input-group input-append date" id="eventFormYear">
-                            <input id="eventYear" name="eventYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($year); ?>"/>
+                        <div class="input-group input-append date" id="grantYearForm">
+                            <input id="grantYear" name="grantYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($grantYear); ?>"/>
                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                     </div>
