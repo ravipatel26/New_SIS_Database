@@ -53,7 +53,7 @@ if(!isset($_SESSION["manager"]))
 							<label for="committeeYear" class="col-md-3 col-xs-offset-1 control-label">Member Since (Year) :</label>
 							<div class="col-md-3 date">
 								<div class="input-group input-append date" id="committeeFormYear">
-									<input id="committeeYear" name="committeeYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($year); ?>"/>
+									<input id="committeeYear" name="committeeYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($memberSinceYear); ?>"/>
 									<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 								</div>
 							</div>

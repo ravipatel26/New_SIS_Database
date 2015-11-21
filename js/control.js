@@ -706,6 +706,17 @@ var j = jQuery.noConflict();
             }
         });
 
+
+        j("#editorialBoardFormYear")
+            .datepicker({
+                format: 'yyyy',
+                viewMode: "years",
+                minViewMode: "years",
+                autoclose: true
+            }).on("changeDate show", function(e) {
+            // Revalidate the date field
+            j("#editorialBoardInforamtion").bootstrapValidator("revalidateField", "editorialBoardYear");
+        });
         var validator = j("#editorialBoardInforamtion").bootstrapValidator({
             feedbackIcons: {
                 valid: "glyphicon glyphicon-ok",
@@ -764,7 +775,7 @@ var j = jQuery.noConflict();
                     }
                 }
                 ,
-                year:{
+                editorialBoardYear:{
                     message : "The year is required",
                     validators : {
                         notEmpty : {
