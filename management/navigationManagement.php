@@ -20,6 +20,8 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                            <li class="divider"></li>
                            <li><a href="coursesTakenForm.php">Courses Taken</a></li>
                            <li class="divider"></li>
+                           <li><a href="studentGrades.php">Student Grades</a></li>
+                           <li class="divider"></li>
                          </ul>
                       </li>
                   	  <li class="dropdown">

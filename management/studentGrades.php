@@ -29,7 +29,7 @@ if(!isset($_SESSION["manager"]))
     </div>
 
     <div class="panel panel-default col-lg-6 col-lg-offset-1" style="width: 80%">
-        <div class="panel-heading h2 text-center">Courses Taken</div>
+        <div class="panel-heading h2 text-center">Student Grades</div>
         <div class="panel-body">
             <form id="courseTaken" class="form-horizontal" role="form" method="post" action="courseTakenSQL.php">
                 <div class="form-group">

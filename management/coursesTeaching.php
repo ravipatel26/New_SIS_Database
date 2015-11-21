@@ -7,7 +7,7 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-//require("../lib/newEventProcess.php");
+require("../lib/courseTeachingProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
@@ -31,7 +31,45 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Courses Teaching</div>
         <div class="panel-body">
-            <form id="" class="form-horizontal" role="form" method="post" action="">
+            <form id="coursesTeaching" class="form-horizontal" role="form" method="post" action="../lib/courseTeachingSQLProcess.php">
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="professorName">Professor's Name :</label>
+                    <div class="col-md-4">
+                        <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
+                            <option value="" selected="selected">--- Select a Professor's Name ---</option>
+                            <?php echo $courseTeaching->getProfessorName();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="semester">Semester :</label>
+                    <div class="col-md-4">
+                        <select id="semester" name="semester" class="form-control" value="<?php echo htmlspecialchars($semester); ?>">
+                            <option value="" selected="selected">--- Select a Semester ---</option>
+                            <option value="summer">Summer</option>
+                            <option value="fall">Fall</option>
+                            <option value="winter">Winter</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="eventYear" class="col-md-2 control-label">Event Year :</label>
+                    <div class="col-md-3 date">
+                        <div class="input-group input-append date" id="eventFormYear">
+                            <input id="eventYear" name="eventYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($year); ?>"/>
+                            <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="courses">Course's Name :</label>
+                    <div class="col-md-4">
+                        <select id="courses" name="courses" class="form-control" value="<?php echo htmlspecialchars($courses); ?>">
+                            <option value="" selected="selected">--- Select a Course's Name ---</option>
+                            <?php echo $courseTeaching->getCourseName();?>
+                        </select>
+                    </div>
+                </div>
 
 
 

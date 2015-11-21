@@ -7,7 +7,8 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-require("../lib/sqlQueries.php");
+
+require("../lib/newGrantProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
@@ -22,7 +23,7 @@ if(!isset($_SESSION["manager"]))
 <?php require("headerManagement.php");?>
 
 <body>
-<div class="container-fluid bg-info" style="height: 1500px">
+<div class="container-fluid bg-info" style="height: 900px">
     <div id="navigation">
         <div class="row">
             <?php require("navigationManagement.php"); ?>
@@ -31,7 +32,55 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Grant Information Form</div>
         <div class="panel-body">
-            <form id="" class="form-horizontal" role="form" method="post" action="">
+            <form id="grantInformationForm" class="form-horizontal" role="form" method="post" action="../lib/newGrantSQLProcess.php">
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="professorName">Professor's Name :</label>
+                    <div class="col-md-4">
+                        <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
+                            <option value="" selected="selected">--- Select a Professor's Name ---</option>
+                            <?php echo $newGrant->getProfessorName();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="grantName" class="col-md-2 control-label">Grant Name :</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="grantName" name="grantName" placeholder="Enter Grant Name" value="<?php echo htmlspecialchars($grantName); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="grantAmount" class="col-md-2 control-label">Grant Name :</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="grantAmount" name="grantAmount" placeholder="Enter Grant Amount" value="<?php echo htmlspecialchars($grantAmount); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="eventYear" class="col-md-2 control-label">Event Year :</label>
+                    <div class="col-md-3 date">
+                        <div class="input-group input-append date" id="eventFormYear">
+                            <input id="eventYear" name="eventYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($year); ?>"/>
+                            <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="researchName">Research's Name :</label>
+                    <div class="col-md-4">
+                        <select id="researchName" name="researchName" class="form-control" value="<?php echo htmlspecialchars($researchName); ?>">
+                            <option value="" selected="selected">--- Select a Research's Name ---</option>
+                            <?php echo $newGrant->getResearchName();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="studentName" class="col-md-2 control-label">Student Name :</label>
+                    <div class="col-md-4">
+                        <select id="studentName" name="studentName" class="form-control" value="<?php echo htmlspecialchars($studentName); ?>" >
+                            <option value="" selected="selected">--- Select a Student ---</option>
+                            <?php echo $newGrant->getStudentName();?>
+                        </select>
+                    </div>
+                </div>
 
 
 
@@ -59,7 +108,14 @@ if(!isset($_SESSION["manager"]))
 <!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
 <script src="../js/functions.js"></script>
-
+<?php
+if($_SESSION['success']){
+    echo '<script> $("#eventForm").addClass("hidden");
+            $("#submission").addClass("hidden");
+            $("#confirmation").removeClass("hidden");</script>';
+    $_SESSION['success'] = false;
+}
+?>
 </body>
 
 

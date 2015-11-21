@@ -271,13 +271,13 @@ class AdminSystem
 
 
     //////////////////////////////
-    //GET Course Name
+    //GET Professor Name
     //////////////////////////////
 
-    public function getCourseName()
+    public function getProfessorName()
     {
-        $courseNames='';
-        $sql="SELECT * FROM Courses ORDER BY courseName ASC";
+        $professorNames='';
+        $sql="SELECT * FROM Professor ORDER BY professorName ASC";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -288,7 +288,64 @@ class AdminSystem
         }
         foreach($records as $result)
         {
-            $courses=$result->courseName;
+            $names=$result->professorName;
+            $professorNames.='<option>'.$names.'</option>';
+
+        }
+
+        return $professorNames;
+
+    }
+
+    //////////////////////////////
+    //GET Research Name
+    //////////////////////////////
+
+    public function getResearchName()
+    {
+        $researchNames='';
+        $sql="SELECT * FROM Research ORDER BY researchName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $names=$result->researchName;
+            $researchNames.='<option>'.$names.'</option>';
+
+        }
+
+        return $researchNames;
+
+    }
+
+
+    //////////////////////////////
+    //GET Course Name
+    //////////////////////////////
+
+    public function getCourseName()
+    {
+        $courseNames='';
+        $sql="SELECT * FROM Course ORDER BY courseName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $courseName = $result->courseName;
+            $courseCode = $result->courseNameCode;
+            $courses = $courseName.' '.$courseCode;
             $courseNames.='<option>'.$courses.'</option>';
         }
 
