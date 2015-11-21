@@ -31,15 +31,15 @@ require("lib/config.php");
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-md-2 col-xs-offset-2 control-label">PassWord :</label>
+                    <label for="password" class="col-md-2 col-xs-offset-2 control-label">Password :</label>
                     <div class="col-md-4">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="PassWord" value="">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="confirm_password" class="col-md-2 col-xs-offset-2 control-label">Confirm PassWord :</label>
+                    <label for="confirm_password" class="col-md-2 col-xs-offset-2 control-label">Confirm Password :</label>
                     <div class="col-md-4">
-                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="PassWord Confirmation" value="">
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Password Confirmation" value="">
                     </div>
                 </div>
                 <div class="form-group">

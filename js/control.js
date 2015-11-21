@@ -1318,7 +1318,105 @@ var j = jQuery.noConflict();
             }
         });
 
+        // Research Form validation
+        j("#startDatePicker")
+            .datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            }).on("changeDate show", function() {
+                // Revalidate the date field
+                j("#researchForm").bootstrapValidator("revalidateField", "researchStartDate");
+            });
 
+        j("#endDatePicker")
+            .datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            }).on("changeDate show", function() {
+                // Revalidate the date field
+                j("#researchForm").bootstrapValidator("revalidateField", "researchEndDate");
+            });
 
+        var validator = j("#researchForm").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newResearchSQLProcess.php",
+                    data: $('#coursesTeaching').serialize(),
+                    success: function(msg){
+                        j("#coursesTeaching").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                researchName: {
+                    message: "Research Title is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Research Title"
+                        }
+                    }
+                },
+                studentName: {
+                    message: "Student Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Student's Name"
+                        }
+                    }
+                },
+                professorName: {
+                    message: "Professor Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's Name"
+                        }
+                    }
+                },
+                grantName: {
+                    message: "Grant Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Grant Name"
+                        }
+                    }
+                },
+                researchStartDate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The start date is required'
+                        },
+                        date: {
+                            format: 'MM/DD/YYYY',
+                            message: 'The start date is not a valid'
+                        }
+                    }
+                },
+                researchEndDate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The end date is required'
+                        },
+                        date: {
+                            format: 'MM/DD/YYYY',
+                            message: 'The end date is not a valid'
+                        }
+                    }
+                }
+            }
+        });
 
     });

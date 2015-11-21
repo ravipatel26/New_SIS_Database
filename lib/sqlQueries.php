@@ -15,15 +15,15 @@ class AdminSystem
 
     public function __construct()
     {
-//        $dbHost = "ykc353_2.encs.concordia.ca";
-//        $dbName = "ykc353_2";
-//        $dbUsername = "ykc353_2";
-//        $dbPass = "hello007";
-
-        $dbHost = "localhost";
+        $dbHost = "ykc353_2.encs.concordia.ca";
         $dbName = "ykc353_2";
-        $dbUsername = "root";
-        $dbPass = "";
+        $dbUsername = "ykc353_2";
+        $dbPass = "hello007";
+
+//        $dbHost = "localhost";
+//        $dbName = "ykc353_2";
+//        $dbUsername = "root";
+//        $dbPass = "";
 
         $this->connect=mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
         mysqli_select_db($this->connect,$dbName) or die ("Can not use the database");

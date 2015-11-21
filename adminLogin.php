@@ -15,7 +15,7 @@ require("lib/sqlQueries.php");
 if(isset($_SESSION["manager"]))
 {
     //already logged in so go back to desired page
-    header("location:/management/adminHome.php");
+    header("location:/comp353/management/adminHome.php");
     exit();
 }
 ?>
@@ -43,7 +43,7 @@ if(isset($_SESSION["manager"]))
                 <div class="form-group">
                     <label for="password" class="col-md-2 col-xs-offset-2 control-label">Password :</label>
                     <div class="col-md-4">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="PassWord" value="">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="">
                     </div>
                 </div>
                 <div class="row text-center">
