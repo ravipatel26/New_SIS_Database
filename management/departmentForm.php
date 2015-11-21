@@ -22,16 +22,28 @@ if(!isset($_SESSION["manager"]))
 <?php require("headerManagement.php");?>
 
 <body>
-<div class="container-fluid bg-info" style="height: 1500px">
+<div class="container-fluid bg-info" style="height: 900px">
     <div id="navigation">
         <div class="row">
             <?php require("navigationManagement.php"); ?>
         </div>
     </div>
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
-        <div class="panel-heading h2 text-center">Boards Information Form</div>
+        <div class="panel-heading h2 text-center">Departments Form</div>
         <div class="panel-body">
-            <form id="" class="form-horizontal" role="form" method="post" action="">
+            <form id="departmentForm" class="form-horizontal" role="form" method="post" action="">
+                    <div class="form-group">
+                        <label for="deptName" class="col-sm-5 control-label">Department Name :</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="deptName" name="deptName" placeholder="Department Name" value="<?php echo htmlspecialchars($deptName); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="deptPhone" class="col-sm-5 control-label">Department Phone # :</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="deptPhone" name="deptPhone" placeholder="Department Phone #" value="<?php echo htmlspecialchars($deptPhone); ?>">
+                        </div>
+                    </div>
 
 
 

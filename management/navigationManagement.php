@@ -53,7 +53,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                          </ul>
                       </li>
                       <li><a href="reviewsInformationForm.php">Reviews Info</a></li>
-					  <li><a href="boardsInformationForm.php">Boards Info</a></li>
+					  <li><a href="departmentForm.php">Departments Info</a></li>
 					  <li><a href="../admin/logout.php">Logout</a></li>
                                         </ul>
                </div>

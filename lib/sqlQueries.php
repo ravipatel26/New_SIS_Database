@@ -355,6 +355,62 @@ class AdminSystem
 
 
     //////////////////////////////
+    //GET Editorial Board Name
+    //////////////////////////////
+
+    public function getEditorialBoardName()
+    {
+        $editorialBoardNames='';
+        $sql="SELECT * FROM editorialBoard ORDER BY boardName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $editorialBoardName = $result->boardName;
+
+            $editorialBoardNames.='<option>'.$editorialBoardName.'</option>';
+        }
+
+        return $editorialBoardNames;
+
+    }
+
+
+    //////////////////////////////
+    //GET Journal Name
+    //////////////////////////////
+
+    public function getJournalName()
+    {
+        $journalNames='';
+        $sql="SELECT * FROM editorialBoard ORDER BY boardName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $journalName = $result->journalName;
+
+            $journalNames.='<option>'.$journalName.'</option>';
+        }
+
+        return $journalNames;
+
+    }
+
+
+    //////////////////////////////
     //GET COUNTRIES
     //////////////////////////////
 

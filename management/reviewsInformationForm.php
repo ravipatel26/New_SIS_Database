@@ -7,7 +7,7 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-require("../lib/sqlQueries.php");
+require("../lib/reviewProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
@@ -22,7 +22,7 @@ if(!isset($_SESSION["manager"]))
 <?php require("headerManagement.php");?>
 
 <body>
-<div class="container-fluid bg-info" style="height: 1500px">
+<div class="container-fluid bg-info" style="height: 900px">
     <div id="navigation">
         <div class="row">
             <?php require("navigationManagement.php"); ?>
@@ -31,7 +31,31 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Reviews Information Form</div>
         <div class="panel-body">
-            <form id="" class="form-horizontal" role="form" method="post" action="">
+            <form id="reviewInformation" class="form-horizontal" role="form" method="post" action="">
+                <div class="form-group">
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="editorialBoardName">Editorial Boards's Name :</label>
+                    <div class="col-md-4">
+                        <select id="editorialBoardName" name="editorialBoardName" class="form-control" value="<?php echo htmlspecialchars($editorialBoardName); ?>">
+                            <option value="" selected="selected">--- Select a Editorial Boards's Name ---</option>
+                            <?php echo $review->getEditorialBoardName();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="journalName">Journal Name :</label>
+                    <div class="col-md-4">
+                        <select id="journalName" name="journalName" class="form-control" value="<?php echo htmlspecialchars($journalName); ?>">
+                            <option value="" selected="selected">--- Select a Journal's Name ---</option>
+                            <?php echo $review->getEditorialBoardName();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="journalYear" class="col-md-2 col-xs-offset-2 control-label">Journal Year :</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="journalYear" name="journalYear" placeholder="Journal Year" value="<?php echo htmlspecialchars($journalYear); ?>">
+                    </div>
+                </div>
 
 
 
