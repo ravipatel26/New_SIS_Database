@@ -49,8 +49,9 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="grantAmount" class="col-md-2 control-label">Grant Name :</label>
-                    <div class="col-md-4">
+                    <label for="grantAmount" class="col-md-2 control-label">Grant Amount :</label>
+                    <div class="input-group col-md-3">
+                        <div class="input-group-addon">$</div>
                         <input type="text" class="form-control" id="grantAmount" name="grantAmount" placeholder="Enter Grant Amount" value="<?php echo htmlspecialchars($grantAmount); ?>">
                     </div>
                 </div>

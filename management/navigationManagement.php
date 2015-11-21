@@ -33,10 +33,22 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                            <li class="divider"></li>
                            <li><a href="coursesTeaching.php">Courses Teaching</a></li>
                            <li class="divider"></li>
+                           <li><a href="researchForms.php">Research</a></li>
+                           <li class="divider"></li>
                          </ul>
                       </li>
                       <li><a href="courseInformationForm.php">Courses Info</a></li>
-					  <li><a href="grantsInformationForm.php">Grants Info</a></li>
+					  <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                           Grant Info<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                           <li><a href="grantsInformationForm.php">Grants Info</a></li>
+                           <li class="divider"></li>
+                           <li><a href="grantUsedForm.php">Grant Usage Information</a></li>
+                           <li class="divider"></li>
+                         </ul>
+                      </li>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                            Services<b class="caret"></b>
