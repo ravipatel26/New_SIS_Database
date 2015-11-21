@@ -9,7 +9,7 @@ ob_start();
 
 <?php
 
-$studentName = $courses = $editorialBoardName = $journalName = $journalYear = '';
+$studentName = $courses = $departement = $courseYear = '';
 
 echo print_r($_POST);
 
@@ -22,22 +22,12 @@ if (isset($_POST['submit'])) {
     if (isset($_POST['courses'])) {
         $courses = $_POST['courses'];
     }
-    if (isset($_POST['assignments'])) {
-        $assignments = $_POST['assignments'];
+    if (isset($_POST['department'])) {
+        $departement = $_POST['department'];
     }
-    if (isset($_POST['projects'])) {
-        $projects = $_POST['projects'];
+    if (isset($_POST['courseYear'])) {
+        $courseYear = $_POST['courseYear'];
     }
-    if (isset($_POST['midTerms'])) {
-        $midTerms = $_POST['midTerms'];
-    }
-    if (isset($_POST['finalExams'])) {
-        $finalExams = $_POST['finalExams'];
-    }
-    if (isset($_POST['finalLetterGrades'])) {
-        $finalLetterGrades = $_POST['finalLetterGrades'];
-    }
-
 
 }
 

@@ -7,7 +7,7 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-require("../lib/courseTakenProcess.php");
+require("../lib/studentGradeProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
@@ -31,13 +31,13 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Student Grades</div>
         <div class="panel-body">
-            <form id="courseTaken" class="form-horizontal" role="form" method="post" action="courseTakenSQL.php">
+            <form id="studenGrades" class="form-horizontal" role="form" method="post" action="../lib/studentGradesSQLProcess.php">
                 <div class="form-group">
                     <label for="studentName" class="col-md-2 control-label">Student Name :</label>
                     <div class="col-md-4">
                         <select id="studentName" name="studentName" class="form-control" value="<?php echo htmlspecialchars($studentName); ?>">
                             <option value="" selected="selected">--- Select a Student ---</option>
-                            <?php echo $courseTaken->getStudentName();?>
+                            <?php echo $studentGrades->getStudentName();?>
                         </select>
                     </div>
                 </div>
@@ -46,8 +46,37 @@ if(!isset($_SESSION["manager"]))
                     <div class="col-md-4">
                         <select id="courses" name="courses" class="form-control" value="<?php echo htmlspecialchars($courses); ?>">
                             <option value="" selected="selected">--- Select a Course ---</option>
-                            <?php echo $courseTaken->getCourseName();?>
+                            <?php echo $studentGrades->getCourseName();?>
                         </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="department" class="col-md-2 control-label">Department Name :</label>
+                    <div class="col-md-4">
+                        <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>">
+                            <option value="" selected="selected">--- Select a Department ---</option>
+                            <?php echo $studentGrades->getDepartmentName();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="semester">Semester :</label>
+                    <div class="col-md-4">
+                        <select id="semester" name="semester" class="form-control" value="<?php echo htmlspecialchars($semester); ?>">
+                            <option value="" selected="selected">--- Select a Semester ---</option>
+                            <option value="summer">Summer</option>
+                            <option value="fall">Fall</option>
+                            <option value="winter">Winter</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="courseYear" class="col-md-2 control-label">Academic Year :</label>
+                    <div class="col-md-3 date">
+                        <div class="input-group input-append date" id="studentGradesFormYear">
+                            <input id="courseYear" name="courseYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($courseYear); ?>"/>
+                            <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">

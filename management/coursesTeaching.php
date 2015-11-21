@@ -53,10 +53,10 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="eventYear" class="col-md-2 control-label">Event Year :</label>
+                    <label for="teachYear" class="col-md-2 control-label">Academic Year :</label>
                     <div class="col-md-3 date">
-                        <div class="input-group input-append date" id="eventFormYear">
-                            <input id="eventYear" name="eventYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($year); ?>"/>
+                        <div class="input-group input-append date" id="coursesTeachingFormYear">
+                            <input id="teachYear" name="teachYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($year); ?>"/>
                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ if(!isset($_SESSION["manager"]))
 <!--<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
-<<script src="../js/functions.js"></script>
+<script src="../js/functions.js"></script>
 <?php
 if($_SESSION['success']){
     echo '<script> $("#eventForm").addClass("hidden");

@@ -55,6 +55,15 @@ $courses = $courseTaken->getCoursesNameTaken($depID);
                         </select>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="courseYear" class="col-md-2 control-label">Academic Year :</label>
+                    <div class="col-md-3 date">
+                        <div class="input-group input-append date" id="courseYearFormYear">
+                            <input id="courseYear" name="courseYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($courseYear); ?>"/>
+                            <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label for="course" class="col-md-2 control-label">Course Name :</label>
@@ -62,6 +71,7 @@ $courses = $courseTaken->getCoursesNameTaken($depID);
                         <?php echo $courses;?>
                     </div>
                 </div>
+
 
 <!--                submit and reset buttons-->
                 <div class="row text-center">

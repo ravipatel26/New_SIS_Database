@@ -243,7 +243,7 @@ var j = jQuery.noConflict();
                     message : "First name is required",
                     validators : {
                         notEmpty : {
-                            message : "Please provide a student first name"
+                            message : "Please provide a Professor's first name"
                         },
                         regexp: {
                             regexp: /^[a-z\s]+$/i,
@@ -255,7 +255,7 @@ var j = jQuery.noConflict();
                     message : "Last name is required",
                     validators : {
                         notEmpty : {
-                            message : "Please provide a student last name"
+                            message : "Please provide a Professor's last name"
                         },
                         regexp: {
                             regexp: /^[a-z\s]+$/i,
@@ -293,12 +293,12 @@ var j = jQuery.noConflict();
                 professorNumber : {
                     validators:{
                         notEmpty:{
-                            message: "Please enter a studentNumber."
+                            message: "Please enter a Professor's employee Number."
                         },
                         stringLength: {
                             min : 8,
                             max: 8,
-                            message: "Student number must be 8 digits long"
+                            message: "Professor's employee number must be 8 digits long"
                         },
                         integer: {
                             message: 'Please enter only digits.'
@@ -308,7 +308,7 @@ var j = jQuery.noConflict();
                 department : {
                     validators:{
                         notEmpty:{
-                            message: "Please enter a student department."
+                            message: "Please enter a Professor's department."
                         }
                     }
                 }
@@ -880,6 +880,18 @@ var j = jQuery.noConflict();
             }
         });
 
+
+
+        j("#courseYearFormYear")
+            .datepicker({
+                format: 'yyyy',
+                viewMode: "years",
+                minViewMode: "years",
+                autoclose: true
+            }).on("changeDate show", function(e) {
+            // Revalidate the date field
+            j("#courseTaken").bootstrapValidator("revalidateField", "courseYear");
+        });
         var validator = j("#courseTaken").bootstrapValidator({
             feedbackIcons: {
                 valid: "glyphicon glyphicon-ok",
@@ -921,6 +933,109 @@ var j = jQuery.noConflict();
                         }
                     }
                 },
+                courseYear:{
+                    message : "The year is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the year for the course taken."
+                        },
+                        integer: {
+                            message: 'The year must be numbers (ex. 2015)'
+                        },
+                        stringLength: {
+                            min: 4,
+                            max: 4,
+                            message: "The year must have 4 digits."
+                        }
+                    }
+                }
+            }
+        });
+
+
+        j("#studentGradesFormYear")
+            .datepicker({
+                format: 'yyyy',
+                viewMode: "years",
+                minViewMode: "years",
+                autoclose: true
+            }).on("changeDate show", function(e) {
+            // Revalidate the date field
+            j("#studenGrades").bootstrapValidator("revalidateField", "courseYear");
+        });
+        var validator = j("#studenGrades").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/studentGradesSQLProcess.php",
+                    data: $('#studenGrades').serialize(),
+                    success: function(msg){
+                        j("#studenGrades").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                studentName: {
+                    message: "Student Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Student's Name"
+                        }
+                    }
+                },
+                courses: {
+                    message: "Course Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Course's Name"
+                        }
+                    }
+                },
+                department:{
+                    message : "The department is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the Department"
+                        }
+                    }
+                },
+                semester:{
+                    message : "Semester grade is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide Semester."
+                        }
+                    }
+                },
+                courseYear:{
+                    message : "The year is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the year for the course taken."
+                        },
+                        integer: {
+                            message: 'The year must be numbers (ex. 2015)'
+                        },
+                        stringLength: {
+                            min: 4,
+                            max: 4,
+                            message: "The year must have 4 digits."
+                        }
+                    }
+                },
                 asignements:{
                     message : "Assginements grade is required",
                     validators : {
@@ -959,14 +1074,6 @@ var j = jQuery.noConflict();
                     validators : {
                         notEmpty : {
                             message : "Please provide the Final Letter grade."
-                        }
-                    }
-                },
-                department:{
-                    message : "The department is required",
-                    validators : {
-                        notEmpty : {
-                            message : "Please provide the Department"
                         }
                     }
                 }
@@ -1035,6 +1142,84 @@ var j = jQuery.noConflict();
             }
         });
 
+        j("#coursesTeachingFormYear")
+            .datepicker({
+                format: 'yyyy',
+                viewMode: "years",
+                minViewMode: "years",
+                autoclose: true
+            }).on("changeDate show", function(e) {
+            // Revalidate the date field
+            j("#coursesTeaching").bootstrapValidator("revalidateField", "teachYear");
+        });
+
+        var validator = j("#coursesTeaching").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/courseTeachingSQLProcess.php",
+                    data: $('#coursesTeaching').serialize(),
+                    success: function(msg){
+                        j("#coursesTeaching").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                professorName: {
+                    message: "Professor's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's Name"
+                        }
+                    }
+                },
+                courses: {
+                    message: "Course Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Course's Name"
+                        }
+                    }
+                },
+                semester:{
+                    message : "Semester grade is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide Semester."
+                        }
+                    }
+                },
+                teachYear:{
+                    message : "The year is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the year for the course teached."
+                        },
+                        integer: {
+                            message: 'The year must be numbers (ex. 2015)'
+                        },
+                        stringLength: {
+                            min: 4,
+                            max: 4,
+                            message: "The year must have 4 digits."
+                        }
+                    }
+                }
+            }
+        });
 
 
 
