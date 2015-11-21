@@ -41,7 +41,7 @@ if(isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-md-2 col-xs-offset-2 control-label">PassWord :</label>
+                    <label for="password" class="col-md-2 col-xs-offset-2 control-label">Password :</label>
                     <div class="col-md-4">
                         <input type="password" class="form-control" id="password" name="password" placeholder="PassWord" value="">
                     </div>
