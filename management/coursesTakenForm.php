@@ -31,6 +31,7 @@ $courses = $courseTaken->getCoursesNameTaken($depID);
         </div>
     </div>
 
+
     <div class="panel panel-default col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Courses Taken</div>
         <div class="panel-body">
@@ -49,6 +50,7 @@ $courses = $courseTaken->getCoursesNameTaken($depID);
                     <label for="department" class="col-md-2 control-label">Department Name :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="department" name="department" value="<?php echo $deptName;?>" readonly>
+
                     </div>
                 </div>
 
@@ -96,7 +98,6 @@ if($_SESSION['success']){
 ?>
 
 </body>
-
 
 
 <script src="../js/control.js"></script>

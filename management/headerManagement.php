@@ -21,13 +21,10 @@ $html = <<<eob
     <!-- BootstrapValidator CSS -->
     <link href="../css/bootstrapValidator.min.css" rel="stylesheet"/>
 
-
-    <link href="../css/general.css" rel="stylesheet" type="text/css">
-    <link href="../css/navColor.css" rel="stylesheet" type="text/css">
+    <link href="../css/select2.min.css" rel="stylesheet" />
 
     <!-- jQuery and Bootstrap JS -->
     <script src="../js/jquery.min.js" type="text/javascript"></script>
-
 
     <!-- BootstrapValidator -->
     <script src="../js/bootstrapValidator.min.js" type="text/javascript"></script>
@@ -39,6 +36,8 @@ $html = <<<eob
     <script src="../js/bootstrap-datepicker.min.js"></script>
     <script src="../js/formValidation.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+
+    <script src="../js/select2.min.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="../js/html5shiv.min.js"></script>
