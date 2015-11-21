@@ -60,7 +60,7 @@ if(!isset($_SESSION["manager"]))
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="year" class="col-md-2 col-xs-offset-2 control-label">Event Year :</label>
+                        <label for="eventYear" class="col-md-2 col-xs-offset-2 control-label">Event Year :</label>
                         <div class="col-md-3 date">
                             <div class="input-group input-append date" id="eventFormYear">
                                 <input id="eventYear" name="eventYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($year); ?>"/>

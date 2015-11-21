@@ -21,9 +21,9 @@ var j = jQuery.noConflict();
                 format: 'mm/dd/yyyy',
                 autoclose: true
             }).on("changeDate show", function() {
-            // Revalidate the date field
-            j("#studentInforamtion").bootstrapValidator("revalidateField", "birthDate");
-        });
+                // Revalidate the date field
+                j("#studentInforamtion").bootstrapValidator("revalidateField", "birthDate");
+            });
 
         var validator = j("#studentInforamtion").bootstrapValidator({
             feedbackIcons: {
@@ -627,6 +627,16 @@ var j = jQuery.noConflict();
         });
 
 
+        j("#committeeFormYear")
+            .datepicker({
+                format: 'yyyy',
+                viewMode: "years",
+                minViewMode: "years",
+                autoclose: true
+            }).on("changeDate show", function(e) {
+            // Revalidate the date field
+            j("#techCommitteeName").bootstrapValidator("revalidateField", "committeeYear");
+        });
 
         var validator = j("#techCommitteeName").bootstrapValidator({
             feedbackIcons: {
@@ -677,7 +687,7 @@ var j = jQuery.noConflict();
                         }
                     }
                 },
-                year:{
+                committeeYear:{
                     message : "The year is required",
                     validators : {
                         notEmpty : {

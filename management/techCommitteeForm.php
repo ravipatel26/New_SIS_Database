@@ -50,9 +50,12 @@ if(!isset($_SESSION["manager"]))
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="year" class="col-md-3 col-xs-offset-1 control-label">Member Since (Year) :</label>
-							<div class="col-md-4">
-								<input type="text" class="form-control" id="year" name="year" placeholder="Year" value="<?php echo htmlspecialchars($memberSinceYear); ?>">
+							<label for="committeeYear" class="col-md-3 col-xs-offset-1 control-label">Member Since (Year) :</label>
+							<div class="col-md-3 date">
+								<div class="input-group input-append date" id="committeeFormYear">
+									<input id="committeeYear" name="committeeYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($year); ?>"/>
+									<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
 							</div>
 						</div>
 						<div class="row text-center">
