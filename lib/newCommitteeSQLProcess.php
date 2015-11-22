@@ -9,26 +9,31 @@ ob_start();
 
 <?php
 
-$result = $profFirstName = $profLastName = $techCommitteeName = $eventType = $memberSinceYear = '';
+$committeeName = $professorId = $academicYear = '';
+
+$newCommittee = new AdminSystem();
 
 echo print_r($_POST);
 
-if (isset($_POST['submit'])) {
-
-
-    if (isset($_POST['profFirstName'])) {
-        $profFirstName = $_POST['profFirstName'];
+    if (isset($_POST['committeeName'])) {
+        $committeeName = $_POST['committeeName'];
     }
-    if (isset($_POST['profLastName'])) {
-        $profLastName = $_POST['profLastName'];
+    if (isset($_POST['professorName'])) {
+        $professorId = $_POST['professorName'];
     }
-    if (isset($_POST['techCommitteeName'])) {
-        $techCommitteeName = $_POST['techCommitteeName'];
-    }
-    if (isset($_POST['memberSinceYear'])) {
-        $memberSinceYear = $_POST['memberSinceYear'];
+    if (isset($_POST['academicYear'])) {
+        $academicYear = $_POST['academicYear'];
     }
 
+echo '<br/>'.$committeeName.'   '.$professorId.'   '.$academicYear;
 
-}
+$_SESSION['success'] = false;
+$query = "INSERT INTO services (professorId, serviceName, year) VALUES ( '$professorId', '$committeeName', '$academicYear')";
+
+$newCommittee->addNewService($query);
+
+$_SESSION['success'] = true;
+header("Location: ../management/grantsInformationForm.php");
+
+
 ?>

@@ -9,13 +9,13 @@ ob_start();
 
 <?php
 # Professor info
-$professorName = $grantName = $grantAmount = $grantYear = $department = $researchName = $studentName = '';
+$professorId = $grantName = $grantAmount = $grantYear = $department = $researchId = $studentName = '';
 
 $newGrant = new AdminSystem();
 
-if(isset($_POST['submit'])) var_dump($_POST);
+var_dump($_POST);
 
-$professorName = $newGrant->escape($_POST['professorName']);
+$professorId = $newGrant->escape($_POST['professorName']);
 
 $grantName = $_POST['grantName'];
 $grantName = $newGrant->escape($grantName);
@@ -26,37 +26,24 @@ $grantAmount = $newGrant->escape($grantAmount);
 $grantYear = $_POST['grantYear'];
 $grantYear = $newGrant->escape($grantYear);
 
-$researchName = $_POST['researchName'];
-$researchName = $newGrant->escape($researchName);
+$researchId = $_POST['researchName'];
 
 $studentName = $_POST['studentName'];
 $studentName = $newGrant->escape($studentName);
-
+$tudentId = $newGrant->getStudentID($studentName);
 echo print_r($_POST).'</br>';
 
-$professorId = 0;
+
+
+echo '<br/>'.$professorId.'/'.$grantName.'/'.$grantAmount.'/'.$grantYear.'/'.$researchId.'/'.$studentName.'/'.$tudentId;
+
 $_SESSION['success'] = false;
+$query = "INSERT INTO grants (studentId, professorId, researchId, grantAmount,year, grantName) VALUES ( '$tudentId', '$professorId', '$researchId', '$grantAmount', '$grantYear','$grantName')";
 
-$query = "INSERT INTO professor (professorName, professorNumber, professorEmail, professorPhone,deptId) VALUES ( '$name', '$professNumber', '$email', '$phoneNumber', '$deptId')";
+$newGrant->addNewGrant($query);
 
-$professorId=$newGrant->addNewProfessor($query);
-
-//if(!empty($level)){
-//    $query = "INSERT INTO GraduateStudent (studentId, studentLevel, currentPosition) VALUES ('$studentId', '$level', '$position')";
-//    $newGrant->addGraduateStudent($query);
-//}
-//
-//
-//if(!empty($summer)){
-//    $query = "INSERT INTO UnderGraduateStudent (studentId, summerStudent) VALUES ('$studentId', '$summer')";
-//    $newGrant->addUnderGraduateStudent($query);
-//}
-
-
-if($professorId>0){
     $_SESSION['success'] = true;
-    header("Location: ../management/studentForm.php");
-}
+    header("Location: ../management/grantsInformationForm.php");
 
 
 ?>

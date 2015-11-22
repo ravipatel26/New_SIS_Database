@@ -46,7 +46,7 @@ if(!isset($_SESSION["manager"]))
                     <div class="col-md-4">
                         <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
                             <option value="" selected="selected">--- Select a Professor's Name ---</option>
-                            <?php echo $committe->getProfessorName();?>
+                            <?php echo $committe->getProfessorNameId();?>
                         </select>
                     </div>
                 </div>
@@ -88,7 +88,7 @@ if(!isset($_SESSION["manager"]))
 <script src="../js/functions.js"></script>
 <?php
 if($_SESSION['success']){
-    echo '<script> $("#eventForm").addClass("hidden");
+    echo '<script> $("#servicesInfoForm").addClass("hidden");
             $("#submission").addClass("hidden");
             $("#confirmation").removeClass("hidden");</script>';
     $_SESSION['success'] = false;

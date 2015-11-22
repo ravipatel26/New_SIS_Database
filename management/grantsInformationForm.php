@@ -38,7 +38,7 @@ if(!isset($_SESSION["manager"]))
                     <div class="col-md-4">
                         <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
                             <option value="" selected="selected">--- Select a Professor's Name ---</option>
-                            <?php echo $newGrant->getProfessorName();?>
+                            <?php echo $newGrant->getProfessorNameId();?>
                         </select>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ if(!isset($_SESSION["manager"]))
                     <div class="col-md-4">
                         <select id="researchName" name="researchName" class="form-control" value="<?php echo htmlspecialchars($researchName); ?>">
                             <option value="" selected="selected">--- Select a Research's Name ---</option>
-                            <?php echo $newGrant->getResearchName();?>
+                            <?php echo $newGrant->getResearchNameId();?>
                         </select>
                     </div>
                 </div>
@@ -100,9 +100,12 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
             </form>
-
+        </div>
+        <div id="confirmation" class="alert alert-success hidden">
+            <span class="glyphicon glyphicon-star"></span>Information successfully entered!
         </div>
     </div>
+
 
 
 </div>
@@ -113,7 +116,7 @@ if(!isset($_SESSION["manager"]))
 <script src="../js/functions.js"></script>
 <?php
 if($_SESSION['success']){
-    echo '<script> $("#eventForm").addClass("hidden");
+    echo '<script> $("#grantInformationForm").addClass("hidden");
             $("#submission").addClass("hidden");
             $("#confirmation").removeClass("hidden");</script>';
     $_SESSION['success'] = false;

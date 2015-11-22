@@ -33,12 +33,6 @@ if(!isset($_SESSION["manager"]))
         <div class="panel-body">
             <form id="grantUsage" class="form-horizontal" role="form" method="post" action="../lib/grantUsageSQLProcess.php">
                 <div class="form-group">
-                    <label for="grantName" class="col-md-2 control-label">Grant Name :</label>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="grantName" name="grantName" placeholder="Enter Grant Name" value="<?php echo htmlspecialchars($grantName); ?>">
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="col-md-2 control-label" for="grantName">Grant Name :</label>
                     <div class="col-md-4">
                         <select id="grantName" name="grantName" class="form-control" value="<?php echo htmlspecialchars($grantName); ?>">
@@ -97,7 +91,7 @@ if(!isset($_SESSION["manager"]))
 <<script src="../js/functions.js"></script>
 <?php
 if($_SESSION['success']){
-    echo '<script> $("#eventForm").addClass("hidden");
+    echo '<script> $("#grantUsage").addClass("hidden");
             $("#submission").addClass("hidden");
             $("#confirmation").removeClass("hidden");</script>';
     $_SESSION['success'] = false;

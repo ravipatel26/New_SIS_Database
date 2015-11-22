@@ -98,8 +98,20 @@ class AdminSystem
 
     }
 
+    public function addNewGrant($sql)
+    {
+        $this->connect->query($sql);
 
-    //////////////////////////////
+    }
+
+    public function addNewService($sql)
+    {
+        $this->connect->query($sql);
+
+    }
+
+
+        //////////////////////////////
     //GET DEPARTEMENTS ID
     //////////////////////////////
     public function getDepartementID($department)
@@ -471,6 +483,32 @@ class AdminSystem
     //////////////////////////////
 
     public function getResearchName()
+{
+    $researchNames='';
+    $sql="SELECT * FROM research ORDER BY researchName ASC";
+    $results= mysqli_query($this->connect, $sql);
+    if($results->num_rows){
+        while ($row = $results->fetch_object()) {
+
+            $records[] = $row;
+
+        }
+    }
+    foreach($records as $result)
+    {
+        $names=$result->researchName;
+        $researchNames.='<option>'.$names.'</option>';
+
+    }
+
+    return $researchNames;
+
+}
+
+    //////////////////////////////
+    //GET Research Name id
+    //////////////////////////////
+    public function getResearchNameId()
     {
         $researchNames='';
         $sql="SELECT * FROM research ORDER BY researchName ASC";
@@ -485,7 +523,8 @@ class AdminSystem
         foreach($records as $result)
         {
             $names=$result->researchName;
-            $researchNames.='<option>'.$names.'</option>';
+            $id = $result->researchId;
+            $researchNames.='<option value="'.$id.'">'.$names.'</option>';
 
         }
 
@@ -648,7 +687,8 @@ public function getCountries()
         foreach($records as $result)
         {
             $grantNames=$result->grantName;
-            $grantName.='<option>'.$grantNames.'</option>';
+            $id = $result->grantId;
+            $grantName.='<option value="'.$id.'">'.$grantNames.'</option>';
         }
 
         return $grantName;
@@ -664,7 +704,7 @@ public function getCountries()
     public function getCommitteeName()
     {
         $committeeName ='';
-        $sql="SELECT * FROM services";
+        $sql="SELECT * FROM services ";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -675,16 +715,20 @@ public function getCountries()
         }else{
             $committeeName.='<option>C1</option>';
         }
+        $committeesId = 1;
         foreach($records as $result)
         {
-            $committees=$result->serviceName;
-            $committeesId = $result->serviceId;
-            if($committees!=1){
-                $committeesId++;
-                $committeeName.='<option>C'.$committeesId.'</option>';
-            }
 
+            $committees=$result->serviceName;
+            $Id = $result->serviceId;
+            if($Id==$committeesId){
+                $committeeName.='<option>'.$committees.'</option>';
+                ++$committeesId;
+            }
         }
+
+        $committeeName.='<option>C'.$committeesId.'</option>';
+
 
         return $committeeName;
 
