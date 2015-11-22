@@ -16,9 +16,7 @@ if(!isset($_SESSION["manager"]))
     exit();
 }
 ?>
-<?php
-$courses = $courseTaken->getCoursesNameTaken($depID);
-?>
+
 <!DOCTYPE html>
 <html>
 <?php require("headerManagement.php");?>
