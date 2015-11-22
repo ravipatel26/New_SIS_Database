@@ -68,13 +68,13 @@ $courses = $courseTaken->getCoursesNameTaken($depID);
                 <div id="encsCourses" class="form-group">
                     <label for="course" class="col-md-2 control-label">ENCS Course Names :</label>
                     <div class="col-md-4">
-                        <?php echo $courses;?>
+                        <?php echo $courseTaken->getCoursesTaken('ENCS');?>
                     </div>
                 </div>
                 <div id="compCourses" class="form-group">
                     <label for="course" class="col-md-2 control-label">COMP Course Names :</label>
                     <div class="col-md-4">
-                        <?php echo $courses;?>
+                        <?php echo $courseTaken->getCoursesTaken('COMP');?>
                     </div>
                 </div>
                 <div id="otherDepartments" class="form-group bg-warning">

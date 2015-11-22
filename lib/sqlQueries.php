@@ -193,7 +193,7 @@ class AdminSystem
     {
         $departmentID = $this->getDepartementID($departmentName);
         $coursesNames='';
-        $sql="SELECT courseName FROM courses WHERE deptId = '$departmentID'";
+        $sql="SELECT courseName, courseNameCode FROM course WHERE deptId = $departmentID";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -204,8 +204,11 @@ class AdminSystem
         }
         foreach($records as $result)
         {
-            $names=$result->courseName;
-            $coursesNames.='<option>'.$names.'</option>';
+            $names = $result->courseName;
+            $courseCode = $result->courseNameCode;
+            $CourseName = $names.$courseCode;
+            $coursesNames.= '<label class="checkbox">'.
+                           '<input name="course[]" value="'.$CourseName.'" type="checkbox">'.$CourseName.'</label>';
 
         }
 
