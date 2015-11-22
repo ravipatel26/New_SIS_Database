@@ -960,6 +960,14 @@ var j = jQuery.noConflict();
                         }
                     }
 
+                },
+                semester:{
+                    message : "Semester grade is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide Semester."
+                        }
+                    }
                 }
             }
         });

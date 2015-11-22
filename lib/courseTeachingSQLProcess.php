@@ -9,36 +9,47 @@ ob_start();
 
 <?php
 
-$studentName = $courses = $editorialBoardName = $journalName = $journalYear = '';
+$professorId = $courses = $semester = $year = '';
+
+
+$courseTeaching = new AdminSystem();
 
 echo print_r($_POST);
+echo '<br/>';
 
-if (isset($_POST['submit'])) {
 
+    if (isset($_POST['professorName'])) {
+        $professorId = $_POST['professorName'];
 
-    if (isset($_POST['studentName'])) {
-        $studentName = $_POST['studentName'];
     }
     if (isset($_POST['courses'])) {
         $courses = $_POST['courses'];
+        list($courseName,$courseCode)=split(' ',$courses);
+
+        $courseId = $courseTeaching->getCourseID($courseName,$courseCode);
     }
-    if (isset($_POST['assignments'])) {
-        $assignments = $_POST['assignments'];
-    }
-    if (isset($_POST['projects'])) {
-        $projects = $_POST['projects'];
-    }
-    if (isset($_POST['midTerms'])) {
-        $midTerms = $_POST['midTerms'];
-    }
-    if (isset($_POST['finalExams'])) {
-        $finalExams = $_POST['finalExams'];
-    }
-    if (isset($_POST['finalLetterGrades'])) {
-        $finalLetterGrades = $_POST['finalLetterGrades'];
-    }
+    if (isset($_POST['semester'])) {
+        $semester = $_POST['semester'];
+        $semesterId = $courseTeaching->getSemesterID($semester);
 
 
-}
+    }
+    if (isset($_POST['teachYear'])) {
+        $year = $_POST['teachYear'];
+
+    }
+
+echo $professorId.'<br/>';
+echo $courseId.'<br/>'.$courseName.'<br/>'.$courseCode.'<br/>';
+echo $semesterId.'<br/>';
+echo $year.'<br/>';
+
+
+$query = "INSERT INTO teaching (professorId, courseId, semesterId, year) VALUES ('$professorId','$courseId','$semesterId','$year')";
+$courseTeaching->addCoursesTeaching($query);
+
+
+$_SESSION['success'] = true;
+header("Location: ../management/coursesTeaching.php");
 
 ?>

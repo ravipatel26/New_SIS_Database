@@ -74,7 +74,13 @@ class AdminSystem
 
     }
 
-    public function addCourses($sql)
+    public function addCoursesTaken($sql)
+    {
+        $this->connect->query($sql);
+
+    }
+
+    public function addCoursesTeaching($sql)
     {
         $this->connect->query($sql);
 
@@ -116,6 +122,29 @@ class AdminSystem
 
     }
 
+
+    //////////////////////////////
+    //GET Professor Teaching ID
+    //////////////////////////////
+    public function getProfessorIdTeaching($courseId, $semesterId, $year)
+    {
+        $sql="SELECT professorId FROM teaching WHERE courseId='$courseId' AND semesterId='$semesterId' AND year='$year'";
+        $results = mysqli_query($this->connect, $sql);
+        if ($results->num_rows) {
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+
+            foreach($records as $result)
+            {
+                $professorId = $result->professorId;
+            }
+            return $professorId;
+        }
+
+    }
 
     //////////////////////////////
     //GET DepartMent Name
@@ -205,7 +234,7 @@ class AdminSystem
     {
         $departmentID = $this->getDepartementID($departmentName);
         $coursesNames='';
-        $sql="SELECT courseName, courseNameCode FROM course WHERE deptId = $departmentID";
+        $sql="SELECT courseName, courseNameCode, courseId FROM course WHERE deptId = $departmentID";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -217,10 +246,11 @@ class AdminSystem
         foreach($records as $result)
         {
             $names = $result->courseName;
+            $courseId = $result->courseId;
             $courseCode = $result->courseNameCode;
-            $CourseName = $names.$courseCode;
+            $CourseName = $names.' '.$courseCode;
             $coursesNames.= '<label class="checkbox">'.
-                           '<input name="course[]" value="'.$CourseName.'" type="checkbox">'.$CourseName.'</label>';
+                           '<input id="course" name="course[]" value="'.$courseId.'" type="checkbox">'.$CourseName.'</label>';
 
         }
 
@@ -286,6 +316,103 @@ class AdminSystem
 
 
     //////////////////////////////
+    //GET course ID
+    //////////////////////////////
+    public function getCourseID($courseName,$code)
+    {
+        $sql="SELECT courseId FROM course WHERE courseName = '$courseName' AND courseNameCode = '$code'";
+        $results = mysqli_query($this->connect, $sql);
+        if ($results->num_rows) {
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+
+            foreach($records as $result)
+            {
+                $courseId = $result->courseId;
+            }
+            return $courseId;
+        }
+
+    }
+
+    //////////////////////////////
+    //GET student ID
+    //////////////////////////////
+    public function getStudentID($studentName)
+    {
+        $sql="SELECT studentId FROM student WHERE studentName='$studentName'";
+        $results = mysqli_query($this->connect, $sql);
+        if ($results->num_rows) {
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+
+            foreach($records as $result)
+            {
+                $studentID = $result->studentId;
+            }
+            return $studentID;
+        }
+
+    }
+
+    //////////////////////////////
+    //GET semester ID
+    //////////////////////////////
+    public function getSemesterID($semester)
+    {
+        $sql="SELECT semesterId FROM semester WHERE semesterName='$semester'";
+        $results = mysqli_query($this->connect, $sql);
+        if ($results->num_rows) {
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+
+            foreach($records as $result)
+            {
+                $semesterID = $result->semesterId;
+            }
+            return $semesterID;
+        }
+
+    }
+
+    //////////////////////////////
+    //GET Semester Name
+    //////////////////////////////
+
+    public function getSemesterName()
+    {
+        $semesterNames='';
+        $sql="SELECT * FROM semester";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $names=$result->semesterName;
+            $semesterNames.='<option>'.$names.'</option>';
+
+        }
+
+        return $semesterNames;
+
+    }
+
+
+    //////////////////////////////
     //GET Professor Name
     //////////////////////////////
 
@@ -304,7 +431,34 @@ class AdminSystem
         foreach($records as $result)
         {
             $names=$result->professorName;
-            $professorNames.='<option>'.$names.'</option>';
+            $professorNames.='<option value="'.$names.'">'.$names.'</option>';
+
+        }
+
+        return $professorNames;
+
+    }
+    //////////////////////////////
+    //GET Professor Name and id
+    //////////////////////////////
+
+    public function getProfessorNameId()
+    {
+        $professorNames='';
+        $sql="SELECT * FROM professor ORDER BY professorName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $names = $result->professorName;
+            $id = $result->professorId;
+            $professorNames.='<option value="'.$id.'">'.$names.'</option>';
 
         }
 

@@ -9,26 +9,45 @@ ob_start();
 
 <?php
 
-$studentName = $courses = $departement = $courseYear = '';
-
-echo print_r($_POST);
-
-if (isset($_POST['submit'])) {
+$studentName = $departement = $courseYear = $semester = $semesterId = $deptId = $studentId = '';
+$professorId[] = $courses[] = $courseId[] = '';
+$courseTaken = new AdminSystem();
 
 
-    if (isset($_POST['studentName'])) {
-        $studentName = $_POST['studentName'];
-    }
-    if (isset($_POST['courses'])) {
-        $courses = $_POST['courses'];
-    }
-    if (isset($_POST['department'])) {
-        $departement = $_POST['department'];
-    }
-    if (isset($_POST['courseYear'])) {
-        $courseYear = $_POST['courseYear'];
-    }
-
+if (isset($_POST['studentName'])) {
+    $studentName = $_POST['studentName'];
+    $studentId = $courseTaken->getStudentID($studentName);
 }
+
+if (isset($_POST['department'])) {
+    $departement = $_POST['department'];
+    $deptId = $courseTaken->getDepartementID($departement);
+}
+if (isset($_POST['semester'])) {
+    $semester = $_POST['semester'];
+    $semesterId = $courseTaken->getSemesterID($semester);
+}
+if (isset($_POST['courseYear'])) {
+    $courseYear = $_POST['courseYear'];
+}
+
+
+if (!empty($_POST['course'])) {
+
+    $coursesId = $_POST['course'];
+}
+
+
+for ($i=0; $i<sizeof($coursesId); $i++) {
+
+    $professorId= $courseTaken->getProfessorIdTeaching($coursesId[$i],$semesterId,$courseYear);
+
+    $query = "INSERT INTO coursetaken (studentId, courseId, professorId,semesterId,courseYear) VALUES ('$studentId','$coursesId[$i]','$professorId','$semesterId','$courseYear')";
+    $courseTaken->addCoursesTaken($query);
+}
+
+
+    $_SESSION['success'] = true;
+    header("Location: ../management/coursesTakenForm.php");
 
 ?>
