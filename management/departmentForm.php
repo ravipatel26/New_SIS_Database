@@ -33,13 +33,13 @@ if(!isset($_SESSION["manager"]))
         <div class="panel-body">
             <form id="departmentForm" class="form-horizontal" role="form" method="post" action="">
                     <div class="form-group">
-                        <label for="deptName" class="col-sm-5 control-label">Department Name :</label>
+                        <label for="deptName" class="col-sm-3 control-label">Department Name :</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="deptName" name="deptName" placeholder="Department Name" value="<?php echo htmlspecialchars($deptName); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="deptPhone" class="col-sm-5 control-label">Department Phone # :</label>
+                        <label for="deptPhone" class="col-sm-3 control-label">Department Phone # :</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="deptPhone" name="deptPhone" placeholder="Department Phone #" value="<?php echo htmlspecialchars($deptPhone); ?>">
                         </div>
@@ -71,14 +71,6 @@ if(!isset($_SESSION["manager"]))
 <!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
 <script src="../js/functions.js"></script>
-<?php
-if($_SESSION['success']){
-    echo '<script> $("#eventForm").addClass("hidden");
-            $("#submission").addClass("hidden");
-            $("#confirmation").removeClass("hidden");</script>';
-    $_SESSION['success'] = false;
-}
-?>
 
 </body>
 
