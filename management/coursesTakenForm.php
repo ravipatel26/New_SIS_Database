@@ -23,7 +23,7 @@ $courses = $courseTaken->getCoursesNameTaken($depID);
 <html>
 <?php require("headerManagement.php");?>
 
-<body onload="document.getElementById('encsCourses').style.display = 'none';document.getElementById('compCourses').style.display = 'none';">
+<body onload="document.getElementById('encsCourses').style.display = 'none';document.getElementById('compCourses').style.display = 'none';document.getElementById('otherDepartments').style.display = 'none';">
 <div class="container-fluid bg-info" style="height: 900px">
     <div id="navigation">
         <div class="row">
@@ -76,6 +76,9 @@ $courses = $courseTaken->getCoursesNameTaken($depID);
                     <div class="col-md-4">
                         <?php echo $courses;?>
                     </div>
+                </div>
+                <div id="otherDepartments" class="form-group bg-warning">
+                    <label for="course" class="col-md-3 control-label">Courses are not available in this department.</label>
                 </div>
 
 

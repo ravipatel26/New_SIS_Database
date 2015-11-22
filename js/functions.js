@@ -7,6 +7,7 @@ function displayPositionDiv() {
 
     if (document.getElementById('graduate').checked) {
         document.getElementById('displayPosition').style.display = 'block';
+        document.getElementById('displaySummer').style.display = 'none';
     } else {
         document.getElementById('displayPosition').style.display = 'none';
         if(document.getElementById('level').value=='Undergraduate'){
@@ -23,14 +24,17 @@ function showDepartment(department){
         case    'ENCS':
             document.getElementById('encsCourses').style.display = 'block';
             document.getElementById('compCourses').style.display = 'none';
+            document.getElementById('otherDepartments').style.display = 'none';
             break;
         case  'COMP':
             document.getElementById('compCourses').style.display = 'block';
             document.getElementById('encsCourses').style.display = 'none';
+            document.getElementById('otherDepartments').style.display = 'none';
             break;
         default:
             document.getElementById('compCourses').style.display = 'none';
             document.getElementById('encsCourses').style.display = 'none';
+            document.getElementById('otherDepartments').style.display = 'block';
 
     }
 }
