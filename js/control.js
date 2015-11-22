@@ -739,7 +739,7 @@ var j = jQuery.noConflict();
 
                 j.ajax({
                     type: "POST",
-                    url: "../lib/newCommitteSQLProcess.php",
+                    url: "../lib/newCommitteeSQLProcess.php",
                     data: $('#techCommitteeName').serialize(),
                     success: function(msg){
                         j("#techCommitteeName").addClass("hidden");
@@ -818,7 +818,7 @@ var j = jQuery.noConflict();
 
                 j.ajax({
                     type: "POST",
-                    url: "../lib/newCommitteSQLProcess.php",
+                    url: "../lib/newCommitteeSQLProcess.php",
                     data: $('#editorialBoardInforamtion').serialize(),
                     success: function(msg){
                         j("#editorialBoardInforamtion").addClass("hidden");
@@ -1545,7 +1545,7 @@ var j = jQuery.noConflict();
 
                 j.ajax({
                     type: "POST",
-                    url: "../lib/newCommitteSQLProcess.php",
+                    url: "../lib/newCommitteeSQLProcess.php",
                     data: $('#servicesInfoForm').serialize(),
                     success: function(msg){
                         j("#servicesInfoForm").addClass("hidden");

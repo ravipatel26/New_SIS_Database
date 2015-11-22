@@ -30,7 +30,7 @@ if(!isset($_SESSION["manager"]))
 			<div class="panel panel-default col-lg-6 col-lg-offset-1" style="width: 80%">
 				<div class="panel-heading h2 text-center">Technical Program Committee Form</div>
 				<div class="panel-body">
-					<form id="techCommitteeName" class="form-horizontal" role="form" method="post" action="../lib/newCommitteSQLProcess.php">
+					<form id="techCommitteeName" class="form-horizontal" role="form" method="post" action="../lib/newCommitteeSQLProcess.php">
 						<div class="form-group">
 							<label for="profFirstName" class="col-md-3 col-xs-offset-1 control-label">Professor's First Name :</label>
 							<div class="col-sm-5">

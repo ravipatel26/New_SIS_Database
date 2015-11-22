@@ -26,7 +26,7 @@ $review = new AdminSystem();
 
 echo print_r($_POST);
 
-    $query = "INSERT INTO Review (boardId, journalName, year) VALUES ('$editorialBoardId','$journalName','$journalYear')";
+    $query = "INSERT INTO review (boardId, journalName, year) VALUES ('$editorialBoardId','$journalName','$journalYear')";
     $review->addReview($query);
 
     $_SESSION['success'] = true;

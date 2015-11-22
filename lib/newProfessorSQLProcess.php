@@ -46,7 +46,7 @@ echo print_r($_POST).'</br>';
 $professorId = 0;
 $_SESSION['success'] = false;
 
-$query = "INSERT INTO Professor (professorName, professorNumber, professorEmail, professorPhone,deptId) VALUES ( '$name', '$professNumber', '$email', '$phoneNumber', '$deptId')";
+$query = "INSERT INTO professor (professorName, professorNumber, professorEmail, professorPhone,deptId) VALUES ( '$name', '$professNumber', '$email', '$phoneNumber', '$deptId')";
 
 $professorId=$newProfessor->addNewProfessor($query);
 

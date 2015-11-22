@@ -34,7 +34,7 @@ echo print_r($_POST);
 echo $courseCode.' '.$courseName.' '.$departmentName.' '.$deptId;
 
 
-$query = "INSERT INTO Course (courseName, courseNameCode, deptId) VALUES ('$courseName','$courseCode','$deptId')";
+$query = "INSERT INTO course (courseName, courseNameCode, deptId) VALUES ('$courseName','$courseCode','$deptId')";
 $courseList->addCourses($query);
 
 $_SESSION['success'] = true;

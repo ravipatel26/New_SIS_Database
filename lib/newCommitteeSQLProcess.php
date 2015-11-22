@@ -9,23 +9,26 @@ ob_start();
 
 <?php
 
-$committeeName = $professorName = $academicYear = '';
+$result = $profFirstName = $profLastName = $techCommitteeName = $eventType = $memberSinceYear = '';
 
 echo print_r($_POST);
 
 if (isset($_POST['submit'])) {
 
 
-    if (isset($_POST['committeeName'])) {
-        $committeeName = $_POST['committeeName'];
+    if (isset($_POST['profFirstName'])) {
+        $profFirstName = $_POST['profFirstName'];
     }
-    if (isset($_POST['professorName'])) {
-        $professorName = $_POST['professorName'];
+    if (isset($_POST['profLastName'])) {
+        $profLastName = $_POST['profLastName'];
     }
-    if (isset($_POST['academicYear'])) {
-        $academicYear = $_POST['academicYear'];
+    if (isset($_POST['techCommitteeName'])) {
+        $techCommitteeName = $_POST['techCommitteeName'];
     }
+    if (isset($_POST['memberSinceYear'])) {
+        $memberSinceYear = $_POST['memberSinceYear'];
+    }
+
 
 }
-
 ?>
