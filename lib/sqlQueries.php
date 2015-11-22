@@ -80,6 +80,18 @@ class AdminSystem
 
     }
 
+    public function addReview($sql)
+    {
+        $this->connect->query($sql);
+
+    }
+
+    public function addDepartment($sql)
+    {
+        $this->connect->query($sql);
+
+    }
+
 
     //////////////////////////////
     //GET DEPARTEMENTS ID
@@ -383,6 +395,29 @@ class AdminSystem
         return $editorialBoardNames;
 
     }
+    //////////////////////////////
+    //GET DEPARTEMENTS ID
+    //////////////////////////////
+    public function getEditorialBoardID($board)
+    {
+        $sql="SELECT boardId FROM editorialboard WHERE boardName='$board'";
+        $results = mysqli_query($this->connect, $sql);
+        if ($results->num_rows) {
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+
+            foreach($records as $result)
+            {
+                $boardID = $result->boardId;
+            }
+            return $boardID;
+        }
+
+    }
+
 
 
     //////////////////////////////

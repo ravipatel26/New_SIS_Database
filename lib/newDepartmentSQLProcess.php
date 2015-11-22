@@ -11,10 +11,9 @@ ob_start();
 
 $deptName = $deptPhone = $editorialBoardName = $journalName = $journalYear = '';
 
+$newDepartment = new AdminSystem();
+
 echo print_r($_POST);
-
-if (isset($_POST['submit'])) {
-
 
     if (isset($_POST['deptName'])) {
         $deptName = $_POST['deptName'];
@@ -22,6 +21,13 @@ if (isset($_POST['submit'])) {
     if (isset($_POST['deptPhone'])) {
         $deptPhone = $_POST['deptPhone'];
     }
-}
+
+$query = "INSERT INTO department (deptName, deptPhone) VALUES ('$deptName','$deptPhone')";
+$newDepartment->addDepartment($query);
+
+$_SESSION['success'] = true;
+header("Location: ../management/departmentForm.php");
+
+
 
 ?>

@@ -62,6 +62,9 @@ if(!isset($_SESSION["manager"]))
             </form>
 
         </div>
+        <div id="confirmation" class="alert alert-success hidden">
+            <span class="glyphicon glyphicon-star"></span> Department information successfully entered
+        </div>
     </div>
 
 
@@ -70,6 +73,15 @@ if(!isset($_SESSION["manager"]))
 
 
 <script src="../js/functions.js"></script>
+
+<?php
+if($_SESSION['success']){
+    echo '<script> $("#departmentForm").addClass("hidden");
+            $("#submission").addClass("hidden");
+            $("#confirmation").removeClass("hidden");</script>';
+    $_SESSION['success'] = false;
+}
+?>
 
 </body>
 

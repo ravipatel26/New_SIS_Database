@@ -31,7 +31,7 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Reviews Information Form</div>
         <div class="panel-body">
-            <form id="reviewInformation" class="form-horizontal" role="form" method="post" action="../lib/newReviewSQLProcess">
+            <form id="reviewInformation" class="form-horizontal" role="form" method="post" action="../lib/newReviewSQLProcess.php">
                 <div class="form-group">
                     <label class="col-md-2 col-xs-offset-2 control-label" for="editorialBoardName">Editorial Boards's Name :</label>
                     <div class="col-md-4">
@@ -76,6 +76,10 @@ if(!isset($_SESSION["manager"]))
                 </div>
             </form>
 
+
+        </div>
+        <div id="confirmation" class="alert alert-success hidden">
+            <span class="glyphicon glyphicon-star"></span> Review information successfully entered
         </div>
     </div>
 
@@ -88,7 +92,7 @@ if(!isset($_SESSION["manager"]))
 <script src="../js/functions.js"></script>
 <?php
 if($_SESSION['success']){
-    echo '<script> $("#eventForm").addClass("hidden");
+    echo '<script> $("#reviewInformation").addClass("hidden");
             $("#submission").addClass("hidden");
             $("#confirmation").removeClass("hidden");</script>';
     $_SESSION['success'] = false;

@@ -9,24 +9,30 @@ ob_start();
 
 <?php
 
-$editorialBoardName = $journalName = $journalYear = '';
+$editorialBoardName = $journalName = $journalYear = $editorialBoardId ='';
 
-echo print_r($_POST);
-
-if (isset($_POST['submit'])) {
-
+$review = new AdminSystem();
 
     if (isset($_POST['editorialBoardName'])) {
         $editorialBoardName = $_POST['editorialBoardName'];
+        $editorialBoardId = $review->getEditorialBoardID($editorialBoardName);
     }
-    if (isset($_POST['journalName'])) {
+    if (!empty($_POST['journalName'])) {
         $journalName = $_POST['journalName'];
     }
-    if (isset($_POST['journalYear'])) {
+    if (!empty($_POST['journalYear'])) {
         $journalYear = $_POST['journalYear'];
     }
 
+echo print_r($_POST);
 
-}
+    $query = "INSERT INTO Review (boardId, journalName, year) VALUES ('$editorialBoardId','$journalName','$journalYear')";
+    $review->addReview($query);
+
+    $_SESSION['success'] = true;
+    header("Location: ../management/reviewsInformationForm.php");
+
+
+
 
 ?>
