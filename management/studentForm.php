@@ -22,7 +22,7 @@ if(!isset($_SESSION["manager"]))
 
 <?php require("headerManagement.php");?>
 
-<body onload="document.getElementById('displayPosition').style.display = 'none';document.getElementById('displayLevel').style.display = 'none';document.getElementById('displaySummer').style.display = 'none';">
+<body onload="document.getElementById('displayPosition').style.display = 'none';document.getElementById('displaySummer').style.display = 'none';">
 
 <div class="container-fluid bg-info" style="height: 1500px">
     <div id="navigation">
@@ -136,8 +136,8 @@ if(!isset($_SESSION["manager"]))
                                 <input id="onleave" name="status" value="On-Leave" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='On-Leave'? 'checked' : '') ?>>On-Leave</label>
                             <label class="radio-inline" >
                                 <input id="graduate" name="status" value="Graduate" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Graduate'? 'checked' : '') ?>>Graduated</label>
-                            <label class="radio-inline" >
-                                <input id="underGraduate" name="status" value="Under Graduate" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Under Graduate'? 'checked' : '') ?>>Under Graduate</label>
+<!--                            <label class="radio-inline" >-->
+<!--                                <input id="underGraduate" name="status" value="Under Graduate" type="radio"  onclick="javascript:displayPositionDiv();" --><!--Under Graduate</label>-->
 
                         </div>
                     </div>
@@ -150,7 +150,7 @@ if(!isset($_SESSION["manager"]))
                     <div class="form-group" id="displayLevel">
                         <label for="level" class="col-md-2 control-label">Level :</label>
                         <div class="col-md-4">
-                            <select id="level" name="level" class="form-control" value="<?php echo htmlspecialchars($level); ?>">
+                            <select id="level" name="level" class="form-control" value="<?php echo htmlspecialchars($level); ?>" onchange="checkSummerStudent(this.value)">
                                 <option value="" selected="selected">--- Select a Level ---</option>
                                 <option value="Undergraduate">Undergraduate (BS)</option>
                                 <option value="Graduate">Graduate (MS)</option>
