@@ -98,18 +98,18 @@ echo print_r($_POST).'</br>'.$address;
 $studentId = 0;
 $_SESSION['success'] = false;
 
-$query = "INSERT INTO Students (studentName, studentNumber, studentEmail, studentStatus, studentPhone, studentGender, studentBirthDate, deptId, studentAdress) VALUES ( '$name', '$studentNumber', '$email', '$status', '$phoneNumber', '$gender', '$birthDate', '$deptId', '$address')";
+$query = "INSERT INTO student (studentName, studentNumber, studentEmail, studentStatus, studentPhone, studentGender, studentBirthDate, deptId, studentAdress) VALUES ( '$name', '$studentNumber', '$email', '$status', '$phoneNumber', '$gender', '$birthDate', '$deptId', '$address')";
 
 $studentId=$newStudent->addNewStudent($query);
 
 if(!empty($level)){
-    $query = "INSERT INTO GraduateStudent (studentId, studentLevel, currentPosition) VALUES ('$studentId', '$level', '$position')";
+    $query = "INSERT INTO graduatestudent (studentId, studentLevel, currentPosition) VALUES ('$studentId', '$level', '$position')";
     $newStudent->addGraduateStudent($query);
 }
 
 
 if(!empty($summer)){
-    $query = "INSERT INTO UnderGraduateStudent (studentId, summerStudent) VALUES ('$studentId', '$summer')";
+    $query = "INSERT INTO undergraduatestudent (studentId, summerStudent) VALUES ('$studentId', '$summer')";
     $newStudent->addUnderGraduateStudent($query);
 }
 

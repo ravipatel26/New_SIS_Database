@@ -98,7 +98,7 @@ class AdminSystem
     //////////////////////////////
     public function getDepartementID($department)
     {
-        $sql="SELECT deptId FROM Department WHERE deptName='$department'";
+        $sql="SELECT deptId FROM department WHERE deptName='$department'";
         $results = mysqli_query($this->connect, $sql);
         if ($results->num_rows) {
             while ($row = $results->fetch_object()) {
@@ -124,7 +124,7 @@ class AdminSystem
     public function getDepartmentName()
     {
         $allDepartments='';
-        $sql="SELECT * FROM Department ORDER BY deptName ASC";
+        $sql="SELECT * FROM department ORDER BY deptName ASC";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -152,7 +152,7 @@ class AdminSystem
     public function getDepartmentNameID($id)
     {
         $departmentName = '';
-        $sql = "SELECT deptName FROM Department WHERE deptId=$id";
+        $sql = "SELECT deptName FROM department WHERE deptId=$id";
         $results = mysqli_query($this->connect, $sql);
         if ($results->num_rows) {
             while ($row = $results->fetch_object()) {
@@ -175,7 +175,7 @@ class AdminSystem
     //////////////////////////////
     public function getStudentDepartmentName($name)
     {
-        $sql="SELECT deptId FROM Students WHERE studentName='$name'";
+        $sql="SELECT deptId FROM student WHERE studentName='$name'";
         $results = mysqli_query($this->connect, $sql);
         if ($results->num_rows) {
             while ($row = $results->fetch_object()) {
@@ -237,7 +237,7 @@ class AdminSystem
     {
 
         $coursesNames1='';
-        $sql="SELECT courseName FROM courses WHERE deptId = '$depID'";
+        $sql="SELECT courseName FROM course WHERE deptId = '$depID'";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -264,7 +264,7 @@ class AdminSystem
     public function getStudentName()
     {
         $studentNames='';
-        $sql="SELECT * FROM Students ORDER BY studentName ASC";
+        $sql="SELECT * FROM student ORDER BY studentName ASC";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -292,7 +292,7 @@ class AdminSystem
     public function getProfessorName()
     {
         $professorNames='';
-        $sql="SELECT * FROM Professor ORDER BY professorName ASC";
+        $sql="SELECT * FROM professor ORDER BY professorName ASC";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -319,7 +319,7 @@ class AdminSystem
     public function getResearchName()
     {
         $researchNames='';
-        $sql="SELECT * FROM Research ORDER BY researchName ASC";
+        $sql="SELECT * FROM research ORDER BY researchName ASC";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -347,7 +347,7 @@ class AdminSystem
     public function getCourseName()
     {
         $courseNames='';
-        $sql="SELECT * FROM Course ORDER BY courseName ASC";
+        $sql="SELECT * FROM course ORDER BY courseName ASC";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -376,7 +376,7 @@ class AdminSystem
     public function getEditorialBoardName()
     {
         $editorialBoardNames='';
-        $sql="SELECT * FROM editorialBoard ORDER BY boardName ASC";
+        $sql="SELECT * FROM editorialboard ORDER BY boardName ASC";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -427,7 +427,7 @@ class AdminSystem
     public function getJournalName()
     {
         $journalNames='';
-        $sql="SELECT * FROM editorialBoard ORDER BY boardName ASC";
+        $sql="SELECT * FROM editorialboard ORDER BY boardName ASC";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -482,7 +482,7 @@ public function getCountries()
     public function getGrantsNames()
     {
         $grantName='';
-        $sql="SELECT * FROM Grants";
+        $sql="SELECT * FROM grants";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -510,7 +510,7 @@ public function getCountries()
     public function getCommitteeName()
     {
         $committeeName ='';
-        $sql="SELECT * FROM Services";
+        $sql="SELECT * FROM services";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
