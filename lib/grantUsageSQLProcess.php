@@ -9,46 +9,25 @@ ob_start();
 
 <?php
 
-$studentName = $courses = $departement = $courseYear = $assignments = $projects = $midTerms = $finalExams = $finalLetterGrades = '';
+$grantName = $grantAmountUsed = $grantUsedYear = '';
 
 echo print_r($_POST);
 
 if (isset($_POST['submit'])) {
 
 
-    if (isset($_POST['studentName'])) {
-        $studentName = $_POST['studentName'];
+    if (isset($_POST['grantName'])) {
+        $grantName = $_POST['grantName'];
     }
-    if (isset($_POST['courses'])) {
-        $courses = $_POST['courses'];
+    if (isset($_POST['grantAmountUsed'])) {
+        $grantAmountUsed = $_POST['grantAmountUsed'];
     }
     if (isset($_POST['department'])) {
         $departement = $_POST['department'];
     }
-    if (isset($_POST['courseYear'])) {
-        $courseYear = $_POST['courseYear'];
-        $courseYear = $studentGrades->escape($courseYear);
-    }
-    if (isset($_POST['assignments'])) {
-        $assignments = $_POST['assignments'];
-        $assignments = $studentGrades->escape($assignments);
-    }
-    if (isset($_POST['projects'])) {
-        $projects = $_POST['projects'];
-        $projects = $studentGrades->escape($projects);
-    }
-    if (isset($_POST['midTerms'])) {
-        $midTerms = $_POST['midTerms'];
-        $midTerms = $studentGrades->escape($midTerms);
-    }
-    if (isset($_POST['finalExams'])) {
-        $finalExams = $_POST['finalExams'];
-        $finalExams = $studentGrades->escape($finalExams);
-    }
-    if (isset($_POST['finalLetterGrades'])) {
-        $finalLetterGrades = $_POST['finalLetterGrades'];
-        $finalLetterGrades = $studentGrades->escape($finalLetterGrades);
-        $finalLetterGrades = strtoupper($finalLetterGrades);
+    if (isset($_POST['grantUsedYear'])) {
+        $grantUsedYear = $_POST['grantUsedYear'];
+        $grantUsedYear = $grantUsed->escape($grantUsedYear);
     }
 
 

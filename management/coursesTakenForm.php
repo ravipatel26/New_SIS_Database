@@ -23,7 +23,7 @@ $courses = $courseTaken->getCoursesNameTaken($depID);
 <html>
 <?php require("headerManagement.php");?>
 
-<body>
+<body onload="document.getElementById('encsCourses').style.display = 'none';document.getElementById('compCourses').style.display = 'none';">
 <div class="container-fluid bg-info" style="height: 900px">
     <div id="navigation">
         <div class="row">
@@ -49,7 +49,7 @@ $courses = $courseTaken->getCoursesNameTaken($depID);
                 <div class="form-group">
                     <label for="department" class="col-md-2 control-label">Department Name :</label>
                     <div class="col-md-4">
-                        <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>">
+                        <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>" onchange="showDepartment(this.value)">
                             <option value="" selected="selected">--- Select a Department ---</option>
                             <?php echo $courseTaken->getDepartmentName();?>
                         </select>
@@ -65,8 +65,14 @@ $courses = $courseTaken->getCoursesNameTaken($depID);
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="course" class="col-md-2 control-label">Course Name :</label>
+                <div id="encsCourses" class="form-group">
+                    <label for="course" class="col-md-2 control-label">ENCS Course Names :</label>
+                    <div class="col-md-4">
+                        <?php echo $courses;?>
+                    </div>
+                </div>
+                <div id="compCourses" class="form-group">
+                    <label for="course" class="col-md-2 control-label">COMP Course Names :</label>
                     <div class="col-md-4">
                         <?php echo $courses;?>
                     </div>

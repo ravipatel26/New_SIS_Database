@@ -50,13 +50,15 @@ if(!isset($_SESSION["manager"]))
                 </div>
                 <div class="form-group">
                     <label for="grantAmount" class="col-md-2 control-label">Grant Amount :</label>
-                    <div class="input-group col-md-3">
-                        <div class="input-group-addon">$</div>
-                        <input type="text" class="form-control" id="grantAmount" name="grantAmount" placeholder="Enter Grant Amount" value="<?php echo htmlspecialchars($grantAmount); ?>">
+                    <div class="col-md-3">
+                        <div class="input-group input-append ">
+                            <span class="input-group-addon add-on"><span>$</span></span>
+                            <input type="text" class="form-control" id="grantAmount" name="grantAmount" placeholder="Enter Grant Amount" value="<?php echo htmlspecialchars($grantAmount); ?>">
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="grantYear" class="col-md-2 control-label">Event Year :</label>
+                    <label for="grantYear" class="col-md-2 control-label">Grant Year :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="grantYearForm">
                             <input id="grantYear" name="grantYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($grantYear); ?>"/>

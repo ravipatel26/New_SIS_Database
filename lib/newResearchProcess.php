@@ -7,6 +7,6 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 <?php require("../lib/sqlQueries.php");?>
 
 <?php
-$grantUsed = new AdminSystem();
+$admin = new AdminSystem();
 
 ?>

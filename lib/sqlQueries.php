@@ -410,14 +410,41 @@ class AdminSystem
     }
 
 
-    //////////////////////////////
-    //GET COUNTRIES
-    //////////////////////////////
+//////////////////////////////
+//GET COUNTRIES
+//////////////////////////////
 
-    public function getCountries()
+public function getCountries()
+{
+    $allCountry='';
+    $sql="SELECT * FROM countries";
+    $results= mysqli_query($this->connect, $sql);
+    if($results->num_rows){
+        while ($row = $results->fetch_object()) {
+
+            $records[] = $row;
+
+        }
+    }
+    foreach($records as $result)
     {
-        $allCountry='';
-        $sql="SELECT * FROM countries";
+        $countryNames=$result->countries_name;
+        $allCountry.='<option>'.$countryNames.'</option>';
+    }
+
+    return $allCountry;
+
+}
+
+
+//////////////////////////////
+//GET Grant Names
+//////////////////////////////
+
+    public function getGrantsNames()
+    {
+        $grantName='';
+        $sql="SELECT * FROM Grants";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -428,13 +455,49 @@ class AdminSystem
         }
         foreach($records as $result)
         {
-            $countryNames=$result->countries_name;
-            $allCountry.='<option>'.$countryNames.'</option>';
+            $grantNames=$result->grantName;
+            $grantName.='<option>'.$grantNames.'</option>';
         }
 
-        return $allCountry;
+        return $grantName;
 
     }
+
+
+
+//////////////////////////////
+//GET Committee Names
+//////////////////////////////
+
+    public function getCommitteeName()
+    {
+        $committeeName ='';
+        $sql="SELECT * FROM Services";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }else{
+            $committeeName.='<option>C1</option>';
+        }
+        foreach($records as $result)
+        {
+            $committees=$result->serviceName;
+            $committeesId = $result->serviceId;
+            if($committees!=1){
+                $committeesId++;
+                $committeeName.='<option>C'.$committeesId.'</option>';
+            }
+
+        }
+
+        return $committeeName;
+
+    }
+
 
 }
 ?>

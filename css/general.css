@@ -155,6 +155,6 @@ label.control-label span { cursor: pointer; }
 	right: 15px;
 }
 .form-horizontal .has-feedback .form-control-feedback {
-	top: 0;
-	right: -30px;
-}
+	 top: 0;
+	 right: -30px;
+ }

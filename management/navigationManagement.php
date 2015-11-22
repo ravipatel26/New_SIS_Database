@@ -33,7 +33,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                            <li class="divider"></li>
                            <li><a href="coursesTeaching.php">Courses Teaching</a></li>
                            <li class="divider"></li>
-                           <li><a href="researchForms.php">Research</a></li>
+                           <li><a href="researchForm.php">Research</a></li>
                            <li class="divider"></li>
                          </ul>
                       </li>

@@ -7,7 +7,7 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-//require("../lib/newEventProcess.php");
+require("../lib/grantUsageProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
@@ -32,6 +32,39 @@ if(!isset($_SESSION["manager"]))
         <div class="panel-heading h2 text-center">Grant Usage Form</div>
         <div class="panel-body">
             <form id="grantUsage" class="form-horizontal" role="form" method="post" action="../lib/grantUsageSQLProcess.php">
+                <div class="form-group">
+                    <label for="grantName" class="col-md-2 control-label">Grant Name :</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="grantName" name="grantName" placeholder="Enter Grant Name" value="<?php echo htmlspecialchars($grantName); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="grantName">Grant Name :</label>
+                    <div class="col-md-4">
+                        <select id="grantName" name="grantName" class="form-control" value="<?php echo htmlspecialchars($grantName); ?>">
+                            <option value="" selected="selected">--- Select a Grant Name : ---</option>
+                            <?php echo $grantUsed->getGrantsNames();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="grantAmountUsed" class="col-md-2 control-label">Grant Amount Used:</label>
+                    <div class="col-md-3">
+                        <div class="input-group input-append ">
+                            <span class="input-group-addon add-on"><span>$</span></span>
+                            <input type="text" class="form-control" id="grantAmountUsed" name="grantAmountUsed" placeholder="Enter Grant Amount Used" value="<?php echo htmlspecialchars($grantAmountUsed); ?>">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="grantUsedYear" class="col-md-2 control-label">Grant Year :</label>
+                    <div class="col-md-3 date">
+                        <div class="input-group input-append date" id="grantUsageYearForm">
+                            <input id="grantUsedYear" name="grantUsedYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($grantUsedYear); ?>"/>
+                            <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                </div>
 
 
 

@@ -7,7 +7,7 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-require("../lib/sqlQueries.php");
+require("../lib/committeProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
@@ -22,7 +22,7 @@ if(!isset($_SESSION["manager"]))
 <?php require("headerManagement.php");?>
 
 <body>
-<div class="container-fluid bg-info" style="height: 1500px">
+<div class="container-fluid bg-info" style="height: 900px">
     <div id="navigation">
         <div class="row">
             <?php require("navigationManagement.php"); ?>
@@ -31,7 +31,34 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Services Information Form</div>
         <div class="panel-body">
-            <form id="" class="form-horizontal" role="form" method="post" action="">
+            <form id="servicesInfoForm" class="form-horizontal" role="form" method="post" action="../lib/newCommitteSQLProcess.php">
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-offset-1 control-label" for="committeeName">University Level Committees's Name :</label>
+                    <div class="col-md-4">
+                        <select id="committeeName" name="committeeName" class="form-control" value="<?php echo htmlspecialchars($committeeName); ?>">
+                            <option value="" selected="selected">--- Select a Editorial Boards's Name ---</option>
+                            <?php echo $committe->getCommitteeName();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-offset-1 control-label" for="professorName">Professor's Name :</label>
+                    <div class="col-md-4">
+                        <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
+                            <option value="" selected="selected">--- Select a Professor's Name ---</option>
+                            <?php echo $committe->getProfessorName();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="academicYear" class="col-md-3 col-xs-offset-1  control-label">Academic Year :</label>
+                    <div class="col-md-3 date">
+                        <div class="input-group input-append date" id="academicFormYear">
+                            <input id="academicYear" name="academicYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($academicYear); ?>"/>
+                            <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -59,7 +86,14 @@ if(!isset($_SESSION["manager"]))
 <!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
 <script src="../js/functions.js"></script>
-
+<?php
+if($_SESSION['success']){
+    echo '<script> $("#eventForm").addClass("hidden");
+            $("#submission").addClass("hidden");
+            $("#confirmation").removeClass("hidden");</script>';
+    $_SESSION['success'] = false;
+}
+?>
 </body>
 
 

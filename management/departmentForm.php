@@ -71,6 +71,14 @@ if(!isset($_SESSION["manager"]))
 <!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
 <script src="../js/functions.js"></script>
+<?php
+if($_SESSION['success']){
+    echo '<script> $("#eventForm").addClass("hidden");
+            $("#submission").addClass("hidden");
+            $("#confirmation").removeClass("hidden");</script>';
+    $_SESSION['success'] = false;
+}
+?>
 
 </body>
 

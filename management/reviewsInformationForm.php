@@ -31,7 +31,7 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Reviews Information Form</div>
         <div class="panel-body">
-            <form id="reviewInformation" class="form-horizontal" role="form" method="post" action="">
+            <form id="reviewInformation" class="form-horizontal" role="form" method="post" action="../lib/newReviewSQLProcess">
                 <div class="form-group">
                     <label class="col-md-2 col-xs-offset-2 control-label" for="editorialBoardName">Editorial Boards's Name :</label>
                     <div class="col-md-4">
@@ -46,14 +46,17 @@ if(!isset($_SESSION["manager"]))
                     <div class="col-md-4">
                         <select id="journalName" name="journalName" class="form-control" value="<?php echo htmlspecialchars($journalName); ?>">
                             <option value="" selected="selected">--- Select a Journal's Name ---</option>
-                            <?php echo $review->getEditorialBoardName();?>
+                            <?php echo $review->getJournalName();?>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="journalYear" class="col-md-2 col-xs-offset-2 control-label">Journal Year :</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="journalYear" name="journalYear" placeholder="Journal Year" value="<?php echo htmlspecialchars($journalYear); ?>">
+                    <div class="col-md-3 date">
+                        <div class="input-group input-append date" id="journalFormYear">
+                            <input id="journalYear" name="journalYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($journalYear); ?>"/>
+                            <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
                     </div>
                 </div>
 
@@ -83,6 +86,14 @@ if(!isset($_SESSION["manager"]))
 <!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
 <script src="../js/functions.js"></script>
+<?php
+if($_SESSION['success']){
+    echo '<script> $("#eventForm").addClass("hidden");
+            $("#submission").addClass("hidden");
+            $("#confirmation").removeClass("hidden");</script>';
+    $_SESSION['success'] = false;
+}
+?>
 
 </body>
 

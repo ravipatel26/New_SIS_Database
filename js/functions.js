@@ -19,4 +19,20 @@ function displayPositionDiv() {
     }
 }
 
+function showDepartment(department){
+    switch (department){
+        case    'ENCS':
+            document.getElementById('encsCourses').style.display = 'block';
+            document.getElementById('compCourses').style.display = 'none';
+            break;
+        case  'COMP':
+            document.getElementById('compCourses').style.display = 'block';
+            document.getElementById('encsCourses').style.display = 'none';
+            break;
+        default:
+            document.getElementById('compCourses').style.display = 'none';
+            document.getElementById('encsCourses').style.display = 'none';
+
+    }
+}
 

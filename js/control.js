@@ -125,6 +125,9 @@ var j = jQuery.noConflict();
                 },
                 postalCode : {
                     validators: {
+                        notEmpty:{
+                            message: "Please enter a Zip Code."
+                        },
                         zipCode: {
                             country: 'CA',
                             message: 'The value is not a valid Canadian Postal Code'
@@ -925,6 +928,14 @@ var j = jQuery.noConflict();
                         }
                     }
                 },
+                department: {
+                    message : "The department is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the Department"
+                        }
+                    }
+                },
                 courses: {
                     message: "Course Name is required",
                     validators: {
@@ -948,6 +959,7 @@ var j = jQuery.noConflict();
                             message: "The year must have 4 digits."
                         }
                     }
+
                 }
             }
         });
@@ -1318,7 +1330,322 @@ var j = jQuery.noConflict();
             }
         });
 
+        j("#grantUsageYearForm")
+            .datepicker({
+                format: 'yyyy',
+                viewMode: "years",
+                minViewMode: "years",
+                autoclose: true
+            }).on("changeDate show", function(e) {
+            // Revalidate the date field
+            j("#grantUsage").bootstrapValidator("revalidateField", "grantUsedYear");
+        });
+
+        var validator = j("#grantUsage").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/grantUsageSQLProcess.php",
+                    data: $('#grantUsage').serialize(),
+                    success: function(msg){
+                        j("#grantUsage").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                grantName: {
+                    message: "Grant Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Grant's Name"
+                        }
+                    }
+                },
+                grantAmountUsed:{
+                    message : "Grant Amount used is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide grant amount used."
+                        }
+
+                    }
+                },
+                grantUsedYear:{
+                    message : "The year is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the year that the grant is used."
+                        },
+                        integer: {
+                            message: 'The year must be numbers (ex. 2015)'
+                        },
+                        stringLength: {
+                            min: 4,
+                            max: 4,
+                            message: "The year must have 4 digits."
+                        }
+                    }
+                }
+            }
+        });
 
 
+        j("#journalFormYear")
+            .datepicker({
+                format: 'yyyy',
+                viewMode: "years",
+                minViewMode: "years",
+                autoclose: true
+            }).on("changeDate show", function(e) {
+            // Revalidate the date field
+            j("#reviewInformation").bootstrapValidator("revalidateField", "journalYear");
+        });
+        var validator = j("#reviewInformation").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newReviewSQLProcess.php",
+                    data: $('#reviewInformation').serialize(),
+                    success: function(msg){
+                        j("#reviewInformation").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                editorialBoardName: {
+                    message: "Editorial Board's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Editorial Board's first Name"
+                        }
+                    }
+                },
+                journalName:{
+                    message : "The journal name is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the journal name."
+                        }
+                    }
+                }
+                ,
+                journalYear:{
+                    message : "The year is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the year for the journal in question."
+                        },
+                        integer: {
+                            message: 'The year must be numbers (ex. 2015)'
+                        },
+                        stringLength: {
+                            min: 4,
+                            max: 4,
+                            message: "The year must have 4 digits."
+                        }
+                    }
+                }
+            }
+        });
+
+
+        j("#academicFormYear")
+            .datepicker({
+                format: 'yyyy',
+                viewMode: "years",
+                minViewMode: "years",
+                autoclose: true
+            }).on("changeDate show", function(e) {
+            // Revalidate the date field
+            j("#servicesInfoForm").bootstrapValidator("revalidateField", "academicYear");
+        });
+        var validator = j("#servicesInfoForm").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newCommitteSQLProcess.php",
+                    data: $('#servicesInfoForm').serialize(),
+                    success: function(msg){
+                        j("#servicesInfoForm").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                committeeName: {
+                    message: "Committee's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Committee's Name"
+                        }
+                    }
+                },
+                professorName:{
+                    message : "The Professor's name is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the Professor's name."
+                        }
+                    }
+                }
+                ,
+                academicYear:{
+                    message : "The Academic year is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the Academic year for the Committee."
+                        },
+                        integer: {
+                            message: 'The Academic year must be numbers (ex. 2015)'
+                        },
+                        stringLength: {
+                            min: 4,
+                            max: 4,
+                            message: "The year must have 4 digits."
+                        }
+                    }
+                }
+            }
+        });
+
+
+        // Research Form validation
+        j("#startDatePicker")
+            .datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            }).on("changeDate show", function() {
+            // Revalidate the date field
+            j("#researchForm").bootstrapValidator("revalidateField", "researchStartDate");
+        });
+
+        j("#endDatePicker")
+            .datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            }).on("changeDate show", function() {
+            // Revalidate the date field
+            j("#researchForm").bootstrapValidator("revalidateField", "researchEndDate");
+        });
+
+        var validator = j("#researchForm").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newResearchSQLProcess.php",
+                    data: $('#coursesTeaching').serialize(),
+                    success: function(msg){
+                        j("#coursesTeaching").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                researchName: {
+                    message: "Research Title is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Research Title"
+                        }
+                    }
+                },
+                studentName: {
+                    message: "Student Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Student's Name"
+                        }
+                    }
+                },
+                professorName: {
+                    message: "Professor Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's Name"
+                        }
+                    }
+                },
+                grantName: {
+                    message: "Grant Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Grant Name"
+                        }
+                    }
+                },
+                researchStartDate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The start date is required'
+                        },
+                        date: {
+                            format: 'MM/DD/YYYY',
+                            message: 'The start date is not a valid'
+                        }
+                    }
+                },
+                researchEndDate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The end date is required'
+                        },
+                        date: {
+                            format: 'MM/DD/YYYY',
+                            message: 'The end date is not a valid'
+                        }
+                    }
+                }
+            }
+        });
 
     });
