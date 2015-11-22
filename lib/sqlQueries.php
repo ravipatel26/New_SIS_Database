@@ -80,6 +80,13 @@ class AdminSystem
 
     }
 
+    public function addCourses($sql)
+    {
+        $this->connect->query($sql);
+
+    }
+
+
     public function addCoursesTeaching($sql)
     {
         $this->connect->query($sql);
@@ -254,7 +261,7 @@ class AdminSystem
                 $records[] = $row;
 
             }
-        }
+
         foreach($records as $result)
         {
             $names = $result->courseName;
@@ -265,7 +272,7 @@ class AdminSystem
                            '<input id="course" name="course[]" value="'.$courseId.'" type="checkbox">'.$CourseName.'</label>';
 
         }
-
+        }
         return $coursesNames;
 
     }
