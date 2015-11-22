@@ -29,11 +29,11 @@ if (isset($_POST['submit'])) {
         $grantName = $_POST['grantName'];
         $grantName = $admin->escape($grantName);
     }
-    if (isset($_POST['researchStartDate'])) {
+	if (isset($_POST['researchStartDate'])) {
         $researchStartDate = $_POST['researchStartDate'];
         $researchStartDate = $admin->escape($researchStartDate);
     }
-    if (isset($_POST['researchEndDate'])) {
+	if (isset($_POST['researchEndDate'])) {
         $researchEndDate = $_POST['researchEndDate'];
         $researchEndDate = $admin->escape($researchEndDate);
     }

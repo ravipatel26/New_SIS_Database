@@ -32,13 +32,13 @@ if(!isset($_SESSION["manager"]))
         <div class="panel-heading h2 text-center">Research Form</div>
         <div class="panel-body">
             <form id="researchForm" class="form-horizontal" role="form" method="post" action="../lib/newResearchSQLProcess.php">
-                <div class="form-group">
-                    <label for="researchName" class="col-md-2 control-label">Research Title :</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="researchName" name="researchName" placeholder="Research Title" value="<?php echo htmlspecialchars($researchName); ?>">
-                    </div>
-                </div>
-                <div class="form-group">
+				<div class="form-group">
+					<label for="researchName" class="col-md-2 control-label">Research Title :</label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="researchName" name="researchName" placeholder="Research Title" value="<?php echo htmlspecialchars($researchName); ?>">
+					</div>
+				</div>
+				<div class="form-group">
                     <label for="studentName" class="col-md-2 control-label">Professor Name :</label>
                     <div class="col-md-4">
                         <select id="studentName" name="studentName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
@@ -47,7 +47,7 @@ if(!isset($_SESSION["manager"]))
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
+				<div class="form-group">
                     <label for="studentName" class="col-md-2 control-label">Student Name :</label>
                     <div class="col-md-4">
                         <select id="studentName" name="studentName" class="form-control" value="<?php echo htmlspecialchars($studentName); ?>">
@@ -56,16 +56,16 @@ if(!isset($_SESSION["manager"]))
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
+				<div class="form-group">
                     <label for="grantName" class="col-md-2 control-label">Grant Name :</label>
                     <div class="col-md-4">
                         <select id="grantName" name="grantName" class="form-control" value="<?php echo htmlspecialchars($grantName); ?>">
                             <option value="" selected="selected">--- Select a Grant ---</option>
-                            <?php //echo $admin->getGrantName();?> <!-- Need to get grant names!!!!!!!!!!! -->
+                            <?php echo $admin->getGrantsNames();?>
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
+				<div class="form-group">
                     <label class="col-md-2 control-label" for="researchStartDate" >Research Start Date :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="startDatePicker">
@@ -74,17 +74,17 @@ if(!isset($_SESSION["manager"]))
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+				<div class="form-group">
                     <label class="col-md-2 control-label" for="researchEndDate" >Research End Date  :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="endDatePicker">
                             <input id="researchEndDate" name="researchEndDate" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($researchEndDate); ?>"/>
                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
-                    </div>
+                     </div>
                 </div>
-
-                <!-- submit and reset buttons-->
+				
+				<!-- submit and reset buttons-->
                 <div class="row text-center">
                     <div class="form-group">
                         <div class="col-md-2 col-xs-offset-2">
