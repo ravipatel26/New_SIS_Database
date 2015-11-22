@@ -9,7 +9,7 @@ ob_start();
 
 <?php
 
-$result = $profFirstName = $profLastName = $editorialBoardName = $journalName = $journalYear = '';
+$profFirstName = $profLastName = $editorialBoardName = $journalName = $journalYear = '';
 
 echo print_r($_POST);
 

@@ -148,7 +148,7 @@ var j = jQuery.noConflict();
                         },
                         phone: {
                             country: 'US',
-                            message: "Please enter a valid phone number"
+                            message: "Please enter a valid phone number (ex: 514-123-4567)"
                         }
                     }
                 },
@@ -289,7 +289,7 @@ var j = jQuery.noConflict();
                         },
                         phone: {
                             country: 'US',
-                            message: "Please enter a valid phone number"
+                            message: "Please enter a valid phone number (ex: 514-123-4567)"
                         }
                     }
                 },
@@ -1442,7 +1442,7 @@ var j = jQuery.noConflict();
                     message: "Editorial Board's Name is required",
                     validators: {
                         notEmpty: {
-                            message: "Please provide a Editorial Board's first Name"
+                            message: "Please provide a Editorial Board's Name"
                         }
                     }
                 },
@@ -1468,6 +1468,54 @@ var j = jQuery.noConflict();
                             min: 4,
                             max: 4,
                             message: "The year must have 4 digits."
+                        }
+                    }
+                }
+            }
+        });
+
+
+        var validator = j("#departmentForm").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/newDepartmentSQLProcess.php",
+                    data: $('#departmentForm').serialize(),
+                    success: function(msg){
+                        j("#departmentForm").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                deptName: {
+                    message: "Department's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Department's Name"
+                        }
+                    }
+                },
+                deptPhone:{
+                    validators:{
+                        notEmpty:{
+                            message: "Please enter a phone number."
+                        },
+                        phone: {
+                            country: 'US',
+                            message: "Please enter a valid phone number (ex: 514-123-4567)"
                         }
                     }
                 }

@@ -7,7 +7,7 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-require("../lib/sqlQueries.php");
+require("../lib/departmentProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
@@ -31,7 +31,7 @@ if(!isset($_SESSION["manager"]))
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Departments Form</div>
         <div class="panel-body">
-            <form id="departmentForm" class="form-horizontal" role="form" method="post" action="">
+            <form id="departmentForm" class="form-horizontal" role="form" method="post" action="../lib/newDepartmentSQLProcess.php">
                     <div class="form-group">
                         <label for="deptName" class="col-sm-3 control-label">Department Name :</label>
                         <div class="col-sm-5">
@@ -67,8 +67,7 @@ if(!isset($_SESSION["manager"]))
 
 </div>
 
-<!--<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!--<script src="../js/bootstrap-datepicker.js"></script>-->
+
 
 <script src="../js/functions.js"></script>
 
