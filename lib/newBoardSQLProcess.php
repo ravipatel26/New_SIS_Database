@@ -9,30 +9,31 @@ ob_start();
 
 <?php
 
-$result = $profFirstName = $profLastName = $editorialBoardName = $journalName = $journalYear = '';
+$professorId = $editorialBoardName = $journalName = $journalYear = '';
+
+$newBoard = new AdminSystem();
 
 echo print_r($_POST);
 
-if (isset($_POST['submit'])) {
-
-
-    if (isset($_POST['profFirstName'])) {
-        $profFirstName = $_POST['profFirstName'];
-    }
-    if (isset($_POST['profLastName'])) {
-        $profLastName = $_POST['profLastName'];
-    }
-    if (isset($_POST['editorialBoardName'])) {
+        $professorId = $_POST['professorName'];
         $editorialBoardName = $_POST['editorialBoardName'];
-    }
-    if (isset($_POST['journalName'])) {
         $journalName = $_POST['journalName'];
-    }
-    if (isset($_POST['journalYear'])) {
-        $journalYear = $_POST['journalYear'];
-    }
+        $journalYear = $_POST['editorialBoardYear'];
 
 
-}
+$_SESSION['success'] = false;
+
+$query = "INSERT INTO editorialboard (boardName,journalName,year ) VALUES ( '$editorialBoardName','$journalName' '$journalYear')";
+$editorialBoardId = $newBoard->addNewBoard($query);
+
+$query = "INSERT INTO services (professorId, boardId, year) VALUES ( '$professorId', '$editorialBoardId', '$journalYear')";
+$newBoard->addNewService($query);
+
+
+echo '<br/>'.$editorialBoardName.'---'.$professorId.'---'.$journalYear.'---'.$journalName.'---'.$editorialBoardId;
+
+//$_SESSION['success'] = true;
+//header("Location: ../management/editorialBoardForm.php");
+
 
 ?>

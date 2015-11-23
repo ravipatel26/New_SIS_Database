@@ -8,17 +8,35 @@ ob_start();
 <?php require("../lib/sqlQueries.php");?>
 <?php
 
-$result = $profFirstName = $profLastName = $eventName = $eventType = $eventYear = '';
+$profId = $eventName = $eventType = $eventYear = '';
+
+
+$newEvent = new AdminSystem();
+
 echo print_r($_POST);
-if (isset($_POST['submit'])) {
-    $profFirstName = $_POST['profFirstName'];
-    $profLastName = $_POST['profLastName'];
+
+    $profId = $_POST['professorName'];
     $eventName = $_POST['eventName'];
-    $eventType = isset($_POST['eventType']) ? $_POST['eventType'] : '';
-    if(isset($_POST['eventYear'])){
-        $eventYear = $_POST['eventYear'];
-    }
+    $eventType = $_POST['eventType'];
+    $eventYear = $_POST['eventYear'];
+
+echo $eventName.'    '.$eventType.'  '.$eventYear;
+
+$_SESSION['success'] = false;
+
+$query = "INSERT INTO event (eventName, eventType,year ) VALUES ( '$eventName', '$eventType', '$eventYear')";
+
+$eventId = $newEvent->addNewEvent($query);
+
+echo $eventId;
+
+$query = "INSERT INTO services (professorId, eventId, year) VALUES ('$profId', '$eventId', '$eventYear')";
+
+$newEvent->addNewService($query);
+
+$_SESSION['success'] = true;
+header("Location: ../management/eventForm.php");
 
 
-}
+
 ?>

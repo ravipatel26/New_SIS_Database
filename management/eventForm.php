@@ -33,26 +33,23 @@ if(!isset($_SESSION["manager"]))
             <div class="panel-body">
                 <form id="eventForm" class="form-horizontal" role="form" method="post" action="../lib/newEventSQLProcess.php">
                     <div class="form-group">
-                        <label for="profFirstName" class="col-md-2 col-xs-offset-2 control-label">Professor's First Name :</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="profFirstName" name="profFirstName" placeholder="Professor's First Name" value="<?php echo htmlspecialchars($profFirstName); ?>">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="profLastName" class="col-md-2 col-xs-offset-2 control-label">Professor's Last Name :</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="profLastName" name="profLastName" placeholder="Professor's Last Name" value="<?php echo htmlspecialchars($profLastName); ?>">
+                        <label class="col-md-2 col-xs-offset-2 control-label" for="professorName">Professor's Name :</label>
+                        <div class="col-md-4">
+                            <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
+                                <option value="" selected="selected">--- Select a Professor's Name ---</option>
+                                <?php echo $newEvent->getProfessorNameId();?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="eventName" class="col-md-2 col-xs-offset-2 control-label">Event Name :</label>
-                        <div class="col-sm-5">
+                        <div class="col-md-4">
                             <input type="text" class="form-control" id="eventName" name="eventName" placeholder="Editorial Board Name" value="<?php echo htmlspecialchars($eventName); ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="eventType" class="col-md-2 col-xs-offset-2 control-label">Event Type :</label>
-                        <div class="col-sm-5">
+                        <div class="col-md-4">
                             <label class="radio-inline">
                                 <input id="radio1" name="eventType" value="Worskshop" type="radio" <?php echo (isset($_POST['event']) && $_POST['event']=='Worskshop'? 'checked' : '') ?>>Worskshop</label>
                             <label class="radio-inline">
@@ -61,7 +58,7 @@ if(!isset($_SESSION["manager"]))
                     </div>
                     <div class="form-group">
                         <label for="eventYear" class="col-md-2 col-xs-offset-2 control-label">Event Year :</label>
-                        <div class="col-md-3 date">
+                        <div class="col-md-4 date">
                             <div class="input-group input-append date" id="eventFormYear">
                                 <input id="eventYear" name="eventYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($year); ?>"/>
                                 <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>

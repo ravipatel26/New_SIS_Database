@@ -664,19 +664,11 @@ var j = jQuery.noConflict();
                 });//close ajax
             },
             fields : {
-                profFirstName: {
-                    message: "Professor Name is required",
+                professorName: {
+                    message: "Professor's Name is required",
                     validators: {
                         notEmpty: {
-                            message: "Please provide a Professor's first Name"
-                        }
-                    }
-                },
-                profLastName: {
-                    message: "Professor Name is required",
-                    validators: {
-                        notEmpty: {
-                            message: "Please provide a Professor's last Name"
+                            message: "Please provide a Professor's Name"
                         }
                     }
                 },
@@ -752,19 +744,11 @@ var j = jQuery.noConflict();
                 });//close ajax
             },
             fields : {
-                profFirstName: {
-                    message: "Professor Name is required",
+                professorName: {
+                    message: "Professor's Name is required",
                     validators: {
                         notEmpty: {
-                            message: "Please provide a Professor's first Name"
-                        }
-                    }
-                },
-                profLastName: {
-                    message: "Professor Name is required",
-                    validators: {
-                        notEmpty: {
-                            message: "Please provide a Professor's last Name"
+                            message: "Please provide a Professor's Name"
                         }
                     }
                 },
@@ -831,19 +815,11 @@ var j = jQuery.noConflict();
                 });//close ajax
             },
             fields : {
-                profFirstName: {
-                    message: "Professor Name is required",
+                professorName: {
+                    message: "Professor's Name is required",
                     validators: {
                         notEmpty: {
-                            message: "Please provide a Professor's first Name"
-                        }
-                    }
-                },
-                profLastName: {
-                    message: "Professor Name is required",
-                    validators: {
-                        notEmpty: {
-                            message: "Please provide a Professor's last Name"
+                            message: "Please provide a Professor's Name"
                         }
                     }
                 },
@@ -1446,6 +1422,14 @@ var j = jQuery.noConflict();
                 });//close ajax
             },
             fields : {
+                professorName: {
+                    message: "Professor's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's Name"
+                        }
+                    }
+                },
                 editorialBoardName: {
                     message: "Editorial Board's Name is required",
                     validators: {

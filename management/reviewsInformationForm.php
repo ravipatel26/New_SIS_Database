@@ -33,6 +33,15 @@ if(!isset($_SESSION["manager"]))
         <div class="panel-body">
             <form id="reviewInformation" class="form-horizontal" role="form" method="post" action="../lib/newReviewSQLProcess.php">
                 <div class="form-group">
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="professorName">Professor's Name :</label>
+                    <div class="col-md-4">
+                        <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
+                            <option value="" selected="selected">--- Select a Professor's Name ---</option>
+                            <?php echo $review->getProfessorNameId();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-md-2 col-xs-offset-2 control-label" for="editorialBoardName">Editorial Boards's Name :</label>
                     <div class="col-md-4">
                         <select id="editorialBoardName" name="editorialBoardName" class="form-control" value="<?php echo htmlspecialchars($editorialBoardName); ?>">

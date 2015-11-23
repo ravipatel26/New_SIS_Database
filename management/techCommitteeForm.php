@@ -32,15 +32,12 @@ if(!isset($_SESSION["manager"]))
 				<div class="panel-body">
 					<form id="techCommitteeName" class="form-horizontal" role="form" method="post" action="../lib/newCommitteeSQLProcess.php">
 						<div class="form-group">
-							<label for="profFirstName" class="col-md-3 col-xs-offset-1 control-label">Professor's First Name :</label>
-							<div class="col-sm-5">
-								<input type="text" class="form-control" id="profFirstName" name="profFirstName" placeholder="Professor's First Name" value="<?php echo htmlspecialchars($profFirstName); ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="profLastName" class="col-md-3 col-xs-offset-1 control-label">Professor's Last Name :</label>
-							<div class="col-sm-5">
-								<input type="text" class="form-control" id="profLastName" name="profLastName" placeholder="Professor's Last Name" value="<?php echo htmlspecialchars($profLastName); ?>">
+							<label class="col-md-2 col-xs-offset-2 control-label" for="professorName">Professor's Name :</label>
+							<div class="col-md-4">
+								<select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
+									<option value="" selected="selected">--- Select a Professor's Name ---</option>
+									<?php echo $newCommittee->getProfessorNameId();?>
+								</select>
 							</div>
 						</div>
 						<div class="form-group">

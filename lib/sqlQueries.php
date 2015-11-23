@@ -62,6 +62,14 @@ class AdminSystem
         return $professorId;
     }
 
+    public function addNewCommittee($sql)
+    {
+        $this->connect->query($sql);
+        $committeeId = mysqli_insert_id($this->connect);
+
+        return $committeeId;
+    }
+
     public function addGraduateStudent($sql)
     {
         $this->connect->query($sql);
@@ -86,6 +94,14 @@ class AdminSystem
 
     }
 
+    public function addNewEvent($sql)
+    {
+        $this->connect->query($sql);
+        $eventId = mysqli_insert_id($this->connect);
+        return $eventId;
+
+    }
+
 
     public function addCoursesTeaching($sql)
     {
@@ -96,12 +112,24 @@ class AdminSystem
     public function addReview($sql)
     {
         $this->connect->query($sql);
+        $reviewId = mysqli_insert_id($this->connect);
+        return $reviewId;
+
+    }
+
+    public function addNewBoard($sql)
+    {
+        $this->connect->query($sql);
+        $editorialBoardId = mysqli_insert_id($this->connect);
+        return $editorialBoardId;
 
     }
 
     public function addDepartment($sql)
     {
         $this->connect->query($sql);
+//        $reviewId = mysqli_insert_id($this->connect);
+//        return $reviewId;
 
     }
 
