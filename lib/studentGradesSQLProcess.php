@@ -9,49 +9,52 @@ ob_start();
 
 <?php
 
-$studentName = $courses = $departement = $courseYear = $assignments = $projects = $midTerms = $finalExams = $finalLetterGrades = '';
+$studentId = $courses = $departement = $courseYear = $assignments = $projects = $midTerms = $finalExams = $finalLetterGrades = '';
+
+
+$studentGrades = new AdminSystem();
 
 echo print_r($_POST);
 
-if (isset($_POST['submit'])) {
-
-
-    if (isset($_POST['studentName'])) {
-        $studentName = $_POST['studentName'];
-    }
-    if (isset($_POST['courses'])) {
-        $courses = $_POST['courses'];
-    }
-    if (isset($_POST['department'])) {
+        $studentId = $_POST['studentName'];
+        $coursesId = $_POST['courses'];
         $departement = $_POST['department'];
-    }
-    if (isset($_POST['courseYear'])) {
+
         $courseYear = $_POST['courseYear'];
         $courseYear = $studentGrades->escape($courseYear);
-    }
-    if (isset($_POST['assignments'])) {
-        $assignments = $_POST['assignments'];
+
+        $assignments = $_POST['asignements'];
         $assignments = $studentGrades->escape($assignments);
-    }
-    if (isset($_POST['projects'])) {
+
         $projects = $_POST['projects'];
         $projects = $studentGrades->escape($projects);
-    }
-    if (isset($_POST['midTerms'])) {
+
         $midTerms = $_POST['midTerms'];
         $midTerms = $studentGrades->escape($midTerms);
-    }
-    if (isset($_POST['finalExams'])) {
+
         $finalExams = $_POST['finalExams'];
         $finalExams = $studentGrades->escape($finalExams);
-    }
-    if (isset($_POST['finalLetterGrades'])) {
+
         $finalLetterGrades = $_POST['finalLetterGrades'];
         $finalLetterGrades = $studentGrades->escape($finalLetterGrades);
         $finalLetterGrades = strtoupper($finalLetterGrades);
-    }
+
+        $courseTakenId = $studentGrades->getCourseTakenId($coursesId,$studentId);
+
+        echo '<br/>'.$courseTakenId.'---'.$coursesId.'---'.$studentId.'---'.$finalLetterGrades;
 
 
-}
+        $_SESSION['success'] = false;
+
+        $query = "INSERT INTO grades (courseTakenId,assignments,projects, midTerms,finalExams,finalLetterGradeId ) VALUES ( '$courseTakenId','$assignments', '$projects','$midTerms','$finalExams','$finalLetterGrades')";
+        $studentGrades->addNewGrades($query);
+
+        echo '<br/>'.'---'.$courseTakenId.'---'.$assignments.'---'.$projects.'---'.$midTerms.'---'.$finalExams.'---'.$finalLetterGrades;
+
+        $_SESSION['success'] = true;
+        header("Location: ../management/studentGrades.php");
+
+
+
 
 ?>

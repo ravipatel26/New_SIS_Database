@@ -37,7 +37,7 @@ if(!isset($_SESSION["manager"]))
                     <div class="col-md-4">
                         <select id="studentName" name="studentName" class="form-control" value="<?php echo htmlspecialchars($studentName); ?>">
                             <option value="" selected="selected">--- Select a Student ---</option>
-                            <?php echo $studentGrades->getStudentName();?>
+                            <?php echo $studentGrades->getStudentNameId();?>
                         </select>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ if(!isset($_SESSION["manager"]))
                     <div class="col-md-4">
                         <select id="courses" name="courses" class="form-control" value="<?php echo htmlspecialchars($courses); ?>">
                             <option value="" selected="selected">--- Select a Course ---</option>
-                            <?php echo $studentGrades->getCourseName();?>
+                            <?php echo $studentGrades->getCourseNameId();?>
                         </select>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ if(!isset($_SESSION["manager"]))
                     <div class="col-md-4">
                         <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>">
                             <option value="" selected="selected">--- Select a Department ---</option>
-                            <?php echo $studentGrades->getDepartmentName();?>
+                            <?php echo $studentGrades->getDepartmentIdName();?>
                         </select>
                     </div>
                 </div>
@@ -140,7 +140,7 @@ if(!isset($_SESSION["manager"]))
 <<script src="../js/functions.js"></script>
 <?php
 if($_SESSION['success']){
-    echo '<script> $("#eventForm").addClass("hidden");
+    echo '<script> $("#studenGrades").addClass("hidden");
             $("#submission").addClass("hidden");
             $("#confirmation").removeClass("hidden");</script>';
     $_SESSION['success'] = false;

@@ -109,6 +109,12 @@ class AdminSystem
 
     }
 
+    public function addNewGrades($sql)
+    {
+        $this->connect->query($sql);
+
+    }
+
     public function addReview($sql)
     {
         $this->connect->query($sql);
@@ -219,6 +225,33 @@ class AdminSystem
 
     }
 
+    //////////////////////////////
+    //GET DepartMent Name
+    //////////////////////////////
+
+    public function getDepartmentIdName()
+    {
+        $allDepartments='';
+        $sql="SELECT * FROM department ORDER BY deptName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $departmentNames=$result->deptName;
+            $id = $result->deptId;
+            $allDepartments.='<option value="'.$id.'">'.$departmentNames.'</option>';
+        }
+
+        return $allDepartments;
+
+    }
+
 
 
     //////////////////////////////
@@ -290,21 +323,47 @@ class AdminSystem
 
             }
 
-        foreach($records as $result)
-        {
-            $names = $result->courseName;
-            $courseId = $result->courseId;
-            $courseCode = $result->courseNameCode;
-            $CourseName = $names.' '.$courseCode;
-            $coursesNames.= '<label class="checkbox">'.
-                           '<input id="course" name="course[]" value="'.$courseId.'" type="checkbox">'.$CourseName.'</label>';
+            foreach($records as $result)
+            {
+                $names = $result->courseName;
+                $courseId = $result->courseId;
+                $courseCode = $result->courseNameCode;
+                $CourseName = $names.' '.$courseCode;
+                $coursesNames.= '<label class="checkbox">'.
+                               '<input id="course" name="course[]" value="'.$courseId.'" type="checkbox">'.$CourseName.'</label>';
 
-        }
+            }
         }
         return $coursesNames;
 
     }
 
+
+    public function getCourseTakenId($courseId,$studentId){
+
+        $courseTakenId ='';
+
+        $sql="SELECT courseTakenId FROM coursetaken WHERE studentId='$studentId' AND courseId='$courseId'";
+
+        $results=mysqli_query($this->connect, $sql);
+
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+
+            foreach($records as $result)
+            {
+                $courseTakenId = $result->courseTakenId;
+
+            }
+        }
+        return $courseTakenId;
+
+
+    }
 
     //////////////////////////////
     //GET Courses Taken Name from depid
@@ -592,6 +651,37 @@ class AdminSystem
         }
 
         return $researchNames;
+
+    }
+
+
+    //////////////////////////////
+    //GET Course Name id
+    //////////////////////////////
+
+    public function getCourseNameId()
+    {
+        $courseNames='';
+        $sql="SELECT * FROM course ORDER BY courseName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $courseName = $result->courseName;
+            $courseCode = $result->courseNameCode;
+            $courses = $courseName.' '.$courseCode;
+
+            $id = $result->courseId;
+            $courseNames.='<option value="'.$id.'">'.$courses.'</option>';
+        }
+
+        return $courseNames;
 
     }
 
