@@ -23,7 +23,7 @@ echo print_r($_POST);
 
 $_SESSION['success'] = false;
 
-$query = "INSERT INTO editorialboard (boardName,journalName,year ) VALUES ( '$editorialBoardName','$journalName' '$journalYear')";
+$query = "INSERT INTO editorialboard (boardName,journalName,year ) VALUES ( '$editorialBoardName','$journalName', '$journalYear')";
 $editorialBoardId = $newBoard->addNewBoard($query);
 
 $query = "INSERT INTO services (professorId, boardId, year) VALUES ( '$professorId', '$editorialBoardId', '$journalYear')";
@@ -32,8 +32,8 @@ $newBoard->addNewService($query);
 
 echo '<br/>'.$editorialBoardName.'---'.$professorId.'---'.$journalYear.'---'.$journalName.'---'.$editorialBoardId;
 
-//$_SESSION['success'] = true;
-//header("Location: ../management/editorialBoardForm.php");
+$_SESSION['success'] = true;
+header("Location: ../management/editorialBoardForm.php");
 
 
 ?>

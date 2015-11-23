@@ -361,6 +361,34 @@ class AdminSystem
 
     }
 
+    //////////////////////////////
+    //GET Student Name
+    //////////////////////////////
+
+    public function getStudentNameId()
+    {
+        $studentNames='';
+        $sql="SELECT * FROM student ORDER BY studentName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $names=$result->studentName;
+            $id = $result->studentId;
+            $studentNames.='<option value="'.$id.'">'.$names.'</option>';
+
+        }
+
+        return $studentNames;
+
+    }
+
 
     //////////////////////////////
     //GET course ID

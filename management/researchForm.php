@@ -33,31 +33,31 @@ if(!isset($_SESSION["manager"]))
         <div class="panel-body">
             <form id="researchForm" class="form-horizontal" role="form" method="post" action="../lib/newResearchSQLProcess.php">
 				<div class="form-group">
-					<label for="researchName" class="col-md-2 control-label">Research Title :</label>
+					<label for="researchName" class="col-md-2 col-xs-offset-2 control-label">Research Title :</label>
 					<div class="col-sm-5">
 						<input type="text" class="form-control" id="researchName" name="researchName" placeholder="Research Title" value="<?php echo htmlspecialchars($researchName); ?>">
 					</div>
 				</div>
-				<div class="form-group">
-                    <label for="studentName" class="col-md-2 control-label">Professor Name :</label>
+                <div class="form-group">
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="professorName">Professor's Name :</label>
                     <div class="col-md-4">
-                        <select id="studentName" name="studentName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
-                            <option value="" selected="selected">--- Select a Professor ---</option>
-                            <?php echo $admin->getProfessorName();?>
+                        <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
+                            <option value="" selected="selected">--- Select a Professor's Name ---</option>
+                            <?php echo $admin->getProfessorNameId();?>
                         </select>
                     </div>
                 </div>
 				<div class="form-group">
-                    <label for="studentName" class="col-md-2 control-label">Student Name :</label>
+                    <label for="studentName" class="col-md-2 col-xs-offset-2 control-label">Student Name :</label>
                     <div class="col-md-4">
                         <select id="studentName" name="studentName" class="form-control" value="<?php echo htmlspecialchars($studentName); ?>">
                             <option value="" selected="selected">--- Select a Student ---</option>
-                            <?php echo $admin->getStudentName();?>
+                            <?php echo $admin->getStudentNameId();?>
                         </select>
                     </div>
                 </div>
 				<div class="form-group">
-                    <label for="grantName" class="col-md-2 control-label">Grant Name :</label>
+                    <label for="grantName" class="col-md-2 col-xs-offset-2 control-label">Grant Name :</label>
                     <div class="col-md-4">
                         <select id="grantName" name="grantName" class="form-control" value="<?php echo htmlspecialchars($grantName); ?>">
                             <option value="" selected="selected">--- Select a Grant ---</option>
@@ -66,7 +66,7 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
 				<div class="form-group">
-                    <label class="col-md-2 control-label" for="researchStartDate" >Research Start Date :</label>
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="researchStartDate" >Research Start Date :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="startDatePicker">
                             <input id="researchStartDate" name="researchStartDate" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($researchStartDate); ?>"/>
@@ -75,7 +75,7 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
 				<div class="form-group">
-                    <label class="col-md-2 control-label" for="researchEndDate" >Research End Date  :</label>
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="researchEndDate" >Research End Date  :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="endDatePicker">
                             <input id="researchEndDate" name="researchEndDate" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($researchEndDate); ?>"/>
