@@ -50,18 +50,6 @@ $query = "INSERT INTO professor (professorName, professorNumber, professorEmail,
 
 $professorId=$newProfessor->addNewProfessor($query);
 
-//if(!empty($level)){
-//    $query = "INSERT INTO GraduateStudent (studentId, studentLevel, currentPosition) VALUES ('$studentId', '$level', '$position')";
-//    $newStudent->addGraduateStudent($query);
-//}
-//
-//
-//if(!empty($summer)){
-//    $query = "INSERT INTO UnderGraduateStudent (studentId, summerStudent) VALUES ('$studentId', '$summer')";
-//    $newStudent->addUnderGraduateStudent($query);
-//}
-
-
 if($professorId>0){
     $_SESSION['success'] = true;
     header("Location: ../management/studentForm.php");

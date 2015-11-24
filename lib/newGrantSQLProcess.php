@@ -25,25 +25,19 @@ $grantAmount = $newGrant->escape($grantAmount);
 
 $grantYear = $_POST['grantYear'];
 $grantYear = $newGrant->escape($grantYear);
-
-$researchId = $_POST['researchName'];
-
-$studentName = $_POST['studentName'];
-$studentName = $newGrant->escape($studentName);
-$tudentId = $newGrant->getStudentID($studentName);
 echo print_r($_POST).'</br>';
 
 
 
-echo '<br/>'.$professorId.'/'.$grantName.'/'.$grantAmount.'/'.$grantYear.'/'.$researchId.'/'.$studentName.'/'.$tudentId;
+echo '<br/>'.$professorId.'/'.$grantName.'/'.$grantAmount.'/'.$grantYear;
 
 $_SESSION['success'] = false;
-$query = "INSERT INTO grants (studentId, professorId, researchId, grantAmount,year, grantName) VALUES ( '$tudentId', '$professorId', '$researchId', '$grantAmount', '$grantYear','$grantName')";
+$query = "INSERT INTO grants (professorId, grantAmount,year, grantName) VALUES ('$professorId','$grantAmount', '$grantYear','$grantName')";
 
 $newGrant->addNewGrant($query);
 
     $_SESSION['success'] = true;
-    header("Location: ../management/grantsInformationForm.php");
+    header("Location: ../management/newGrant.php");
 
 
 ?>

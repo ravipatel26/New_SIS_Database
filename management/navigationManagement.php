@@ -43,7 +43,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                            Grant Info<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                           <li><a href="grantsInformationForm.php">Grants Info</a></li>
+                           <li><a href="newGrant.php">New Grants</a></li>
                            <li class="divider"></li>
                            <li><a href="grantUsedForm.php">Grant Usage Information</a></li>
                            <li class="divider"></li>
