@@ -545,6 +545,25 @@ class AdminSystem
 
     }
 
+    public function getSemesterNameTeached($sql){
+
+        $semesterName='';
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+
+            foreach($records as $result)
+            {
+                $semesterName=$result->semesterName;
+            }
+
+        }
+        return $semesterName;
+    }
 
     //////////////////////////////
     //GET Professor Name
@@ -593,6 +612,34 @@ class AdminSystem
             $names = $result->professorName;
             $id = $result->professorId;
             $professorNames.='<option value="'.$id.'">'.$names.'</option>';
+
+        }
+
+        return $professorNames;
+
+    }
+
+    //////////////////////////////
+    //GET Professor Name and id2
+    //////////////////////////////
+
+    public function getProfessorNameId2()
+    {
+        $professorNames='';
+        $sql="SELECT * FROM professor ORDER BY professorName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $names = $result->professorName;
+            $id = $result->professorId;
+            $professorNames.='<option value="'.$id.'-'.$names.'">'.$names.'</option>';
 
         }
 
@@ -679,6 +726,36 @@ class AdminSystem
 
             $id = $result->courseId;
             $courseNames.='<option value="'.$id.'">'.$courses.'</option>';
+        }
+
+        return $courseNames;
+
+    }
+
+    //////////////////////////////
+    //GET Course Name id2
+    //////////////////////////////
+
+    public function getCourseNameId2()
+    {
+        $courseNames='';
+        $sql="SELECT * FROM course ORDER BY courseName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $courseName = $result->courseName;
+            $courseCode = $result->courseNameCode;
+            $courses = $courseName.' '.$courseCode;
+
+            $id = $result->courseId;
+            $courseNames.='<option value="'.$id.'-'.$courses.'">'.$courses.'</option>';
         }
 
         return $courseNames;
