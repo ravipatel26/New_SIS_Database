@@ -1107,6 +1107,10 @@ var j = jQuery.noConflict();
                     validators: {
                         notEmpty: {
                             message: "Please provide a Course Name"
+                        },
+                        regexp: {
+                            regexp: /^[a-z]+$/i,
+                            message: 'The Course name can consist of alphabetical characters'
                         }
                     }
                 },

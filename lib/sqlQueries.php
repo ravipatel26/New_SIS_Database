@@ -545,7 +545,7 @@ class AdminSystem
 
     }
 
-    public function getSemesterNameTeached($sql){
+    public function getSemesterNameTeached($sql,$courseName,$professorName){
 
         $semesterName='';
         $results= mysqli_query($this->connect, $sql);
@@ -555,14 +555,18 @@ class AdminSystem
                 $records[] = $row;
 
             }
+            $semesterNames='';
 
             foreach($records as $result)
             {
                 $semesterName=$result->semesterName;
+                $semesterNames.='<tr>'.
+                            '<td>'.$professorName.'</td><td>'.$courseName.'</td><td>'.$semesterName.'</td>'.
+                        '</tr>';
             }
 
         }
-        return $semesterName;
+        return $semesterNames;
     }
 
     //////////////////////////////

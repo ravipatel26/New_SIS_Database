@@ -48,10 +48,10 @@ echo $coursesId.'<br/>';
 
 
 $query = "SELECT semester.semesterName, teaching.semesterId FROM teaching,semester WHERE teaching.professorId=$professorId AND teaching.courseId=$coursesId and semester.semesterId=teaching.semesterId";
-$semester= $courseInfo->getSemesterNameTeached($query);
-echo $semester;
+$semesterResult= $courseInfo->getSemesterNameTeached($query,$courseName,$professorName);
+echo $semesterResult;
 
 //$_SESSION['success'] = true;
-header("Location: ../courseInfo.php?professorId=$professorName&courseId=$courseName&semester=$semester");
+header("Location: ../courseInfo.php?semesterResult=$semesterResult");
 
 ?>

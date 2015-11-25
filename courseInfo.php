@@ -12,7 +12,7 @@ require("lib/courseInfoProcess.php");
 
 $professor=$_GET['professorId'];
 $course = $_GET['courseId'];
-$semester = $_GET['semester'];
+$semesterResult = $_GET['semesterResult'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,10 +55,10 @@ $semester = $_GET['semester'];
                         <div class="col-md-2 col-xs-offset-2">
                             <button type="submit" class="btn btn-success">Send</button>
                         </div>
-
-                        <div class="col-md-2">
-                            <button class="btn btn-danger" type="reset" onclick="location.reload(true); ">reset</button>
-                        </div>
+<!---->
+<!--                        <div class="col-md-2">-->
+<!--                            <button class="btn btn-danger" type="reset" onclick="location.reload(true); ">reset</button>-->
+<!--                        </div>-->
                      </div>
                 </div>
 
@@ -72,9 +72,7 @@ $semester = $_GET['semester'];
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td><?php echo $professor;?></td><td><?php echo $course;?></td><td><?php echo $semester;?></td>
-                        </tr>
+                        <?php echo $semesterResult;?>
                     </tbody>
                 </table>
 
