@@ -35,13 +35,13 @@ if(!isset($_SESSION["manager"]))
                     <div class="form-group">
                         <label for="deptName" class="col-sm-3 control-label">Department Name :</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="deptName" name="deptName" placeholder="Department Name" value="<?php echo htmlspecialchars($deptName); ?>">
+                            <input type="text" class="form-control" id="deptName" name="deptName" placeholder="Department Name. EX: SOEN, COMP" value="<?php echo htmlspecialchars($deptName); ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="deptPhone" class="col-sm-3 control-label">Department Phone # :</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="deptPhone" name="deptPhone" placeholder="Department Phone #" value="<?php echo htmlspecialchars($deptPhone); ?>">
+                            <input type="text" class="form-control" id="deptPhone" name="deptPhone" placeholder="ex: 514-123-4567" value="<?php echo htmlspecialchars($deptPhone); ?>">
                         </div>
                     </div>
 

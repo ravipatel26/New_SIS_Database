@@ -10,8 +10,8 @@ require("lib/courseInfoProcess.php");
 ?>
 <?php
 
-$professor=$_GET['professorId'];
-$course = $_GET['courseId'];
+$professorName=$_GET['professorId'];
+$courses = $_GET['courseId'];
 $semesterResult = $_GET['semesterResult'];
 $semesterResult = base64_decode(strtr($semesterResult, '-_,', '+/='));
 
@@ -57,10 +57,10 @@ $semesterResult = base64_decode(strtr($semesterResult, '-_,', '+/='));
                         <div class="col-md-2 col-xs-offset-2">
                             <button type="submit" class="btn btn-success">Send</button>
                         </div>
-<!---->
-<!--                        <div class="col-md-2">-->
-<!--                            <button class="btn btn-danger" type="reset" onclick="location.reload(true); ">reset</button>-->
-<!--                        </div>-->
+
+                        <div class="col-md-2">
+                            <button class="btn btn-danger" type="reset" onclick="window.location.replace('courseInfo.php'); ">reset</button>
+                        </div>
                      </div>
                 </div>
 

@@ -44,7 +44,7 @@ if(!isset($_SESSION["manager"]))
                     <div class="form-group">
                         <label for="eventName" class="col-md-2 col-xs-offset-2 control-label">Event Name :</label>
                         <div class="col-md-4">
-                            <input type="text" class="form-control" id="eventName" name="eventName" placeholder="Editorial Board Name" value="<?php echo htmlspecialchars($eventName); ?>">
+                            <input type="text" class="form-control" id="eventName" name="eventName" placeholder="Event Name" value="<?php echo htmlspecialchars($eventName); ?>">
                         </div>
                     </div>
                     <div class="form-group">

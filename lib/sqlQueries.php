@@ -952,13 +952,15 @@ public function getCountries()
         $committeesId = 1;
         foreach($records as $result)
         {
-
-            $committees=$result->serviceName;
-            $Id = $result->serviceId;
-            if($Id==$committeesId){
-                $committeeName.='<option>'.$committees.'</option>';
-                ++$committeesId;
+            if($result->serviceName){
+                $committees=$result->serviceName;
+                $Id = $result->serviceId;
+                if($Id==$committeesId){
+                    $committeeName.='<option>'.$committees.'</option>';
+                    ++$committeesId;
+                }
             }
+
         }
 
         $committeeName.='<option>C'.$committeesId.'</option>';

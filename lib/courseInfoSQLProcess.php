@@ -53,6 +53,6 @@ echo $semesterResult;
 
 $semesterResult = strtr(base64_encode($semesterResult), '+/=', '-_,');
 //$_SESSION['success'] = true;
-header("Location: ../courseInfo.php?semesterResult=$semesterResult");
+header("Location: ../courseInfo.php?semesterResult=$semesterResult&professorName=$professorName");
 
 ?>

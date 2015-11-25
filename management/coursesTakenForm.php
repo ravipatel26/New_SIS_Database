@@ -73,9 +73,9 @@ if(!isset($_SESSION["manager"]))
                 </div>
 
                 <div id="encsCourses" class="form-group">
-                    <label for="course" class="col-md-2 control-label">ENCS Course Names :</label>
+                    <label for="course" class="col-md-2 control-label">SOEN Course Names :</label>
                     <div class="col-md-4">
-                        <?php echo $courseTaken->getCoursesTaken('ENCS');?>
+                        <?php echo $courseTaken->getCoursesTaken('SOEN');?>
                     </div>
                 </div>
                 <div id="compCourses" class="form-group">

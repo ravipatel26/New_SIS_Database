@@ -44,13 +44,13 @@ if(!isset($_SESSION["manager"]))
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="courseName">Course Name :</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="courseName" name="courseName" placeholder="Course Name" value="<?php echo htmlspecialchars($courseName); ?>">
+                        <input type="text" class="form-control" id="courseName" name="courseName" placeholder="Course Name ex: COMP" value="<?php echo htmlspecialchars($courseName); ?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="courseCode">Course code :</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="courseCode" name="courseCode" placeholder="Course code" value="<?php echo htmlspecialchars($courseCode); ?>">
+                        <input type="text" class="form-control" id="courseCode" name="courseCode" placeholder="Course code ex: 335" value="<?php echo htmlspecialchars($courseCode); ?>">
                     </div>
                 </div>
 

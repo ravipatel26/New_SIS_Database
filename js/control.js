@@ -1222,6 +1222,52 @@ var j = jQuery.noConflict();
         });
 
 
+        var validator = j("#listSemester").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/courseInfoSQLProcess.php",
+                    data: $('#listSemester').serialize(),
+                    success: function(msg){
+                        j("#listSemester").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                professorName: {
+                    message: "Professor's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's Name"
+                        }
+                    }
+                },
+                courses: {
+                    message: "Course Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Course's Name"
+                        }
+                    }
+                }
+            }
+        });
+
+
+
         j("#grantYearForm")
             .datepicker({
                 format: 'yyyy',
@@ -1582,6 +1628,10 @@ var j = jQuery.noConflict();
                     validators: {
                         notEmpty: {
                             message: "Please provide a Department's Name"
+                        },
+                        regexp: {
+                            regexp: /^[a-z]+$/i,
+                            message: 'The first name can consist of alphabetical characters'
                         }
                     }
                 },

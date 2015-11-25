@@ -43,7 +43,7 @@ if(!isset($_SESSION["manager"]))
 						<div class="form-group">
 							<label for="techCommitteeName" class="col-md-3 col-xs-offset-1 control-label">Technical Program Committee Name :</label>
 							<div class="col-sm-5">
-								<input type="text" class="form-control" id="techCommitteeName" name="techCommitteeName" placeholder="Editorial Board Name" value="<?php echo htmlspecialchars($techCommitteeName); ?>">
+								<input type="text" class="form-control" id="techCommitteeName" name="techCommitteeName" placeholder="Technical Program Committee Name" value="<?php echo htmlspecialchars($techCommitteeName); ?>">
 							</div>
 						</div>
 						<div class="form-group">

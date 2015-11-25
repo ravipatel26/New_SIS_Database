@@ -37,13 +37,13 @@ if(isset($_SESSION["manager"]))
                 <div class="form-group">
                     <label class="col-md-2 col-xs-offset-2 control-label" for="username">User Name :</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="User Name" value="<?php echo htmlspecialchars($username); ?>">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?php echo htmlspecialchars($username); ?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-md-2 col-xs-offset-2 control-label">Password :</label>
                     <div class="col-md-4">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="PassWord" value="">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="">
                     </div>
                 </div>
                 <div class="row text-center">

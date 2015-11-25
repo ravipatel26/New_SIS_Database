@@ -21,7 +21,7 @@ function displayPositionDiv() {
 
 function showDepartment(department){
     switch (department){
-        case    'ENCS':
+        case    'SOEN':
             document.getElementById('encsCourses').style.display = 'block';
             document.getElementById('compCourses').style.display = 'none';
             document.getElementById('otherDepartments').style.display = 'none';
