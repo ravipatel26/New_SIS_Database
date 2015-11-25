@@ -51,6 +51,7 @@ $query = "SELECT semester.semesterName, teaching.semesterId FROM teaching,semest
 $semesterResult= $courseInfo->getSemesterNameTeached($query,$courseName,$professorName);
 echo $semesterResult;
 
+$semesterResult = strtr(base64_encode($semesterResult), '+/=', '-_,');
 //$_SESSION['success'] = true;
 header("Location: ../courseInfo.php?semesterResult=$semesterResult");
 

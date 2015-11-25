@@ -13,6 +13,8 @@ require("lib/courseInfoProcess.php");
 $professor=$_GET['professorId'];
 $course = $_GET['courseId'];
 $semesterResult = $_GET['semesterResult'];
+$semesterResult = base64_decode(strtr($semesterResult, '-_,', '+/='));
+
 ?>
 <!DOCTYPE html>
 <html>
