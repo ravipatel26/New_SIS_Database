@@ -639,6 +639,7 @@ class AdminSystem
 
             }
         }
+        $professorNames.='<option value="" selected="selected">--- Select a Professor\'s Name ---</option>';
         foreach($records as $result)
         {
             $names = $result->professorName;
@@ -946,21 +947,23 @@ public function getCountries()
                 $records[] = $row;
 
             }
-        }else{
-            $committeeName.='<option>C1</option>';
-        }
-        $committeesId = 1;
-        foreach($records as $result)
-        {
-            if($result->serviceName){
-                $committees=$result->serviceName;
-                $Id = $result->serviceId;
-                if($Id==$committeesId){
-                    $committeeName.='<option>'.$committees.'</option>';
-                    ++$committeesId;
+
+            $committeesId = 1;
+            foreach($records as $result)
+            {
+                if($result->serviceName){
+                    $committees=$result->serviceName;
+                    $Id = $result->serviceId;
+                    if($Id==$committeesId){
+                        $committeeName.='<option>'.$committees.'</option>';
+                        ++$committeesId;
+                    }
                 }
+
             }
 
+        }else{
+            $committeeName.='<option>C1</option>';
         }
 
         $committeeName.='<option>C'.$committeesId.'</option>';

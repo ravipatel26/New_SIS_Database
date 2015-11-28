@@ -16,7 +16,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 $username = $mysqli->real_escape_string($username);
-$query = "SELECT user_ID, user_USERNAME, user_PASSWORD, user_SALT FROM user WHERE user_USERNAME = '$username'";
+$query = "SELECT user_ID, user_USERNAME, user_PASSWORD, user_SALT, user_PERMISSION FROM user WHERE user_USERNAME = '$username'";
 
 $result = $mysqli->query($query);
 
@@ -44,6 +44,7 @@ if($hash != $userData['user_PASSWORD']) // Incorrect password. So, redirect to l
     $_SESSION['sess_username'] = $userData['user_USERNAME'];
     $_SESSION['logged'] = 'TRUE';
     $_SESSION["manager"] = $userData['user_USERNAME'];
+    $_SESSION['permission'] = $userData['user_PERMISSION'];
 //    session_write_close();
     header('Location: /comp353/management/adminHome.php');
 

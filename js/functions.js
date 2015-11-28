@@ -46,3 +46,9 @@ function checkSummerStudent(level){
         document.getElementById('displaySummer').style.display = 'none';
     }
 }
+
+function showResultQuery01(){
+
+    document.getElementById('query01').style.display = 'block'
+
+}

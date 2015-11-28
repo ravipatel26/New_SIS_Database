@@ -8,14 +8,6 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 include("lib/config.php");
 require("lib/courseInfoProcess.php");
 ?>
-<?php
-
-$professorName=$_GET['professorId'];
-$courses = $_GET['courseId'];
-$semesterResult = $_GET['semesterResult'];
-$semesterResult = base64_decode(strtr($semesterResult, '-_,', '+/='));
-
-?>
 <!DOCTYPE html>
 <html>
 <?php require("header.php");?>
@@ -30,13 +22,15 @@ $semesterResult = base64_decode(strtr($semesterResult, '-_,', '+/='));
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">Course Info</div>
         <div class="panel-body">
+            <div id="query01Title" class="row" >
+                <div class="col-md-12 h3 text-center">Search semesters a course is taught.</div>
+            </div>
             <form id="listSemester" class="form-horizontal" role="form" method="post" action="lib/courseInfoSQLProcess.php">
 
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="professorName">Professor's Name :</label>
                     <div class="col-md-4">
                         <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
-                            <option value="" selected="selected">--- Select a Professor's Name ---</option>
                             <?php echo $courseInfo->getProfessorNameId2();?>
                         </select>
                     </div>
@@ -66,17 +60,11 @@ $semesterResult = base64_decode(strtr($semesterResult, '-_,', '+/='));
 
             </form>
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Professor</th><th>Class taught</th><th>Semester</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <?php echo $semesterResult;?>
-                    </tbody>
-                </table>
+            <?php
+                if(!empty($semesterResult)){
+                    echo $table;
+                }
+            ?>
 
 
         </div>
@@ -86,8 +74,6 @@ $semesterResult = base64_decode(strtr($semesterResult, '-_,', '+/='));
 
 </div>
 
-<!--<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
 <script src="js/functions.js"></script>
 

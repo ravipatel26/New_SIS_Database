@@ -5,25 +5,38 @@ ini_set('log_errors', 1);
 ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 ?>
 <?php
-require("lib/config.php");
+require("../lib/config.php");
+?>
+<?php
+if(!isset($_SESSION["manager"]))
+{
+    header("location:/comp353/adminLogin.php");
+    exit();
+}else{
+    if($_SESSION['permission']!=1 && isset($_SESSION["manager"])){
+        header("location:/comp353/management/adminHome.php");
+        exit();
+    }
+}
+
 ?>
 <!doctype html>
 <html>
 
-<?php require("header.php");?>
+<?php require("headerManagement.php");?>
 
 
 <body>
 <div class="container-fluid bg-info" style="height: 900px">
     <div id="navigation">
         <div class="row">
-            <?php require("navigation.php"); ?>
+            <?php require("navigationManagement.php"); ?>
         </div>
     </div>
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
         <div class="panel-heading h2 text-center">New Account</div>
         <div class="panel-body">
-            <form id="newAccount" method="post" role="form" class="form-horizontal" action="admin/newAccountSQLProcess.php">
+            <form id="newAccount" method="post" role="form" class="form-horizontal" action="../admin/newAccountSQLProcess.php">
                 <div class="form-group">
                     <label class="col-md-2 col-xs-offset-2 control-label" for="username">User Name :</label>
                     <div class="col-md-4">
@@ -40,6 +53,15 @@ require("lib/config.php");
                     <label for="confirm_password" class="col-md-2 col-xs-offset-2 control-label">Confirm PassWord :</label>
                     <div class="col-md-4">
                         <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="PassWord Confirmation" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="permission" class="col-md-2 col-xs-offset-2 control-label">User Permission :</label>
+                    <div class="col-md-4">
+                        <label class="radio-inline">
+                            <input id="permission1" name="permission" value="1" type="radio" <?php echo (isset($_POST['permission']) && $_POST['permission']=='Special'? 'checked' : '') ?>>Full</label>
+                        <label class="radio-inline">
+                            <input id="permission2" name="permission" value="0" type="radio" <?php echo (isset($_POST['permission']) && $_POST['permission']=='Normal' ? 'checked' : '') ?>>Restricted</label>
                     </div>
                 </div>
                 <div class="form-group">
@@ -74,7 +96,7 @@ require("lib/config.php");
                 <div class="row text-center">
                     <div class="form-group">
                         <div class="col-md-2 col-xs-offset-10">
-                            <button type="button" class="btn btn-primary" id="changePassword" onclick="location.href='index.php'">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="changePassword" onclick="location.href='../index.php'">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -90,11 +112,11 @@ require("lib/config.php");
     <!--<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
-    <script src="js/functions.js"></script>
+    <script src="../js/functions.js"></script>
 
 </body>
 
 
 
-<script src="js/control.js"></script>
+<script src="../js/control.js"></script>
 </html>

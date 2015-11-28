@@ -25,10 +25,7 @@ h4{
 	font-size:.5vmax;
 }
 
-/*#parentMenu {from   w w w .j a  v  a2  s  .c  om
-  display: block;
-  top: 0;
-}*/
+
 /* Helps position submenu */
 .dropdown-submenu {
   position: relative;
@@ -47,109 +44,7 @@ h4{
 .dropdown-submenu:hover>.dropdown-menu {
   display: block;
 }
-#location {
 
-	height: 100%;
-	background-repeat: repeat-y;
-}
-.container-fluid {
-
-	height: 100%;
-	width: 100%;
-}
-.container-fluid #header {
-
-	height: 100%;
-	width: 100%;
-	position: relative;
-	left: 0%;
-}
-.container-fluid #body {
-	background-color: #FFF;
-	height: 100%;
-	width: 90%;
-	position: relative;
-	left: 5%;
-}
-.container-fluid #body #navigation {
-	width: 98%;
-	position: relative;
-	left: 1%;
-}
-.container-fluid #body .accueil01.row{
-	position: relative;
-	top: 50px;
-}
-
-.container-fluid #body .acceuil01.row {
-	position: relative;
-	top: 65px;
-}
-
-/*#location #body #acceuil02 {
-	position: relative;
-	height: 100%;
-	top: 65px;
-}*/
-.container-fluid #body #thumbnails {
-	width: 60%;
-	position: relative;
-	left: 20%;
-	top: 10px;
-}
-.container-fluid #body #thumbnailsPlages {
-	width: 60%;
-	position: relative;
-	left: 20%;
-	top: 75px;
-}
-
-#body .modal.fade.sejour .modal-dialog.modal-md .modal-content .modal-body #visite.container-fluid{
-	background-color: #FFF;
-}
-.geo {
-	padding-bottom: 40px;
-	padding-top:40px;
-}
-#location #body .acceuil02.row {
-	position: relative;
-	top: 90px;
-	padding-bottom: 125px;
-}
-.container-fluid #body #tarifs {
-	position: relative;
-	width: 55%;
-	top: 25px;
-	left: 25%;
-	padding-bottom: 195px;
-}
-.container-fluid #body #tarifs .tarifs01 {
-	padding-top: 25px;
-	padding-bottom: 15px;
-}
-.container-fluid #body #contact {
-	height: 800px;
-	padding-top: 50px;
-}
-.container-fluid #body #reservation {
-	height: 1550px;
-	position: relative;
-	top: -50px;
-}
-
-
-.date-form { margin: 10px; }
-label.control-label span { cursor: pointer; }
-.container-fluid #body .row .col-sm-4.text-center .row #plages01 {
-	padding-top: 50px;
-}
-.container-fluid #body #plages {
-	height: 800px;
-	padding-top: 50px;
-}
-.container-fluid #body #plages #thumbnailsPlages #thumbs {
-	padding-top: 50px;
-}
 .form-horizontal .has-feedback .form-control-feedback {
 	top: 0;
 	right: 15px;
@@ -158,3 +53,7 @@ label.control-label span { cursor: pointer; }
 	 top: 0;
 	 right: -30px;
  }
+
+#query01Title{
+	height: 100px;
+}

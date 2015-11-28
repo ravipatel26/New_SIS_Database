@@ -66,6 +66,9 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                       </li>
                       <li><a href="reviewsInformationForm.php">Reviews Info</a></li>
 					  <li><a href="departmentForm.php">Departments Info</a></li>
+					  <li><a href="newAccount.php">New User Account</a></li>
+					  <li></li>
+					  <li></li>
 					  <li><a href="../admin/logout.php">Logout</a></li>
                                         </ul>
                </div>

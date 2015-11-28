@@ -16,6 +16,7 @@ $password2 = $_POST['confirm_password'];
 $email = $_POST['email'];
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
+$permission = $_POST['permission'];
 
 if($password1 != $password2)
 {
@@ -68,7 +69,7 @@ $firstName = $mysqli->real_escape_string($firstName );
 $lastName = $mysqli->real_escape_string($lastName );
 
 $query = "INSERT INTO User ( user_USERNAME, user_PASSWORD, user_EMAIL, user_SALT, user_FIRSTNAME, user_LASTNAME, user_PERMISSION) VALUES
-		( '$username', '$password', '$email', '$salt', '$firstName', '$lastName', 0)";
+		( '$username', '$password', '$email', '$salt', '$firstName', '$lastName', '$permission')";
 
 $mysqli->query($query);
 $_SESSION['sess_user_id'] = mysqli_insert_id($mysqli);

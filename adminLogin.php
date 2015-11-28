@@ -64,11 +64,6 @@ if(isset($_SESSION["manager"]))
                             <button type="button" class="btn btn-primary" id="changePassword" onclick="location.href = 'changePassForm.php'">Change Password</button>
                         </div>
                      </div>
-                    <div class="form-group">
-                        <div class="col-md-2 col-xs-offset-10">
-                            <button class="btn btn-primary" type="button" id="newAdminAccount" onclick="location.href = 'newAccount.php'">New Admin Account</button>
-                        </div>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="form-group">

@@ -600,6 +600,13 @@ var j = jQuery.noConflict();
                     }
 
                 },
+                permission : {
+                    validators: {
+                        notEmpty : {
+                            message : "Please select a User Permission."
+                        }
+                    }
+                },
                 firstName:{
                     message : "First name is required",
                     validators : {

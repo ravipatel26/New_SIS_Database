@@ -49,7 +49,6 @@ echo $coursesId.'<br/>';
 
 $query = "SELECT semester.semesterName, teaching.semesterId FROM teaching,semester WHERE teaching.professorId=$professorId AND teaching.courseId=$coursesId and semester.semesterId=teaching.semesterId";
 $semesterResult= $courseInfo->getSemesterNameTeached($query,$courseName,$professorName);
-echo $semesterResult;
 
 $semesterResult = strtr(base64_encode($semesterResult), '+/=', '-_,');
 //$_SESSION['success'] = true;
