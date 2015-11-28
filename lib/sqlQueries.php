@@ -545,6 +545,29 @@ class AdminSystem
 
     }
 
+    public function getSemesterNameById($id)
+    {
+        $semesterName='';
+        $sql="SELECT semesterName FROM semester WHERE semesterId='$id'";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $semesterName=$result->semesterName;
+
+        }
+
+        return $semesterName;
+
+    }
+
+
     public function getSemesterNameTeached($sql,$courseName,$professorName){
 
         $semesterName='';
@@ -561,13 +584,43 @@ class AdminSystem
             {
                 $semesterName=$result->semesterName;
                 $semesterNames.='<tr>'.
-                            '<td>'.$professorName.'</td><td>'.$courseName.'</td><td>'.$semesterName.'</td>'.
-                        '</tr>';
+                    '<td>'.$professorName.'</td><td>'.$courseName.'</td><td>'.$semesterName.'</td>'.
+                    '</tr>';
             }
 
         }
         return $semesterNames;
     }
+
+
+
+    public function getCourseBySemesterTeached($sql,$year,$professorName){
+
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+            $allCourses='';
+
+            foreach($records as $result)
+            {
+                $semesterId = $result->semesterId;
+                $semesterName = $this->getSemesterNameById($semesterId);
+                $courseId = $result->courseId;
+                $courseName=$this->getCourseNameById($courseId);
+
+                $allCourses.='<tr>'.
+                    '<td>'.$professorName.'</td><td>'.$courseName.'</td><td>'.$semesterName.'</td><td>'.$year.'</td>'.
+                    '</tr>';
+            }
+
+        }
+        return $allCourses;
+    }
+
 
     //////////////////////////////
     //GET Professor Name
@@ -796,6 +849,29 @@ class AdminSystem
 
     }
 
+    public function getCourseNameById($id)
+    {
+        $semesterName='';
+        $sql="SELECT courseName, courseNameCode FROM course WHERE courseId='$id'";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $courseName=$result->courseName;
+            $courseNameCode=$result->courseNameCode;
+
+        }
+
+        return $courseName.' '.$courseNameCode;
+
+    }
+
 
     //////////////////////////////
     //GET Editorial Board Name
@@ -970,6 +1046,32 @@ public function getCountries()
 
 
         return $committeeName;
+
+    }
+
+    //////////////////////////////
+    //GET Year Taught
+    //////////////////////////////
+
+    public function getYearTaught()
+    {
+        $allYears='';
+        $sql="SELECT DISTINCT year FROM teaching ORDER BY year ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $years=$result->year;
+            $allYears.='<option>'.$years.'</option>';
+        }
+
+        return $allYears;
 
     }
 

@@ -33,15 +33,6 @@ echo '<br/>';
         $courseName = $data[1];
 
     }
-//    if (isset($_POST['semester'])) {
-//        $semester = $_POST['semester'];
-//        $semesterId = $courseInfo->getSemesterID($semester);
-//
-//    }
-//    if (isset($_POST['teachYear'])) {
-//        $year = $_POST['teachYear'];
-//
-//    }
 
 echo '<br/>'.$professorId.'<br/>';
 echo $coursesId.'<br/>';
@@ -51,7 +42,7 @@ $query = "SELECT semester.semesterName, teaching.semesterId FROM teaching,semest
 $semesterResult= $courseInfo->getSemesterNameTeached($query,$courseName,$professorName);
 
 $semesterResult = strtr(base64_encode($semesterResult), '+/=', '-_,');
-//$_SESSION['success'] = true;
-header("Location: ../courseInfo.php?semesterResult=$semesterResult&professorName=$professorName");
+
+header("Location: ../courseInfo.php?semesterResult=$semesterResult");
 
 ?>

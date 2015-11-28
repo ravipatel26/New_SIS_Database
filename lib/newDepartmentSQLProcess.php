@@ -17,6 +17,7 @@ echo print_r($_POST);
 
     if (isset($_POST['deptName'])) {
         $deptName = $_POST['deptName'];
+        $deptName = strtoupper($deptName);
     }
     if (isset($_POST['deptPhone'])) {
         $deptPhone = $_POST['deptPhone'];

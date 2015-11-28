@@ -57,3 +57,14 @@ h4{
 #query01Title{
 	height: 100px;
 }
+
+#query02Title, #coursesBySemester, #query02{
+	height: 100px;
+	position: relative;
+	top: 150px;
+}
+
+#query02{
+	position: relative;
+	top: 200px;
+}

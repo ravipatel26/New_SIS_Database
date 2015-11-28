@@ -19,7 +19,7 @@ require("lib/courseInfoProcess.php");
             <?php require("navigation.php"); ?>
         </div>
     </div>
-    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
+    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%; height: 1200px;">
         <div class="panel-heading h2 text-center">Course Info</div>
         <div class="panel-body">
             <div id="query01Title" class="row" >
@@ -64,6 +64,52 @@ require("lib/courseInfoProcess.php");
                 if(!empty($semesterResult)){
                     echo $table;
                 }
+            ?>
+
+
+            <div id="query02Title" class="row" >
+                <div class="col-md-12 h3 text-center">Search course is taught by semester range in a given year.</div>
+            </div>
+            <form id="coursesBySemester" class="form-horizontal" role="form" method="post" action="lib/courseInfoTaughtSQLProcess.php">
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="professorName">Professor's Name :</label>
+                    <div class="col-md-4">
+                        <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
+                            <?php echo $courseInfo->getProfessorNameId2();?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="year">Year taught :</label>
+                    <div class="col-md-4">
+                        <select id="year" name="year" class="form-control" value="<?php echo htmlspecialchars($year); ?>">
+                            <option value="" selected="selected">--- Select Year taught ---</option>
+                            <?php echo $courseInfo->getYearTaught();?>
+                        </select>
+                    </div>
+                </div>
+                <!--                submit and reset buttons-->
+                <div class="row text-center">
+                    <div class="form-group">
+                        <div class="col-md-2 col-xs-offset-2">
+                            <button type="submit" class="btn btn-success">Send</button>
+                        </div>
+
+                        <div class="col-md-2">
+                            <button class="btn btn-danger" type="reset" onclick="window.location.replace('courseInfo.php'); ">reset</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+
+            <?php
+            if(!empty($courseResult)){
+                echo $table2;
+            }
             ?>
 
 

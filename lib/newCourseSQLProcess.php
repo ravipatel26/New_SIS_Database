@@ -17,6 +17,7 @@ echo print_r($_POST);
     if(!empty($_POST['courseName'])){
         $courseName = $_POST['courseName'];
         $courseName = $courseList->escape($courseName);
+        $courseName = strtoupper($courseName);
     }
 
     if(!empty($_POST['courseCode'])){
