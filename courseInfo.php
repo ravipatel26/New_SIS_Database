@@ -13,13 +13,13 @@ require("lib/courseInfoProcess.php");
 <?php require("header.php");?>
 
 <body>
-<div class="container-fluid bg-info" style="height: 1500px">
+<div class="container-fluid bg-info" style="height: 100%">
     <div id="navigation">
         <div class="row">
             <?php require("navigation.php"); ?>
         </div>
     </div>
-    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%; height: 1200px;">
+    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%; height: 1500px;">
         <div class="panel-heading h2 text-center">Course Info</div>
         <div class="panel-body">
             <div id="query01Title" class="row" >
@@ -28,8 +28,8 @@ require("lib/courseInfoProcess.php");
             <form id="listSemester" class="form-horizontal" role="form" method="post" action="lib/courseInfoSQLProcess.php">
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="professorName">Professor's Name :</label>
-                    <div class="col-md-4">
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="professorName">Professor's Name :</label>
+                    <div class="col-md-3">
                         <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
                             <?php echo $courseInfo->getProfessorNameId2();?>
                         </select>
@@ -37,8 +37,8 @@ require("lib/courseInfoProcess.php");
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="courses">Course's Name :</label>
-                    <div class="col-md-4">
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="courses">Course's Name :</label>
+                    <div class="col-md-3">
                         <select id="courses" name="courses" class="form-control" value="<?php echo htmlspecialchars($courses); ?>">
                             <option value="" selected="selected">--- Select a Course's Name ---</option>
                             <?php echo $courseInfo->getCourseNameId2();?>
@@ -73,25 +73,48 @@ require("lib/courseInfoProcess.php");
             <form id="coursesBySemester" class="form-horizontal" role="form" method="post" action="lib/courseInfoTaughtSQLProcess.php">
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="professorName">Professor's Name :</label>
-                    <div class="col-md-4">
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="professorName">Professor's Name :</label>
+                    <div class="col-md-3">
                         <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
                             <?php echo $courseInfo->getProfessorNameId2();?>
                         </select>
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="col-sm-12 col-xs-offset-2 h3">Taught from:</div>
+                </div>
+                        <div class="form-group">
+                            <label class="col-md-2 col-xs-offset-2 control-label" for="semester1">Semester :</label>
+                            <div class="col-md-3">
+                                <select id="semester1" name="semester1" class="form-control" value="<?php echo htmlspecialchars($semester); ?>">
+                                    <option value="" selected="selected">--- Select taught from semester ---</option>
+                                    <?php echo $courseInfo->getSemesterNameId();?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 col-xs-offset-2 control-label" for="year">Year:</label>
+                            <div class="col-md-3">
+                                <select id="year" name="year" class="form-control" value="<?php echo htmlspecialchars($year); ?>">
+                                    <option value="" selected="selected">--- Select taught from year---</option>
+                                    <?php echo $courseInfo->getYearTaught();?>
+                                </select>
+                            </div>
+                        </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-offset-2 h3">Taught to:</div>
+                </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="year">Taught from Year:</label>
-                    <div class="col-md-4">
-                        <select id="year" name="year" class="form-control" value="<?php echo htmlspecialchars($year); ?>">
-                            <option value="" selected="selected">--- Select taught from year---</option>
-                            <?php echo $courseInfo->getYearTaught();?>
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="semester2">Semester :</label>
+                    <div class="col-md-3">
+                        <select id="semester2" name="semester2" class="form-control" value="<?php echo htmlspecialchars($semester); ?>">
+                            <option value="" selected="selected">--- Select taught to semester ---</option>
+                            <?php echo $courseInfo->getSemesterNameId();?>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="year2">To Year:</label>
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="year2">To Year:</label>
                     <div class="col-md-4">
                         <select id="year2" name="year2" class="form-control" value="<?php echo htmlspecialchars($year2); ?>">
                             <option value="" selected="selected">--- To year ---</option>

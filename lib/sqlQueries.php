@@ -545,6 +545,30 @@ class AdminSystem
 
     }
 
+    public function getSemesterNameId()
+    {
+        $semesterNames='';
+        $sql="SELECT * FROM semester";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $names=$result->semesterName;
+            $id = $result->semesterId;
+            $semesterNames.='<option value="'.$id.'">'.$names.'</option>';
+
+        }
+
+        return $semesterNames;
+
+    }
+
     public function getSemesterNameById($id)
     {
         $semesterName='';
@@ -594,7 +618,7 @@ class AdminSystem
 
 
 
-    public function getCourseBySemesterTeached($sql,$year,$year2,$professorName){
+    public function getCourseBySemesterTeached($sql,$professorId){
 
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
@@ -609,19 +633,43 @@ class AdminSystem
             {
                 $semesterId = $result->semesterId;
                 $semesterName = $this->getSemesterNameById($semesterId);
-                $courseId = $result->courseId;
-                $courseName=$this->getCourseNameById($courseId);
+                $coursesId = $result->courseId;
+                $courseName=$this->getCourseNameById($coursesId);
                 $yearTaught=$result->year;
+                $professorName=$this->getProfessorNameById($professorId);
 
-                $allCourses.='<tr>'.
-                    '<td>'.$professorName.'</td><td>'.$courseName.'</td><td>'.$semesterName.'</td><td>'.$yearTaught.'</td>'.
-                    '</tr>';
+                $allCourses.='<tr>'.'<td>'.$professorName.'</td><td>'.$courseName.'</td><td>'.$semesterName.'</td><td>'.$yearTaught.'</td>'.'</tr>';
             }
 
         }
         return $allCourses;
     }
 
+
+    //////////////////////////////
+    //GET Professor Name by id
+    //////////////////////////////
+
+    public function getProfessorNameById($professorId)
+    {
+        $professorName='';
+        $sql="SELECT professorName FROM professor WHERE  professorId='$professorId'";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $professorName=$result->professorName;
+        }
+
+        return $professorName;
+
+    }
 
     //////////////////////////////
     //GET Professor Name

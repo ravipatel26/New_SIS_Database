@@ -1311,7 +1311,31 @@ var j = jQuery.noConflict();
                     message: "The year taught is required",
                     validators: {
                         notEmpty: {
-                            message: "Please provide the year taught"
+                            message: "Please provide the year taught: From."
+                        }
+                    }
+                },
+                semester1: {
+                    message: "The semester taught is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the semester taught: From."
+                        }
+                    }
+                },
+                year2: {
+                    message: "The year taught is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the year taught: To. "
+                        }
+                    }
+                },
+                semester2: {
+                    message: "The semester taught is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the semester taught: To."
                         }
                     }
                 }
