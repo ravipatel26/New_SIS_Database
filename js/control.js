@@ -1274,6 +1274,52 @@ var j = jQuery.noConflict();
         });
 
 
+        var validator = j("#coursesBySemester").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/courseInfoTaughtSQLProcess.php",
+                    data: $('#coursesBySemester').serialize(),
+                    success: function(msg){
+                        j("#coursesBySemester").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                professorName: {
+                    message: "Professor's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's Name"
+                        }
+                    }
+                },
+                year: {
+                    message: "The year taught is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the year taught"
+                        }
+                    }
+                }
+            }
+        });
+
+
+
 
         j("#grantYearForm")
             .datepicker({
