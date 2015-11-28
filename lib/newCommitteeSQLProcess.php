@@ -14,22 +14,24 @@ $committeeName = $professorId = $academicYear = $committeeId = '';
 $newCommittee = new AdminSystem();
 
 echo print_r($_POST);
-        $committeeName = $_POST['techCommitteeName'];
+        $committeeName = $_POST['committeeName'];
         $professorId = $_POST['professorName'];
-        $academicYear = $_POST['committeeYear'];
+        $academicYear = $_POST['academicYear'];
 
-echo '<br/>'.$committeeName.'   '.$professorId.'   '.$academicYear;
+echo '<br/>'.$committeeName.'   '.$professorId.'   '.$academicYear.'<br/>';
 
 $_SESSION['success'] = false;
 
-$query = "INSERT INTO technicalprogramcommittee (committeeName,year ) VALUES ( '$committeeName', '$academicYear')";
-$committeeId = $newCommittee->addNewCommittee($query);
+//$query = "INSERT INTO technicalprogramcommittee (committeeName,year ) VALUES ( '$committeeName', '$academicYear')";
+//$committeeId = $newCommittee->addNewCommittee($query);
 
-$query = "INSERT INTO services (professorId, techProgramId, year) VALUES ( '$professorId', '$committeeId', '$academicYear')";
+//echo $committeeId;
+
+$query = "INSERT INTO services (professorId, serviceName, year) VALUES ( '$professorId', '$committeeName', '$academicYear')";
 $newCommittee->addNewService($query);
 
 $_SESSION['success'] = true;
-header("Location: ../management/techCommitteeForm.php");
+header("Location: ../management/servicesInformationForm.php");
 
 
 ?>

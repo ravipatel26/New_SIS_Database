@@ -75,10 +75,12 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
             </form>
+        </div>
 
+        <div id="confirmation" class="alert alert-success hidden">
+            <span class="glyphicon glyphicon-star"></span> Student information successfully entered
         </div>
     </div>
-
 
 </div>
 

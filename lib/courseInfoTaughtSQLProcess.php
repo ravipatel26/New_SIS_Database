@@ -30,13 +30,17 @@ echo '<br/>';
         $year = $_POST['year'];
     }
 
+    if (isset($_POST['year2'])) {
+        $year2 = $_POST['year2'];
+    }
+
 echo '<br/>'.$professorId.'<br/>';
 echo $coursesId.'<br/>';
 
 
-$query = "SELECT * FROM teaching WHERE (semesterId=1 OR semesterId=2 OR semesterId=3) AND professorId='$professorId' AND year='$year' ORDER BY semesterId ASC ";
+$query = "SELECT * FROM teaching WHERE (semesterId=1 OR semesterId=2 OR semesterId=3) AND professorId='$professorId' AND (year>='$year' OR year<=$year2) ORDER BY year ASC ";
 
-$courseResult= $courseInfo->getCourseBySemesterTeached($query,$year,$professorName);
+$courseResult= $courseInfo->getCourseBySemesterTeached($query,$year,$year2,$professorName);
 
 $courseResult = strtr(base64_encode($courseResult), '+/=', '-_,');
 

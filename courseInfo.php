@@ -68,7 +68,7 @@ require("lib/courseInfoProcess.php");
 
 
             <div id="query02Title" class="row" >
-                <div class="col-md-12 h3 text-center">Search course is taught by semester range in a given year.</div>
+                <div class="col-md-12 h3 text-center">Search courses taught by semester in a given range of years.</div>
             </div>
             <form id="coursesBySemester" class="form-horizontal" role="form" method="post" action="lib/courseInfoTaughtSQLProcess.php">
 
@@ -82,10 +82,19 @@ require("lib/courseInfoProcess.php");
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="year">Year taught :</label>
+                    <label class="col-md-2 control-label" for="year">Taught from Year:</label>
                     <div class="col-md-4">
                         <select id="year" name="year" class="form-control" value="<?php echo htmlspecialchars($year); ?>">
-                            <option value="" selected="selected">--- Select Year taught ---</option>
+                            <option value="" selected="selected">--- Select taught from year---</option>
+                            <?php echo $courseInfo->getYearTaught();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="year2">To Year:</label>
+                    <div class="col-md-4">
+                        <select id="year2" name="year2" class="form-control" value="<?php echo htmlspecialchars($year2); ?>">
+                            <option value="" selected="selected">--- To year ---</option>
                             <?php echo $courseInfo->getYearTaught();?>
                         </select>
                     </div>

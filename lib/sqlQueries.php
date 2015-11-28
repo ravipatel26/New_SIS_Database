@@ -594,7 +594,7 @@ class AdminSystem
 
 
 
-    public function getCourseBySemesterTeached($sql,$year,$professorName){
+    public function getCourseBySemesterTeached($sql,$year,$year2,$professorName){
 
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
@@ -611,9 +611,10 @@ class AdminSystem
                 $semesterName = $this->getSemesterNameById($semesterId);
                 $courseId = $result->courseId;
                 $courseName=$this->getCourseNameById($courseId);
+                $yearTaught=$result->year;
 
                 $allCourses.='<tr>'.
-                    '<td>'.$professorName.'</td><td>'.$courseName.'</td><td>'.$semesterName.'</td><td>'.$year.'</td>'.
+                    '<td>'.$professorName.'</td><td>'.$courseName.'</td><td>'.$semesterName.'</td><td>'.$yearTaught.'</td>'.
                     '</tr>';
             }
 
@@ -1015,7 +1016,7 @@ public function getCountries()
     public function getCommitteeName()
     {
         $committeeName ='';
-        $sql="SELECT * FROM services ";
+        $sql="SELECT DISTINCT serviceName FROM services ORDER BY  serviceName ASC ";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -1029,10 +1030,15 @@ public function getCountries()
             {
                 if($result->serviceName){
                     $committees=$result->serviceName;
-                    $Id = $result->serviceId;
+                    $Id = substr($committees,1);
                     if($Id==$committeesId){
                         $committeeName.='<option>'.$committees.'</option>';
                         ++$committeesId;
+                    }
+                    if($Id<$committeesId){
+                        $committeeName.='<option>C'.$committeesId.'</option>';
+
+                        $committeesId++;
                     }
                 }
 
@@ -1042,7 +1048,7 @@ public function getCountries()
             $committeeName.='<option>C1</option>';
         }
 
-        $committeeName.='<option>C'.$committeesId.'</option>';
+        //$committeeName.='<option>C'.$committeesId.'</option>';
 
 
         return $committeeName;
