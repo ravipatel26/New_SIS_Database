@@ -1362,6 +1362,42 @@ var j = jQuery.noConflict();
             }
         });
 
+        var validator = j("#supportInfo").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "lib/supportSQLProcess.php",
+                    data: $('#supportInfo').serialize(),
+                    success: function(msg){
+                        j("#supportInfo").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                studentName: {
+                    message: "Student's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Student's Name"
+                        }
+                    }
+                }
+            }
+        });
+
 
         var validator = j("#coursesBySemester").bootstrapValidator({
             feedbackIcons: {

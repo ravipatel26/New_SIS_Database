@@ -81,15 +81,15 @@ require("lib/studentLevelInfoProcess.php");
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-2 col-xs-offset-2 control-label" for="year">Year:</label>
-                    <div class="col-md-3">
-                        <select id="year" name="year" class="form-control" value="<?php echo htmlspecialchars($year); ?>">
-                            <option value="" selected="selected">--- Select taught from year---</option>
-                            <?php echo $levelInfo->getYearSupervised();?>
-                        </select>
-                    </div>
-                </div>
+<!--                <div class="form-group">-->
+<!--                    <label class="col-md-2 col-xs-offset-2 control-label" for="year">Year:</label>-->
+<!--                    <div class="col-md-3">-->
+<!--                        <select id="year" name="year" class="form-control" value="--><?php //echo htmlspecialchars($year); ?><!--">-->
+<!--                            <option value="" selected="selected">--- Select taught from year---</option>-->
+<!--                            --><?php //echo $levelInfo->getYearSupervised();?>
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <!--                submit and reset buttons-->
                 <div class="row text-center">
                     <div class="form-group">

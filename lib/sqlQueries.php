@@ -115,6 +115,10 @@ class AdminSystem
 
     }
 
+    public function addSupervise($sql){
+        $this->connect->query($sql);
+    }
+
     public function addReview($sql)
     {
         $this->connect->query($sql);
@@ -448,6 +452,34 @@ class AdminSystem
 
     }
 
+    //////////////////////////////
+    //GET Student Name ID
+    //////////////////////////////
+
+    public function getStudentNameWithId()
+    {
+        $studentNames='';
+        $sql="SELECT * FROM student WHERE studentStatus='Graduate' ORDER BY studentName ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $names=$result->studentName;
+            $id = $result->studentId;
+            $studentNames.='<option value="'.$id.'-'.$names.'">'.$names.'</option>';
+
+        }
+
+        return $studentNames;
+
+    }
+
 
     //////////////////////////////
     //GET course ID
@@ -667,6 +699,28 @@ class AdminSystem
         return $levelNumbers;
     }
 
+    public function getTotalStudentSupport($sql,$studentName){
+
+        $totalAmount='';
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+            $totalSupport='';
+
+            foreach($records as $result)
+            {
+                $totalAmount=$result->totalAmount;
+
+                $totalSupport.='<tr><td>'.$studentName.'</td><td>'.$totalAmount.'</td>';
+            }
+
+        }
+        return $totalSupport;
+    }
 
 
     public function getCourseBySemesterTeached($sql,$professorId){
