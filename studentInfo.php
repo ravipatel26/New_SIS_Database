@@ -13,16 +13,16 @@ require("lib/studentLevelInfoProcess.php");
 <?php require("header.php");?>
 
 <body>
-<div class="container-fluid bg-info" style="height: 1500px">
+<div class="container-fluid bg-info" style="height: 100%">
     <div id="navigation">
         <div class="row">
             <?php require("navigation.php"); ?>
         </div>
     </div>
-    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
+    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%; height: 1200px;">
         <div class="panel-heading h2 text-center">Student Info</div>
         <div class="panel-body">
-            <div id="query01Title" class="row" >
+            <div id="query03Title" class="row" >
                 <div class="col-md-12 h3 text-center">Search graduated student level.</div>
             </div>
             <form id="studentLevel" class="form-horizontal" role="form" method="post" action="lib/studentLevelInfoSQLProcess.php">
@@ -36,9 +36,9 @@ require("lib/studentLevelInfoProcess.php");
                     </div>
                 </div>
                 <div class="form-group" id="displayLevel">
-                    <label for="level" class="col-md-2 col-xs-offset-2 control-label">Level :</label>
+                    <label for="level" class="col-md-2 col-xs-offset-2 control-label">Graduate Student Level :</label>
                     <div class="col-md-3">
-                        <select id="level" name="level" class="form-control" value="<?php echo htmlspecialchars($level); ?>" onchange="checkSummerStudent(this.value)">
+                        <select id="level" name="level" class="form-control" value="<?php echo htmlspecialchars($level); ?>">
                             <option value="" selected="selected">--- Select a Level ---</option>
                             <option value="Undergraduate">Undergraduate (BS)</option>
                             <option value="Master">Master (MS)</option>
@@ -67,6 +67,50 @@ require("lib/studentLevelInfoProcess.php");
                 echo $table;
             }
             ?>
+
+            <div id="query04Title" class="row" >
+                <div class="col-md-12 h3 text-center">Search graduated student level by year.</div>
+            </div>
+            <form id="studentLevelYear" class="form-horizontal" role="form" method="post" action="lib/studentLevelByYearInfoSQLProcess.php">
+
+                <div class="form-group">
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="professorName">Professor's Name :</label>
+                    <div class="col-md-3">
+                        <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
+                            <?php echo $levelInfo->getProfessorNameId2();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="year">Year:</label>
+                    <div class="col-md-3">
+                        <select id="year" name="year" class="form-control" value="<?php echo htmlspecialchars($year); ?>">
+                            <option value="" selected="selected">--- Select taught from year---</option>
+                            <?php echo $levelInfo->getYearSupervised();?>
+                        </select>
+                    </div>
+                </div>
+                <!--                submit and reset buttons-->
+                <div class="row text-center">
+                    <div class="form-group">
+                        <div class="col-md-2 col-xs-offset-2">
+                            <button type="submit" class="btn btn-success">Send</button>
+                        </div>
+
+                        <div class="col-md-2">
+                            <button class="btn btn-danger" type="reset" onclick="window.location.replace('studentInfo.php'); ">reset</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <?php
+            if(!empty($levelYearResult)){
+                echo $table2;
+            }
+            ?>
+
 
 
         </div>

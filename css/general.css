@@ -54,11 +54,11 @@ h4{
 	 right: -30px;
  }
 
-#query01Title{
+#query01Title, #query03Title{
 	height: 100px;
 }
 
-#query02Title, #coursesBySemester, #query02{
+#query02Title, #coursesBySemester, #query02,#query04,#query04Title, #studentLevelYear{
 	height: 100px;
 	position: relative;
 	top: 150px;
@@ -68,3 +68,8 @@ h4{
 	position: relative;
 	top: 220px;
 }
+
+#query04{
+	  position: relative;
+	  top: 320px;
+  }

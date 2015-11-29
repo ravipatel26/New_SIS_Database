@@ -642,6 +642,31 @@ class AdminSystem
     }
 
 
+    public function getLevelByYear($sql,$professorName,$year){
+
+        $levelNumber='';
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+            $levelNumbers='';
+
+            foreach($records as $result)
+            {
+                $levelNumber=$result->NumberStudents;
+                $level=$result->studentLevel;
+
+                $levelNumbers.='<tr><td>'.$professorName.'</td><td>'.$level.'</td><td>'.$levelNumber.'</td><td>'.$year.'</td></tr>';
+            }
+
+        }
+        return $levelNumbers;
+    }
+
+
 
     public function getCourseBySemesterTeached($sql,$professorId){
 
@@ -1153,6 +1178,34 @@ public function getCountries()
         return $allYears;
 
     }
+
+    //////////////////////////////
+    //GET Year Supervised
+    //////////////////////////////
+
+    public function getYearSupervised()
+    {
+        $allYears='';
+        $sql="SELECT DISTINCT year FROM supervises ORDER BY year ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $years=$result->year;
+            $allYears.='<option>'.$years.'</option>';
+        }
+
+        return $allYears;
+
+    }
+
+
 
 
 }

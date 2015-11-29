@@ -12,7 +12,7 @@ $levelInfo = new AdminSystem();
 $levelResult = $_GET['levelResult'];
 $levelResult = base64_decode(strtr($levelResult, '-_,', '+/='));
 
-$table='<div id="query01" class="row" style="width: 80%">
+$table='<div id="query03" class="row" style="width: 80%">
                 <div class="col-md-10 col-xs-offset-3">
                     <table class="table">
                         <thead>
@@ -28,22 +28,21 @@ $table='<div id="query01" class="row" style="width: 80%">
             </div>';
 
 
-$courseResult = $_GET['courseResult'];
-$courseResult = base64_decode(strtr($courseResult, '-_,', '+/='));
+$levelYearResult = $_GET['levelYearResult'];
+$levelYearResult = base64_decode(strtr($levelYearResult, '-_,', '+/='));
 
-$table2='<div id="query02" class="row" style="width: 80%">
+$table2='<div id="query04" class="row" style="width: 80%">
                 <div class="col-md-10 col-xs-offset-3">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Professor</th><th>Class taught</th><th>Semester</th><th>Year</th>
+                                <th>Professor</th><th>Level</th><th>Student Number</th><th>Year</th>
                             </tr>
                         </thead>
                         <tbody>'
-    .$courseResult.
+    .$levelYearResult.
     '</tbody>
                     </table>
                 </div>
             </div>';
-
 ?>

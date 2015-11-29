@@ -1273,6 +1273,95 @@ var j = jQuery.noConflict();
             }
         });
 
+        var validator = j("#studentLevel").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "lib/studentLevelInfoSQLProcess.php",
+                    data: $('#studentLevel').serialize(),
+                    success: function(msg){
+                        j("#studentLevel").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                professorName: {
+                    message: "Professor's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's Name"
+                        }
+                    }
+                },
+                level: {
+                    message: "Student level is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the student level"
+                        }
+                    }
+                }
+            }
+        });
+
+
+        var validator = j("#studentLevelYear").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "lib/studentLevelByYearInfoSQLProcess.php",
+                    data: $('#studentLevelYear').serialize(),
+                    success: function(msg){
+                        j("#studentLevelYear").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                professorName: {
+                    message: "Professor's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's Name"
+                        }
+                    }
+                },
+                year: {
+                    message: "The year is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the year"
+                        }
+                    }
+                }
+            }
+        });
+
 
         var validator = j("#coursesBySemester").bootstrapValidator({
             feedbackIcons: {
