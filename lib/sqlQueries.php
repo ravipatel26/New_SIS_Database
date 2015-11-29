@@ -658,6 +658,7 @@ class AdminSystem
             {
                 $levelNumber=$result->NumberStudents;
                 $level=$result->studentLevel;
+                $year=$result->year;
 
                 $levelNumbers.='<tr><td>'.$professorName.'</td><td>'.$level.'</td><td>'.$levelNumber.'</td><td>'.$year.'</td></tr>';
             }

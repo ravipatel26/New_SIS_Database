@@ -34,9 +34,9 @@ echo '<br/>'.$professorId.'<br/>';
 echo $level.'<br/>';
 
 //$query ="SELECT graduatestudent.studentLevel, COUNT(*) AS `Number of Students`, supervises.year FROM graduatestudent,supervises WHERE graduatestudent.studentId=supervises.studentId AND supervises.professorId='$professorId' GROUP BY graduatestudent.studentLevel,year ORDER BY year ASC ";
-//$query ="SELECT graduatestudent.studentLevel, COUNT(graduatestudent.studentLevel) AS `Number of Students`, supervises.year FROM graduatestudent,supervises WHERE graduatestudent.studentId=supervises.studentId AND supervises.professorId='$professorId' GROUP BY graduatestudent.studentLevel,year ORDER BY year ASC ";
-
-$query ="SELECT graduatestudent.studentLevel, COUNT(graduatestudent.studentLevel) AS `NumberStudents`, supervises.year FROM graduatestudent,supervises WHERE graduatestudent.studentId=supervises.studentId AND supervises.professorId='$professorId' AND supervises.year='$year' GROUP BY graduatestudent.studentLevel ";
+$query ="SELECT graduatestudent.studentLevel, COUNT(graduatestudent.studentLevel) AS `NumberStudents`, supervises.year FROM graduatestudent,supervises WHERE graduatestudent.studentId=supervises.studentId AND supervises.professorId='$professorId' GROUP BY graduatestudent.studentLevel,year ORDER BY year ASC ";
+//
+//$query ="SELECT graduatestudent.studentLevel, COUNT(graduatestudent.studentLevel) AS `NumberStudents`, supervises.year FROM graduatestudent,supervises WHERE graduatestudent.studentId=supervises.studentId AND supervises.professorId='$professorId' AND supervises.year='$year' GROUP BY graduatestudent.studentLevel ";
 
 $levelYearResult= $levelInfo->getLevelByYear($query,$professorName,$year);
 

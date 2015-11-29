@@ -36,7 +36,7 @@ $table2='<div id="query04" class="row" style="width: 80%">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Professor</th><th>Level</th><th>Student Number</th><th>Year</th>
+                                <th>Professor</th><th>Level</th><th>Number of Students</th><th>Year</th>
                             </tr>
                         </thead>
                         <tbody>'
