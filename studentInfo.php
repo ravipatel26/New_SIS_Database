@@ -20,7 +20,7 @@ require("lib/studentLevelInfoProcess.php");
         </div>
     </div>
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%; height: 1200px;">
-        <div class="panel-heading h2 text-center">Student Info</div>
+        <div class="panel-heading h2 text-center">Student Information</div>
         <div class="panel-body">
             <div id="query03Title" class="row" >
                 <div class="col-md-12 h3 text-center">Search graduated student level.</div>
@@ -81,15 +81,6 @@ require("lib/studentLevelInfoProcess.php");
                         </select>
                     </div>
                 </div>
-<!--                <div class="form-group">-->
-<!--                    <label class="col-md-2 col-xs-offset-2 control-label" for="year">Year:</label>-->
-<!--                    <div class="col-md-3">-->
-<!--                        <select id="year" name="year" class="form-control" value="--><?php //echo htmlspecialchars($year); ?><!--">-->
-<!--                            <option value="" selected="selected">--- Select taught from year---</option>-->
-<!--                            --><?php //echo $levelInfo->getYearSupervised();?>
-<!--                        </select>-->
-<!--                    </div>-->
-<!--                </div>-->
                 <!--                submit and reset buttons-->
                 <div class="row text-center">
                     <div class="form-group">

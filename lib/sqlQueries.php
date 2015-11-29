@@ -722,6 +722,32 @@ class AdminSystem
         return $totalSupport;
     }
 
+    public function getTotalStudentByCourses($sql,$professorName){
+
+        $totalAmount='';
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+            $totalSupport='';
+
+            foreach($records as $result)
+            {
+                $totalStudents=$result->totalStudents;
+                $courseName=$result->courseName;
+                $courseCode=$result->courseNameCode;
+                $course=$courseName.' '.$courseCode;
+
+                $totalSupport.='<tr><td>'.$professorName.'</td><td>'.$course.'</td><td>'.$totalStudents.'</td>';
+            }
+
+        }
+        return $totalSupport;
+    }
+
 
     public function getCourseBySemesterTeached($sql,$professorId){
 

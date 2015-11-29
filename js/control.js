@@ -1273,6 +1273,44 @@ var j = jQuery.noConflict();
             }
         });
 
+
+        var validator = j("#classList").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/classListInfoSQLProcess.php",
+                    data: $('#classList').serialize(),
+                    success: function(msg){
+                        j("#classList").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                professorName: {
+                    message: "Professor's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's Name"
+                        }
+                    }
+                }
+            }
+        });
+
+
         var validator = j("#studentLevel").bootstrapValidator({
             feedbackIcons: {
                 valid: "glyphicon glyphicon-ok",

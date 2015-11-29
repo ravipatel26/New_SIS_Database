@@ -13,7 +13,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                   <ul class="nav navbar-nav">
 				  	  <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           Student Info<b class="caret"></b>
+                           Student Information Entry<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                            <li><a href="studentForm.php">Student Information</a></li>
@@ -26,7 +26,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                       </li>
                   	  <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           Professor Info<b class="caret"></b>
+                           Professor Information Entry<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                            <li><a href="professorInformationForm.php">Professor Information</a></li>
@@ -37,10 +37,10 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                            <li class="divider"></li>
                          </ul>
                       </li>
-                      <li><a href="courseInformationForm.php">Courses Info</a></li>
+                      <li><a href="courseInformationForm.php">Courses Info Entry</a></li>
 					  <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           Grant Info<b class="caret"></b>
+                           Grant Information Entry<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                            <li><a href="newGrant.php">New Grants</a></li>
@@ -51,7 +51,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                       </li>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           Services<b class="caret"></b>
+                           Services Information Entry<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                            <li><a href="servicesInformationForm.php">Services Information</a></li>
@@ -64,8 +64,8 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                            <li class="divider"></li>
                          </ul>
                       </li>
-                      <li><a href="reviewsInformationForm.php">Reviews Info</a></li>
-					  <li><a href="departmentForm.php">Departments Info</a></li>
+                      <li><a href="reviewsInformationForm.php">Reviews Information Entry</a></li>
+					  <li><a href="departmentForm.php">Departments Information Entry</a></li>
 					  <li><a href="newAccount.php">New User Account</a></li>
 					  <li></li>
 					  <li></li>

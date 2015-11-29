@@ -7,7 +7,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand dropdown" href="index.php">Home</a>
+                  <a class="navbar-brand dropdown" href="adminLogin.php">Home</a>
                </div>
                <div class="collapse navbar-collapse" id="navigationBar-collapse">
                   <ul class="nav navbar-nav">
