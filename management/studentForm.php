@@ -159,7 +159,7 @@ if(!isset($_SESSION["manager"]))
                             <select id="level" name="level" class="form-control" value="<?php echo htmlspecialchars($level); ?>" onchange="checkSummerStudent(this.value)">
                                 <option value="" selected="selected">--- Select a Level ---</option>
                                 <option value="Undergraduate">Undergraduate (BS)</option>
-                                <option value="Graduate">Graduate (MS)</option>
+                                <option value="Master">Master (MS)</option>
                                 <option value="Doctorate">Doctorate (PhD)</option>
                                 <option value="Post-Doctorate">Post-Doctorate</option>
                             </select>

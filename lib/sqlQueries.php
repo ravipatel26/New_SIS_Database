@@ -616,6 +616,31 @@ class AdminSystem
         return $semesterNames;
     }
 
+    public function getLevelStudentNameTeached($sql,$professorName,$level){
+
+        $studentName='';
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+            $studentNames='';
+
+            foreach($records as $result)
+            {
+                $studentName=$result->studentName;
+
+                $studentNames.='<tr>'.
+                    '<td>'.$professorName.'</td><td>'.$studentName.'</td><td>'.$level.'</td>'.
+                    '</tr>';
+            }
+
+        }
+        return $studentNames;
+    }
+
 
 
     public function getCourseBySemesterTeached($sql,$professorId){

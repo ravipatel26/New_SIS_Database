@@ -115,7 +115,7 @@ require("lib/courseInfoProcess.php");
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 col-xs-offset-2 control-label" for="year2">To Year:</label>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <select id="year2" name="year2" class="form-control" value="<?php echo htmlspecialchars($year2); ?>">
                             <option value="" selected="selected">--- To year ---</option>
                             <?php echo $courseInfo->getYearTaught();?>
