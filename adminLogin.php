@@ -15,7 +15,7 @@ require("lib/sqlQueries.php");
 if(isset($_SESSION["manager"]))
 {
     //already logged in so go back to desired page
-    header("location:/management/adminHome.php");
+    header("location:/comp353/management/adminHome.php");
     exit();
 }
 ?>
