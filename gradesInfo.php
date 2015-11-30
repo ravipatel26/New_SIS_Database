@@ -23,7 +23,7 @@ require("lib/gradesListInfoProcess.php");
         <div class="panel-heading h2 text-center">Grades Info</div>
         <div class="panel-body">
             <div id="query03Title" class="row" >
-                <div class="col-md-12 h3 text-center">Semester with best average grades.</div>
+                <div class="col-md-12 h3 text-center">Semester with best average grades (above B-).</div>
             </div>
             <form id="gradesList" class="form-horizontal" role="form" method="post" action="lib/gradesInfoSQLProcess.php">
 

@@ -29,7 +29,7 @@ echo '<br/>';
 
 echo '<br/>'.$professorId.$professorName.'<br/>';
 
-    $query = "SELECT courseName, courseNameCode, semesterName, courseYear, finalLetterGrade FROM coursetaken NATURAL JOIN grades NATURAL JOIN semester NATURAL join course WHERE professorId='$professorId' AND finalLetterGrade<'B' ";
+    $query = "SELECT courseName, courseNameCode, semesterName, courseYear, finalLetterGrade FROM coursetaken NATURAL JOIN semester NATURAL join course WHERE professorId='$professorId' AND finalLetterGrade<'B-' ";
 
     $gradesResult= $gradesListInfo->getBestGradesSemester($query,$professorName);
 

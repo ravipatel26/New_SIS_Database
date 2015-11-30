@@ -47,7 +47,7 @@ echo '<br/>'.$coursesId.'---'.$studentId.'---'.$finalLetterGrades;
 
         $_SESSION['success'] = false;
 
-        $query = "INSERT INTO grades (courseTakenId,assignments,projects, midTerms,finalExams,finalLetterGrade ) VALUES ( '$courseTakenId','$assignments', '$projects','$midTerms','$finalExams','$finalLetterGrades')";
+        $query = "UPDATE coursetaken SET assignments='$assignments', projects='$projects', midTerms='$midTerms',finalExams='$finalExams',finalLetterGrade='$finalLetterGrades' WHERE courseTakenId='$courseTakenId'";
         $studentGrades->addNewGrades($query);
 
         echo '<br/>'.'---'.$courseTakenId.'---'.$assignments.'---'.$projects.'---'.$midTerms.'---'.$finalExams.'---'.$finalLetterGrades;

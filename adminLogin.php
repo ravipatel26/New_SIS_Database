@@ -65,13 +65,7 @@ if(isset($_SESSION["manager"]))
                         </div>
                      </div>
                 </div>
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-primary" id="changePassword" onclick="location.href='index.php'">Cancel</button>
-                        </div>
-                    </div>
-                </div>
+
             </form>
 
         </div>
