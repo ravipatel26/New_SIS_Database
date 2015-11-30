@@ -7,7 +7,7 @@ session_unset();
 //session_destroy();
 $_SESSION['logged']='false';
 
-header('location:../index.php');
+header('location:../adminLogin.php');
 exit();
 
 ?>

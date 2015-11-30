@@ -331,7 +331,7 @@ var j = jQuery.noConflict();
 
                 j.ajax({
                     type: "POST",
-                    url: "../lib/loginSQLProcess.php",
+                    url: "admin/loginSQLProcess.php",
                     data: $('#adminLogin').serialize(),
                     success: function(msg){
                         j("#adminLogin").addClass("hidden");
