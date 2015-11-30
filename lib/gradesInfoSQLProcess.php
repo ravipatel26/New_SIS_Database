@@ -29,12 +29,12 @@ echo '<br/>';
 
 echo '<br/>'.$professorId.$professorName.'<br/>';
 
-//    $query = "SELECT courseName,courseNameCode,COUNT(studentId) AS 'totalStudents' FROM coursetaken NATURAL  JOIN course WHERE professorId = '$professorId' GROUP BY courseId";
-//
-//$gradesResult= $gradesListInfo->getTotalStudentByCourses($query,$professorName);
-//
-//$gradesResult = strtr(base64_encode($gradesResult), '+/=', '-_,');
-//
-//header("Location: ../gradesInfo.php?gradesResult=$gradesResult");
+    $query = "SELECT courseName, courseNameCode, semesterName, courseYear, finalLetterGrade FROM coursetaken NATURAL JOIN grades NATURAL JOIN semester NATURAL join course WHERE professorId='$professorId' AND finalLetterGrade<'B' ";
+
+    $gradesResult= $gradesListInfo->getBestGradesSemester($query,$professorName);
+
+$gradesResult = strtr(base64_encode($gradesResult), '+/=', '-_,');
+
+header("Location: ../gradesInfo.php?gradesResult=$gradesResult");
 
 ?>

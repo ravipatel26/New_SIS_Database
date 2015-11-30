@@ -19,7 +19,7 @@ require("lib/gradesListInfoProcess.php");
             <?php require("navigation.php"); ?>
         </div>
     </div>
-    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%; height: 1200px;">
+    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%; height: 900px;">
         <div class="panel-heading h2 text-center">Grades Info</div>
         <div class="panel-body">
             <div id="query03Title" class="row" >

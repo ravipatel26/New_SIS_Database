@@ -17,7 +17,7 @@ $table='<div id="query01" class="row" style="width: 75%">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Professor Name</th><th>Course Name</th><th>Total Students</th>
+                                <th>Professor Name</th><th>Course Name</th><th>Semester</th><th>Year</th><th>Grade</th>
                             </tr>
                         </thead>
                         <tbody>'

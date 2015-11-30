@@ -749,6 +749,36 @@ class AdminSystem
     }
 
 
+    public function getBestGradesSemester($sql,$professorName){
+
+        $totalAmount='';
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+            $bestGrades='';
+
+            foreach($records as $result)
+            {
+                $grade=$result->finalLetterGrade;
+                $courseName=$result->courseName;
+                $courseCode=$result->courseNameCode;
+                $course=$courseName.' '.$courseCode;
+                $year=$result->courseYear;
+                $semester=$result->semesterName;
+
+                $bestGrades.='<tr><td>'.$professorName.'</td><td>'.$course.'</td><td>'.$semester.'</td><td>'.$year.'</td><td>'.$grade.'</td>';
+            }
+
+        }
+        return $bestGrades;
+    }
+
+
+
     public function getCourseBySemesterTeached($sql,$professorId){
 
         $results= mysqli_query($this->connect, $sql);
