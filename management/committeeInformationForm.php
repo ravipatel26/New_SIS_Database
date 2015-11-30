@@ -7,7 +7,7 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-require("../lib/committeesProcess.php");
+require("../lib/committeesInfoProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
