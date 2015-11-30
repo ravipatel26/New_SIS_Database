@@ -7,7 +7,7 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-require("../lib/newCommitteeProcess.php");
+require("../lib/newTechCommitteeProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
@@ -30,13 +30,13 @@ if(!isset($_SESSION["manager"]))
 			<div class="panel panel-default col-lg-6 col-lg-offset-1" style="width: 80%">
 				<div class="panel-heading h2 text-center">Technical Program Committee Form</div>
 				<div class="panel-body">
-					<form id="techCommitteeName" class="form-horizontal" role="form" method="post" action="../lib/newCommitteeSQLProcess.php">
+					<form id="techCommitteeName" class="form-horizontal" role="form" method="post" action="../lib/newTechCommitteeSQLProcess.php">
 						<div class="form-group">
 							<label class="col-md-2 col-xs-offset-2 control-label" for="professorName">Professor's Name :</label>
 							<div class="col-md-4">
 								<select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
 									<option value="" selected="selected">--- Select a Professor's Name ---</option>
-									<?php echo $newCommittee->getProfessorNameId();?>
+									<?php echo $newTechCommittee->getProfessorNameId();?>
 								</select>
 							</div>
 						</div>
@@ -44,6 +44,15 @@ if(!isset($_SESSION["manager"]))
 							<label for="techCommitteeName" class="col-md-3 col-xs-offset-1 control-label">Technical Program Committee Name :</label>
 							<div class="col-sm-5">
 								<input type="text" class="form-control" id="techCommitteeName" name="techCommitteeName" placeholder="Technical Program Committee Name" value="<?php echo htmlspecialchars($techCommitteeName); ?>">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 col-xs-offset-2 control-label" for="semester">Semester :</label>
+							<div class="col-md-3">
+								<select id="semester" name="semester" class="form-control" value="<?php echo htmlspecialchars($semester); ?>">
+									<option value="" selected="selected">--- Select semester membership---</option>
+									<?php echo $newTechCommittee->getSemesterNameId();?>
+								</select>
 							</div>
 						</div>
 						<div class="form-group">

@@ -17,21 +17,22 @@ echo print_r($_POST);
         $committeeName = $_POST['committeeName'];
         $professorId = $_POST['professorName'];
         $academicYear = $_POST['academicYear'];
+        $semesterId = $_POST['semester'];
 
 echo '<br/>'.$committeeName.'   '.$professorId.'   '.$academicYear.'<br/>';
 
 $_SESSION['success'] = false;
 
-//$query = "INSERT INTO technicalprogramcommittee (committeeName,year ) VALUES ( '$committeeName', '$academicYear')";
-//$committeeId = $newCommittee->addNewCommittee($query);
+$query = "INSERT INTO committee (committeeName,year,semesterId ) VALUES ( '$committeeName','$academicYear','$semesterId')";
+$committeeId = $newCommittee->addNewCommittee($query);
 
-//echo $committeeId;
+echo $committeeId;
 
-$query = "INSERT INTO services (professorId, serviceName, year) VALUES ( '$professorId', '$committeeName', '$academicYear')";
+$query = "INSERT INTO services (professorId, committeeId, year) VALUES ( '$professorId', '$committeeId', '$academicYear')";
 $newCommittee->addNewService($query);
 
 $_SESSION['success'] = true;
-header("Location: ../management/servicesInformationForm.php");
+header("Location: ../management/committeeInformationForm.php");
 
 
 ?>

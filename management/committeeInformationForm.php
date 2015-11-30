@@ -29,7 +29,7 @@ if(!isset($_SESSION["manager"]))
         </div>
     </div>
     <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
-        <div class="panel-heading h2 text-center">Services Information Form</div>
+        <div class="panel-heading h2 text-center">University Committee Information Form</div>
         <div class="panel-body">
             <form id="servicesInfoForm" class="form-horizontal" role="form" method="post" action="../lib/newCommitteeSQLProcess.php">
                 <div class="form-group">
@@ -51,10 +51,19 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="semester">Semester :</label>
+                    <div class="col-md-3">
+                        <select id="semester" name="semester" class="form-control" value="<?php echo htmlspecialchars($semester); ?>">
+                            <option value="" selected="selected">--- Select semester membership---</option>
+                            <?php echo $committe->getSemesterNameId();?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="academicYear" class="col-md-3 col-xs-offset-1  control-label">Academic Year :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="academicFormYear">
-                            <input id="academicYear" name="academicYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($academicYear); ?>"/>
+                            <input id="academicYear" name="academicYear" type="text" class="form-control datepicker" placeholder="Year of membership." value="<?php echo htmlspecialchars($academicYear); ?>"/>
                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                     </div>

@@ -19,12 +19,13 @@ echo print_r($_POST);
     $eventName = $_POST['eventName'];
     $eventType = $_POST['eventType'];
     $eventYear = $_POST['eventYear'];
+    $semesterId = $_POST['semester'];
 
 echo $eventName.'    '.$eventType.'  '.$eventYear;
 
 $_SESSION['success'] = false;
 
-$query = "INSERT INTO event (eventName, eventType,year ) VALUES ( '$eventName', '$eventType', '$eventYear')";
+$query = "INSERT INTO event (eventName, eventType,year,semesterId ) VALUES ( '$eventName', '$eventType', '$eventYear','$semesterId')";
 
 $eventId = $newEvent->addNewEvent($query);
 

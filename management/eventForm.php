@@ -57,6 +57,15 @@ if(!isset($_SESSION["manager"]))
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-md-2 col-xs-offset-2 control-label" for="semester">Semester :</label>
+                        <div class="col-md-3">
+                            <select id="semester" name="semester" class="form-control" value="<?php echo htmlspecialchars($semester); ?>">
+                                <option value="" selected="selected">--- Select semester membership---</option>
+                                <?php echo $newEvent->getSemesterNameId();?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="eventYear" class="col-md-2 col-xs-offset-2 control-label">Event Year :</label>
                         <div class="col-md-4 date">
                             <div class="input-group input-append date" id="eventFormYear">

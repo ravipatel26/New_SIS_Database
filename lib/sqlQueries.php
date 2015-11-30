@@ -1225,7 +1225,7 @@ public function getCountries()
     public function getCommitteeName()
     {
         $committeeName ='';
-        $sql="SELECT DISTINCT serviceName FROM services ORDER BY  serviceName ASC ";
+        $sql="SELECT committeeName FROM committee ORDER BY  committeeName ASC ";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {
@@ -1237,8 +1237,8 @@ public function getCountries()
             $committeesId = 1;
             foreach($records as $result)
             {
-                if($result->serviceName){
-                    $committees=$result->serviceName;
+                if($result->committeeName){
+                    $committees=$result->committeeName;
                     $Id = substr($committees,1);
                     if($Id==$committeesId){
                         $committeeName.='<option>'.$committees.'</option>';

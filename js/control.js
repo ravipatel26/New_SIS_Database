@@ -710,6 +710,14 @@ var j = jQuery.noConflict();
                             message: "The year must have 4 digits."
                         }
                     }
+                },
+                semester: {
+                    message: "The semester membership is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the semester membership."
+                        }
+                    }
                 }
             }
         });
@@ -738,7 +746,7 @@ var j = jQuery.noConflict();
 
                 j.ajax({
                     type: "POST",
-                    url: "../lib/newCommitteeSQLProcess.php",
+                    url: "../lib/newTechCommitteeSQLProcess.php",
                     data: $('#techCommitteeName').serialize(),
                     success: function(msg){
                         j("#techCommitteeName").addClass("hidden");
@@ -780,6 +788,14 @@ var j = jQuery.noConflict();
                             min: 4,
                             max: 4,
                             message: "The year must have 4 digits."
+                        }
+                    }
+                },
+                semester: {
+                    message: "The semester membership is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the semester membership."
                         }
                     }
                 }
@@ -1579,6 +1595,75 @@ var j = jQuery.noConflict();
         });
 
 
+        var validator = j("#committeeList").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/committeesInfoSQLProcess.php",
+                    data: $('#committeeList').serialize(),
+                    success: function(msg){
+                        j("#committeeList").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                professorName: {
+                    message: "Professor's Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Professor's Name"
+                        }
+                    }
+                },
+                year: {
+                    message: "The year membership from is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the year membership: From."
+                        }
+                    }
+                },
+                semester1: {
+                    message: "The semester membership is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the semester membership: From."
+                        }
+                    }
+                },
+                year2: {
+                    message: "The year membership is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the year membership: To. "
+                        }
+                    }
+                },
+                semester2: {
+                    message: "The semester membership is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the semester membership: To."
+                        }
+                    }
+                }
+            }
+        });
+
+
 
 
         j("#grantYearForm")
@@ -2013,8 +2098,7 @@ var j = jQuery.noConflict();
                             message : "Please provide the Professor's name."
                         }
                     }
-                }
-                ,
+                },
                 academicYear:{
                     message : "The Academic year is required",
                     validators : {
@@ -2028,6 +2112,14 @@ var j = jQuery.noConflict();
                             min: 4,
                             max: 4,
                             message: "The year must have 4 digits."
+                        }
+                    }
+                },
+                semester: {
+                    message: "The semester membership is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide the semester membership."
                         }
                     }
                 }

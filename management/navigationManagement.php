@@ -54,7 +54,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                            Services Information Entry<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                           <li><a href="servicesInformationForm.php">Services Information</a></li>
+                           <li><a href="committeeInformationForm.php">Committee Information</a></li>
                            <li class="divider"></li>
                            <li><a href="eventForm.php">Events Information</a></li>
                            <li class="divider"></li>

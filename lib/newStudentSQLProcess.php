@@ -94,6 +94,7 @@ $summer = $_POST['summer'];
 $address = $address.','.$city.','.$province.','.$country.','.$postalcode;
 
 echo print_r($_POST).'</br>'.$address;
+echo '<br>'.$name.','.$email.','.$status.','.$phoneNumber.','.$gender.','.$birthDate.','.$deptId.','.$address;
 
 $studentId = 0;
 $_SESSION['success'] = false;
@@ -101,7 +102,7 @@ $_SESSION['success'] = false;
 $query = "INSERT INTO student (studentName, studentNumber, studentEmail, studentStatus, studentPhone, studentGender, studentBirthDate, deptId, studentAdress) VALUES ( '$name', '$studentNumber', '$email', '$status', '$phoneNumber', '$gender', '$birthDate', '$deptId', '$address')";
 
 $studentId=$newStudent->addNewStudent($query);
-
+//
 if(!empty($level)){
     $query = "INSERT INTO graduatestudent (studentId, studentLevel, currentPosition) VALUES ('$studentId', '$level', '$position')";
     $newStudent->addGraduateStudent($query);
