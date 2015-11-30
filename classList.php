@@ -13,13 +13,13 @@ require("lib/classListInfoProcess.php");
 <?php require("header.php");?>
 
 <body>
-<div class="container-fluid bg-info" style="height: 1500px">
+<div class="container-fluid bg-info" style="height: 100%">
     <div id="navigation">
         <div class="row">
             <?php require("navigation.php"); ?>
         </div>
     </div>
-    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
+    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%; height: 1200px;">
         <div class="panel-heading h2 text-center">Class List</div>
         <div class="panel-body">
             <div id="query03Title" class="row" >
