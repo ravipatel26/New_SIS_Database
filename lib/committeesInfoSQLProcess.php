@@ -15,7 +15,7 @@ $professorId = $coursesId = $semester = $professorName = $courseName = $year = '
 
 $committeesInfo = new AdminSystem();
 
-//echo print_r($_POST);
+echo print_r($_POST);
 echo '<br/>';
 
 
@@ -26,15 +26,37 @@ echo '<br/>';
         $professorName = $data[1];
 
     }
+    if (isset($_POST['year'])) {
+        $year = $_POST['year'];
+    }
+
+    if (isset($_POST['year2'])) {
+        $year2 = $_POST['year2'];
+    }
+    if (isset($_POST['semester1'])) {
+        $semester1 = $_POST['semester1'];
+    }
+
+    if (isset($_POST['semester2'])) {
+        $semester2 = $_POST['semester2'];
+    }
 
 echo '<br/>'.$professorId.$professorName.'<br/>';
 
-//    $query = "SELECT courseName,courseNameCode,COUNT(studentId) AS 'totalStudents' FROM coursetaken NATURAL  JOIN course WHERE professorId = '$professorId' GROUP BY courseId";
-//
-//$committeesResult= $committeesInfo->getTotalStudentByCourses($query,$professorName);
-//
-//$committeesResult = strtr(base64_encode($committeesResult), '+/=', '-_,');
-//
-//header("Location: ../committeeInfo.php?committeesResult=$committeesResult");
+if($year==$year2){
+
+    $query = "SELECT * FROM services WHERE (professorId='$professorId' AND year='$year' AND (semesterId BETWEEN '$semester1' AND 3))ORDER BY year ASC,semesterId";
+
+}else{
+    $query = "SELECT * FROM services WHERE (professorId='$professorId' AND year='$year' AND (semesterId BETWEEN '$semester1' AND 3))
+          UNION SELECT * from services WHERE (professorId='$professorId' and year>'$year' and year<'$year2')
+          UNION SELECT * FROM services WHERE (professorId='$professorId' AND year='$year2' and semesterId between 1 AND '$semester2' ) ORDER BY year ASC,semesterId";
+}
+
+$committeesResult= $committeesInfo->getCommitteesBySemester($query,$professorId);
+
+$committeesResult = strtr(base64_encode($committeesResult), '+/=', '-_,');
+
+header("Location: ../committeeInfo.php?committeesResult=$committeesResult");
 
 ?>

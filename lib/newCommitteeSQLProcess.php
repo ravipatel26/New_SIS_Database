@@ -23,12 +23,12 @@ echo '<br/>'.$committeeName.'   '.$professorId.'   '.$academicYear.'<br/>';
 
 $_SESSION['success'] = false;
 
-$query = "INSERT INTO committee (committeeName,year,semesterId ) VALUES ( '$committeeName','$academicYear','$semesterId')";
+$query = "INSERT INTO committee (committeeName) VALUES ( '$committeeName')";
 $committeeId = $newCommittee->addNewCommittee($query);
 
 echo $committeeId;
 
-$query = "INSERT INTO services (professorId, committeeId, year) VALUES ( '$professorId', '$committeeId', '$academicYear')";
+$query = "INSERT INTO services (professorId, committeeId, year,semesterId) VALUES ( '$professorId', '$committeeId', '$academicYear','$semesterId')";
 $newCommittee->addNewService($query);
 
 $_SESSION['success'] = true;

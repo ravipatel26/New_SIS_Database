@@ -53,7 +53,7 @@ require("lib/committeesInfoProcess.php");
                     <div class="col-md-3">
                         <select id="year" name="year" class="form-control" value="<?php echo htmlspecialchars($year); ?>">
                             <option value="" selected="selected">--- Select from year---</option>
-                            <?php echo $committeesInfo->getYearTaught();?>
+                            <?php echo $committeesInfo->getYearMember();?>
                         </select>
                     </div>
                 </div>
@@ -74,7 +74,7 @@ require("lib/committeesInfoProcess.php");
                     <div class="col-md-3">
                         <select id="year2" name="year2" class="form-control" value="<?php echo htmlspecialchars($year2); ?>">
                             <option value="" selected="selected">--- Select To year ---</option>
-                            <?php echo $committeesInfo->getYearTaught();?>
+                            <?php echo $committeesInfo->getYearMember();?>
                         </select>
                     </div>
                 </div>

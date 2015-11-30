@@ -807,6 +807,63 @@ class AdminSystem
     }
 
 
+
+    public function getCommitteesBySemester($sql,$professorId){
+
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+            $allCommittees='';
+
+            foreach($records as $result)
+            {
+
+
+
+
+                $committeeId = $result->committeeId;
+                $eventId = $result->eventId;
+                $techCommitteeId = $result->techProgramId;
+
+                $yearMember=$result->year;
+                $professorName=$this->getProfessorNameById($professorId);
+
+                if(!empty($committeeId)){
+                    $semesterId = $result->semesterId;
+                    $semesterName = $this->getSemesterNameById($semesterId);
+
+                    $committeeName=$this->getCommitteeNameById($committeeId);
+
+                    $allCommittees.='<tr>'.'<td>'.$professorName.'</td><td>'.$committeeName.'</td><td>'.$semesterName.'</td><td>'.$yearMember.'</td>'.'</tr>';
+                }
+                if(!empty($eventId)){
+                    $semesterId = $result->semesterId;
+                    $semesterName = $this->getSemesterNameById($semesterId);
+
+                    $eventName=$this->getEventNameById($eventId);
+                    $allCommittees.='<tr>'.'<td>'.$professorName.'</td><td>'.$eventName.'</td><td>'.$semesterName.'</td><td>'.$yearMember.'</td>'.'</tr>';
+                }
+                if(!empty($techCommitteeId)){
+                    $semesterId = $result->semesterId;
+                    $semesterName = $this->getSemesterNameById($semesterId);
+
+                    $techCommitteeName=$this->getTechCommitteeNameById($techCommitteeId);
+                    $allCommittees.='<tr>'.'<td>'.$professorName.'</td><td>'.$techCommitteeName.'</td><td>'.$semesterName.'</td><td>'.$yearMember.'</td>'.'</tr>';
+                }
+
+
+            }
+
+        }
+        return $allCommittees;
+    }
+
+
+
     //////////////////////////////
     //GET Professor Name by id
     //////////////////////////////
@@ -1082,6 +1139,74 @@ class AdminSystem
 
     }
 
+    public function getCommitteeNameById($id)
+    {
+        $committeeName='';
+        $sql="SELECT committeeName FROM committee WHERE committeeId='$id'";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $committeeName=$result->committeeName;
+
+        }
+
+        return $committeeName;
+
+    }
+
+    public function getEventNameById($id)
+    {
+        $eventName='';
+        $sql="SELECT eventName FROM event WHERE eventId='$id'";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $eventName=$result->eventName;
+
+        }
+
+        return $eventName;
+
+    }
+
+
+    public function getTechCommitteeNameById($id)
+    {
+        $techCommitteeName='';
+        $sql="SELECT techCommitteeName FROM technicalprogramcommittee WHERE techProgramId='$id'";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $techCommitteeName=$result->techCommitteeName;
+
+        }
+
+        return $techCommitteeName;
+
+    }
+
+
 
     //////////////////////////////
     //GET Editorial Board Name
@@ -1272,6 +1397,32 @@ public function getCountries()
     {
         $allYears='';
         $sql="SELECT DISTINCT year FROM teaching ORDER BY year ASC";
+        $results= mysqli_query($this->connect, $sql);
+        if($results->num_rows){
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+        }
+        foreach($records as $result)
+        {
+            $years=$result->year;
+            $allYears.='<option>'.$years.'</option>';
+        }
+
+        return $allYears;
+
+    }
+
+    //////////////////////////////
+    //GET Year Member
+    //////////////////////////////
+
+    public function getYearMember()
+    {
+        $allYears='';
+        $sql="SELECT DISTINCT year FROM services ORDER BY year ASC";
         $results= mysqli_query($this->connect, $sql);
         if($results->num_rows){
             while ($row = $results->fetch_object()) {

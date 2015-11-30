@@ -25,13 +25,13 @@ echo $eventName.'    '.$eventType.'  '.$eventYear;
 
 $_SESSION['success'] = false;
 
-$query = "INSERT INTO event (eventName, eventType,year,semesterId ) VALUES ( '$eventName', '$eventType', '$eventYear','$semesterId')";
+$query = "INSERT INTO event (eventName, eventType) VALUES ( '$eventName', '$eventType')";
 
 $eventId = $newEvent->addNewEvent($query);
 
 echo $eventId;
 
-$query = "INSERT INTO services (professorId, eventId, year) VALUES ('$profId', '$eventId', '$eventYear')";
+$query = "INSERT INTO services (professorId, eventId, year,semesterId) VALUES ('$profId', '$eventId', '$eventYear','$semesterId')";
 
 $newEvent->addNewService($query);
 

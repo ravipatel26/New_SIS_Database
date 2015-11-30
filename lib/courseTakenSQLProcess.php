@@ -10,9 +10,9 @@ ob_start();
 <?php
 
 $studentName = $departement = $courseYear = $semester = $semesterId = $deptId = $studentId = '';
-$professorId[] = $courses[] = $courseId[] = '';
+$professorId[] = $courses[] = $coursesId[] = '';
 $courseTaken = new AdminSystem();
-
+echo print_r($_POST);
 
 if (isset($_POST['studentName'])) {
     $studentName = $_POST['studentName'];
@@ -37,12 +37,13 @@ if (!empty($_POST['course'])) {
     $coursesId = $_POST['course'];
 }
 
-
+echo '<br/>'.$studentId.'-'.$semesterId.'-'.sizeof($coursesId);
 for ($i=0; $i<sizeof($coursesId); $i++) {
 
     $professorId= $courseTaken->getProfessorIdTeaching($coursesId[$i],$semesterId,$courseYear);
-
-    $query = "INSERT INTO coursetaken (studentId, courseId, professorId,semesterId,courseYear) VALUES ('$studentId','$coursesId[$i]','$professorId','$semesterId','$courseYear')";
+    echo '<br/>'.$professorId.'-'.$coursesId[$i].'-'.$semesterId.'-'.$courseYear;
+    $courseTemp=$coursesId[$i];
+    $query = "INSERT INTO coursetaken (studentId, courseId, professorId,semesterId,courseYear) VALUES ('$studentId','$courseTemp','$professorId','$semesterId','$courseYear')";
     $courseTaken->addCoursesTaken($query);
 }
 

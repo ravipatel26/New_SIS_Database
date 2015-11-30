@@ -12,12 +12,12 @@ $committeesInfo = new AdminSystem();
 $committeesResult = $_GET['committeesResult'];
 $committeesResult = base64_decode(strtr($committeesResult, '-_,', '+/='));
 
-$table='<div id="query01" class="row" style="width: 75%">
+$table='<div id="query08" class="row" style="width: 75%">
                 <div class="col-md-8 col-xs-offset-4">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Professor Name</th><th>Committee</th><th>Semester</th><th>Year</th>
+                                <th>Professor Name</th><th>Membership Description</th><th>Semester</th><th>Year</th>
                             </tr>
                         </thead>
                         <tbody>'

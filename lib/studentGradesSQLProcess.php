@@ -39,6 +39,7 @@ echo print_r($_POST);
         $finalLetterGrades = $studentGrades->escape($finalLetterGrades);
         $finalLetterGrades = strtoupper($finalLetterGrades);
 
+echo '<br/>'.$coursesId.'---'.$studentId.'---'.$finalLetterGrades;
         $courseTakenId = $studentGrades->getCourseTakenId($coursesId,$studentId);
 
         echo '<br/>'.$courseTakenId.'---'.$coursesId.'---'.$studentId.'---'.$finalLetterGrades;
@@ -46,7 +47,7 @@ echo print_r($_POST);
 
         $_SESSION['success'] = false;
 
-        $query = "INSERT INTO grades (courseTakenId,assignments,projects, midTerms,finalExams,finalLetterGradeId ) VALUES ( '$courseTakenId','$assignments', '$projects','$midTerms','$finalExams','$finalLetterGrades')";
+        $query = "INSERT INTO grades (courseTakenId,assignments,projects, midTerms,finalExams,finalLetterGrade ) VALUES ( '$courseTakenId','$assignments', '$projects','$midTerms','$finalExams','$finalLetterGrades')";
         $studentGrades->addNewGrades($query);
 
         echo '<br/>'.'---'.$courseTakenId.'---'.$assignments.'---'.$projects.'---'.$midTerms.'---'.$finalExams.'---'.$finalLetterGrades;

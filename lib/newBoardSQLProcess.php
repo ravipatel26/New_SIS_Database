@@ -23,7 +23,7 @@ echo print_r($_POST);
 
 $_SESSION['success'] = false;
 
-$query = "INSERT INTO editorialboard (boardName,journalName,year ) VALUES ( '$editorialBoardName','$journalName', '$journalYear')";
+$query = "INSERT INTO editorialboard (boardName,journalName) VALUES ( '$editorialBoardName','$journalName')";
 $editorialBoardId = $newBoard->addNewBoard($query);
 
 $query = "INSERT INTO services (professorId, boardId, year) VALUES ( '$professorId', '$editorialBoardId', '$journalYear')";
