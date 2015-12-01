@@ -54,7 +54,7 @@ h4{
 	 right: -30px;
  }
 
-#query01Title, #query03Title,#query05Title{
+#query01Title, #query03Title,#query05Title,#query08Title{
 	height: 100px;
 }
 
@@ -65,9 +65,8 @@ h4{
 }
 
 #committeeList{
-	height: 50px;
 	position: relative;
-	top: 10px;
+	top: 50px;
 }
 
 #query02{
@@ -76,7 +75,7 @@ h4{
 }
 #query08{
 	 position: relative;
-	 top: 50px;
+	 top: 100px;
  }
 
 #query04{

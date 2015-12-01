@@ -23,7 +23,7 @@ require("lib/committeesInfoProcess.php");
         <div class="panel-heading h2 text-center">Committees Info</div>
         <div class="panel-body">
 
-            <div id="query05Title" class="row" >
+            <div id="query08Title" class="row" >
                 <div class="col-md-12 h3 text-center">List of Committees Membership by Academic Year.</div>
             </div>
             <form id="committeeList" class="form-horizontal" role="form" method="post" action="lib/committeesInfoSQLProcess.php">

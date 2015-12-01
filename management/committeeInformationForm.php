@@ -7,7 +7,7 @@ ob_start();
 ?>
 <?php
 include("../lib/config.php");
-require("../lib/committeesInfoProcess.php");
+require("../lib/newCommitteeProcess.php");
 ?>
 <?php
 if(!isset($_SESSION["manager"]))
@@ -37,7 +37,7 @@ if(!isset($_SESSION["manager"]))
                     <div class="col-md-4">
                         <select id="committeeName" name="committeeName" class="form-control" value="<?php echo htmlspecialchars($committeeName); ?>">
                             <option value="" selected="selected">--- Select a Editorial Boards's Name ---</option>
-                            <?php echo $committe->getCommitteeName();?>
+                            <?php echo $newCommittee->getCommitteeName();?>
                         </select>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ if(!isset($_SESSION["manager"]))
                     <div class="col-md-4">
                         <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
                             <option value="" selected="selected">--- Select a Professor's Name ---</option>
-                            <?php echo $committe->getProfessorNameId();?>
+                            <?php echo $newCommittee->getProfessorNameId();?>
                         </select>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ if(!isset($_SESSION["manager"]))
                     <div class="col-md-3">
                         <select id="semester" name="semester" class="form-control" value="<?php echo htmlspecialchars($semester); ?>">
                             <option value="" selected="selected">--- Select semester membership---</option>
-                            <?php echo $committe->getSemesterNameId();?>
+                            <?php echo $newCommittee->getSemesterNameId();?>
                         </select>
                     </div>
                 </div>
