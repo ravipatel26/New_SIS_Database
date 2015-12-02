@@ -13,7 +13,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                   <ul class="nav navbar-nav">
 				  	  <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           Student Information Entry<b class="caret"></b>
+                           Student Data Entry<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                            <li><a href="studentForm.php">Student Information</a></li>
@@ -26,7 +26,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                       </li>
                   	  <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           Professor Information Entry<b class="caret"></b>
+                           Professor Data Entry<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                            <li><a href="professorInformationForm.php">Professor Information</a></li>
@@ -40,7 +40,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                       <li><a href="courseInformationForm.php">Courses Info Entry</a></li>
 					  <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           Grant Information Entry<b class="caret"></b>
+                           Grant Data Entry<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                            <li><a href="newGrant.php">New Grants</a></li>
@@ -51,7 +51,7 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                       </li>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           Services Information Entry<b class="caret"></b>
+                           Services Data Entry<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                            <li><a href="committeeInformationForm.php">Committee Information</a></li>
@@ -64,8 +64,8 @@ $html = '<nav class="navbar navbar-default" role="navigation">
                            <li class="divider"></li>
                          </ul>
                       </li>
-                      <li><a href="reviewsInformationForm.php">Reviews Information Entry</a></li>
-					  <li><a href="departmentForm.php">Departments Information Entry</a></li>
+                      <li><a href="reviewsInformationForm.php">Reviews Data Entry</a></li>
+					  <li><a href="departmentForm.php">Departments Data Entry</a></li>
 					  <li><a href="newAccount.php">New User Account</a></li>
 					  <li></li>
 					  <li></li>
