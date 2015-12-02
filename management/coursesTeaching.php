@@ -35,7 +35,7 @@ if(!isset($_SESSION["manager"]))
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="professorName">Professor's Name :</label>
                     <div class="col-md-4">
-                        <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
+                        <select id="professorName" name="professorName" class="form-control"  >
                             <option value="" selected="selected">--- Select a Professor's Name ---</option>
                             <?php echo $courseTeaching->getProfessorNameId();?>
                         </select>
@@ -94,8 +94,6 @@ if(!isset($_SESSION["manager"]))
 
 </div>
 
-<!--<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
 <script src="../js/functions.js"></script>
 <?php
@@ -107,10 +105,8 @@ if($_SESSION['success']){
 }
 ?>
 
-</body>
-
-
-
 <script src="../js/control.js"></script>
+
+</body>
 
 </html>

@@ -22,15 +22,24 @@ if(!isset($_SESSION["manager"]))
 <?php require("headerManagement.php");?>
 
 <body>
-<div class="container-fluid bg-info" style="height: 1500px">
+<div class="container-fluid bg-info" style="height: 100%">
     <div id="navigation">
         <div class="row">
             <?php require("navigationManagement.php"); ?>
         </div>
     </div>
-    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%">
+    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%;height: 850px;">
         <div class="panel-heading h2 text-center">Admin Home</div>
         <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6 col-xs-offset-2 h3 bg-warning">Professors only have a limited access to the system</div>
+            </div>
+            <div class="row">
+                <div class="col-md-9 col-xs-offset-2 h4 bg-danger">No access to Student information entry, Course taken by student; Professor information entry, and New account creation.</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-xs-offset-2 h4 bg-danger">No access to course entry.</div>
+            </div>
 
         </div>
     </div>
@@ -38,8 +47,7 @@ if(!isset($_SESSION["manager"]))
 
 </div>
 
-<!--<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!--<script src="../js/bootstrap-datepicker.js"></script>-->
+
 
 <script src="../js/functions.js"></script>
 

@@ -14,7 +14,7 @@ require("lib/sqlQueries.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Comp 353</title>
+    <title>Comp 335</title>
 
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />

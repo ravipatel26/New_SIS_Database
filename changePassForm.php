@@ -61,7 +61,7 @@ require("lib/sqlQueries.php");
                 <div class="row text-center">
                     <div class="form-group">
                         <div class="col-md-2 col-xs-offset-10">
-                            <button type="button" class="btn btn-primary" id="changePassword" onclick="location.href='index.php'">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="changePassword" onclick="location.href='adminLogin.php'">Cancel</button>
                         </div>
                     </div>
                 </div>

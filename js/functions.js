@@ -39,6 +39,14 @@ function showDepartment(department){
     }
 }
 
+function showProfessorDepartment(professorId){
+
+    document.getElementById('departmentProf').style.display = 'block';
+    alert(professorId);
+    getCoursesTeaching(professorId);
+
+}
+
 function checkSummerStudent(level){
     if(level=='Undergraduate'){
         document.getElementById('displaySummer').style.display = 'block';

@@ -284,6 +284,31 @@ class AdminSystem
     }
 
     //////////////////////////////
+    //GET DepartMent Name from ID
+    //////////////////////////////
+
+    public function getDepartmentNameProfID($id)
+    {
+        $departmentName = '';
+        $sql = "SELECT * FROM professor NATURAL JOIN department WHERE professorId=$id";
+        $results = mysqli_query($this->connect, $sql);
+        if ($results->num_rows) {
+            while ($row = $results->fetch_object()) {
+
+                $records[] = $row;
+
+            }
+
+            foreach ($records as $result) {
+                $departmentName = $result->deptName;
+            }
+
+        }
+
+        return $departmentName;
+    }
+
+    //////////////////////////////
     //GET STUDENT DEPARTEMENTS
     //////////////////////////////
     public function getStudentDepartmentName($name)

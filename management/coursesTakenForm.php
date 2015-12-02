@@ -43,9 +43,9 @@ if(!isset($_SESSION["manager"]))
                 <div class="form-group">
                     <label for="studentName" class="col-md-2 control-label">Student Name :</label>
                     <div class="col-md-4">
-                        <select id="studentName" name="studentName" class="form-control" value="<?php echo htmlspecialchars($studentName); ?>" onchange="getDepartmentName(this.value)">
+                        <select id="studentName" name="studentName" class="form-control" value="<?php echo htmlspecialchars($studentName); ?>" >
                             <option value="" selected="selected">--- Select a Student ---</option>
-                            <?php echo $courseTaken->getStudentName();?>
+                            <?php echo $courseTaken->getStudentNameId();?>
                         </select>
                     </div>
                 </div>
@@ -118,8 +118,6 @@ if(!isset($_SESSION["manager"]))
 
 </div>
 
-<!--<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
 <script src="../js/functions.js"></script>
 <?php
@@ -135,9 +133,6 @@ if($_SESSION['success']){
 
 
 <script src="../js/control.js"></script>
-<script src="../js/courseDeptTaken.js"></script>
-
-<script src="../js/courseTaken.js"></script>
 
 
 

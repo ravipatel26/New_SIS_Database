@@ -44,9 +44,7 @@ echo '<br/>';
 echo '<br/>'.$professorId.$professorName.'<br/>';
 
 if($year==$year2){
-
     $query = "SELECT * FROM services WHERE (professorId='$professorId' AND year='$year' AND (semesterId BETWEEN '$semester1' AND 3))ORDER BY year ASC,semesterId";
-
 }else{
     $query = "SELECT * FROM services WHERE (professorId='$professorId' AND year='$year' AND (semesterId BETWEEN '$semester1' AND 3))
           UNION SELECT * from services WHERE (professorId='$professorId' and year>'$year' and year<'$year2')

@@ -15,14 +15,14 @@ $courseTaken = new AdminSystem();
 echo print_r($_POST);
 
 if (isset($_POST['studentName'])) {
-    $studentName = $_POST['studentName'];
-    $studentId = $courseTaken->getStudentID($studentName);
+    $studentId = $_POST['studentName'];
 }
 
 if (isset($_POST['department'])) {
     $departement = $_POST['department'];
     $deptId = $courseTaken->getDepartementID($departement);
 }
+
 if (isset($_POST['semester'])) {
     $semester = $_POST['semester'];
     $semesterId = $courseTaken->getSemesterID($semester);
