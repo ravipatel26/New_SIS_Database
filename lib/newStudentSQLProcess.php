@@ -98,7 +98,8 @@ echo print_r($_POST).'</br>'.$address;
 $studentId = 0;
 $_SESSION['success'] = false;
 
-$query = "INSERT INTO Students (studentName, studentNumber, studentEmail, studentStatus, studentPhone, studentGender, studentBirthDate, deptId, studentAdress) VALUES ( '$name', '$studentNumber', '$email', '$status', '$phoneNumber', '$gender', '$birthDate', '$deptId', '$address')";
+$query = "INSERT INTO Students (studentName, studentNumber, studentEmail, studentStatus, studentPhone, studentGender, studentBirthDate, deptId, studentAdress)
+                VALUES ( '$name', '$studentNumber', '$email', '$status', '$phoneNumber', '$gender', '$birthDate', '$deptId', '$address')";
 
 $studentId=$newStudent->addNewStudent($query);
 
