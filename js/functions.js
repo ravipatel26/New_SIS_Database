@@ -3,6 +3,8 @@ if(document.getElementById('level').value!='--- Select a Level ---'){
 }
 document.getElementById('country').value = "<?php echo htmlspecialchars($country);?>";
 
+
+
 function displayPositionDiv() {
 
     if (document.getElementById('graduate').checked) {

@@ -6,7 +6,10 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 ?>
 <?php
 require("lib/config.php");
+
 ?>
+
+
 <!doctype html>
 <html>
 
@@ -27,13 +30,16 @@ require("lib/config.php");
                 <div class="form-group">
                     <label class="col-md-2 col-xs-offset-2 control-label" for="username">User Name :</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="User Name" value="<?php echo htmlspecialchars($username); ?>">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="">
+                        <span class= "error">Username is already present. </span>
+                        <span class= "success">Username can be assigned. </span>
                     </div>
+
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-md-2 col-xs-offset-2 control-label">PassWord :</label>
                     <div class="col-md-4">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="PassWord" value="">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="">
                     </div>
                 </div>
                 <div class="form-group">
@@ -87,8 +93,6 @@ require("lib/config.php");
 </div>
 
 
-    <!--<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!--<script src="../js/bootstrap-datepicker.js"></script>-->
 
     <script src="js/functions.js"></script>
 
