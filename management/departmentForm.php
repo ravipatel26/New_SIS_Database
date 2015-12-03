@@ -14,7 +14,13 @@ if(!isset($_SESSION["manager"]))
 {
     header("location:/comp353/adminLogin.php");
     exit();
+}else{
+    if($_SESSION['permission']!=1 && isset($_SESSION["manager"])){
+        header("location:/comp353/management/adminHome.php");
+        exit();
+    }
 }
+
 ?>
 <!DOCTYPE html>
 <html>
