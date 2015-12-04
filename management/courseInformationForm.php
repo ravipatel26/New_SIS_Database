@@ -22,6 +22,57 @@ if(!isset($_SESSION["manager"]))
 }
 
 ?>
+<?php
+$query = "SELECT courseName,courseNameCode,deptName,courseId FROM course NATURAL JOIN department ORDER BY course.courseNameCode,course.courseNameCode ASC ";
+
+$existingCoursesResult= $courseList->getExistingCourses($query);
+$tableExist='<div id="query01" class="row" style="width: 75%">
+                <div class="col-md-8 col-xs-offset-4">
+                    <table class="table  table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th><th>Department</th><th></th><th></th>
+                            </tr>
+                        </thead>
+                        <tbody>'
+    .$existingCoursesResult.
+    '</tbody>
+                    </table>
+                </div>
+            </div>';
+
+
+?>
+<?php
+$courseId=$_GET['delete'];
+$courseId =  base64_decode(strtr($courseId, '-_,', '+/='));
+$query="delete from course WHERE courseId='$courseId'";
+$courseList->deleteCourse($query);
+$query="delete from courseTaken WHERE courseId='$courseId'";
+$courseList->deleteCourse($query);
+$query="delete from teaching WHERE courseId='$courseId'";
+$courseList->deleteCourse($query);
+
+$query = "SELECT courseName,courseNameCode,deptName,courseId FROM course NATURAL JOIN department ORDER BY course.courseNameCode,course.courseNameCode ASC ";
+
+$existingCoursesResult= $courseList->getExistingCourses($query);
+$tableExist='<div id="query01" class="row" style="width: 75%">
+                <div class="col-md-8 col-xs-offset-4">
+                    <table class="table  table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th><th>Department</th><th></th><th></th>
+                            </tr>
+                        </thead>
+                        <tbody>'
+    .$existingCoursesResult.
+    '</tbody>
+                    </table>
+                </div>
+            </div>';
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -81,6 +132,16 @@ if(!isset($_SESSION["manager"]))
         <div id="confirmation" class="alert alert-success hidden">
             <span class="glyphicon glyphicon-star"></span> Student information successfully entered
         </div>
+
+        <div class="row">
+            <div class="col-md-8 text-center h3">Existing Courses</div>
+        </div>
+        <?php
+        if(!empty($existingCoursesResult)){
+            echo $tableExist;
+        }
+        ?>
+
     </div>
 
 

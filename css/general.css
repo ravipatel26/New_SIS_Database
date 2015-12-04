@@ -58,12 +58,16 @@ h4{
 	height: 100px;
 }
 
-#query02Title, #coursesBySemester, #query02,#query04,#query04Title, #studentLevelYear{
+#query04,#query04Title, #studentLevelYear{
 	height: 100px;
 	position: relative;
 	top: 150px;
 }
-
+#query02Title, #coursesBySemester{
+	height: 75px;
+	position: relative;
+	top: 100px;
+}
 #committeeList{
 	position: relative;
 	top: 50px;
@@ -71,7 +75,17 @@ h4{
 
 #query02{
 	position: relative;
-	top: 280px;
+	top: 450px;
+}
+:-moz-any(.dupa), #query02 {
+	position: relative;
+	top: 400px;
+
+}
+:-moz-any(.dupa),#query02Title, #coursesBySemester{
+	height: 75px;
+	position: relative;
+	top: 100px;
 }
 #query08{
 	 position: relative;
