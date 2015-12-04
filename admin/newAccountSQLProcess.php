@@ -44,7 +44,7 @@ if($userExists){
     $salt = createSalt();
     $password = hash('sha256', $salt . $hash);
 
-
+echo print_r($_POST);
 //sanitize inputs
     $username = $mysqli->real_escape_string($username);
     $email = trim($email);
@@ -53,11 +53,11 @@ if($userExists){
 
     $query = "INSERT INTO user ( user_USERNAME, user_PASSWORD, user_EMAIL, user_SALT, user_FIRSTNAME, user_LASTNAME, user_PERMISSION) VALUES
 		( '$username', '$password', '$email', '$salt', '$firstName', '$lastName', '$permission')";
-
+//
     $mysqli->query($query);
     $_SESSION['sess_user_id'] = mysqli_insert_id($mysqli);
-
-//$query = "SELECT userID from users
+//
+////$query = "SELECT userID from users
     $userID = $_SESSION['sess_user_id'];
     $_SESSION["user_ID"] = $userID;
     $_SESSION["manager"] = $username;
