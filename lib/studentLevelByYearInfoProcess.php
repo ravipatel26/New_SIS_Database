@@ -14,7 +14,7 @@ $levelYearResult = base64_decode(strtr($levelYearResult, '-_,', '+/='));
 
 $table='<div id="query04" class="row" style="width: 80%">
                 <div class="col-md-10 col-xs-offset-3">
-                    <table class="table">
+                    <table class="table  table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Professor</th><th>Student Name</th><th>Level</th><th>Year</th>

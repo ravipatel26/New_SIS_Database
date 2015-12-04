@@ -14,7 +14,7 @@ $supportResult = base64_decode(strtr($supportResult, '-_,', '+/='));
 
 $table='<div id="query01" class="row" style="width: 75%">
                 <div class="col-md-8 col-xs-offset-4">
-                    <table class="table">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Student Name</th><th>Total Support</th>

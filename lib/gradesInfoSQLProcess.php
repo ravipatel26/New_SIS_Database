@@ -29,12 +29,21 @@ echo '<br/>';
 
 echo '<br/>'.$professorId.$professorName.'<br/>';
 
-    $query = "SELECT courseName, courseNameCode, semesterName, courseYear, finalLetterGrade FROM coursetaken NATURAL JOIN semester NATURAL join course WHERE professorId='$professorId' AND finalLetterGrade<'B-' ";
+//    $query = "SELECT courseName, courseNameCode, semesterName, courseYear, finalLetterGrade FROM coursetaken NATURAL JOIN semester NATURAL join course WHERE professorId='$professorId' AND finalLetterGrade<'B-' ";
+$sql="SELECT finalLetterGrade FROM coursetaken NATURAL JOIN semester NATURAL join course WHERE professorId='$professorId' AND finalLetterGrade<'A-' ";
+$highGrade = $gradesListInfo->getHighestGrade($sql);
+
+echo '<br>'.$highGrade;
+
+//if($highGrade='A+'){
+    $query = "SELECT courseName, courseNameCode, semesterName, courseYear, finalLetterGrade FROM coursetaken NATURAL JOIN semester NATURAL join course WHERE professorId='$professorId' AND finalLetterGrade='A+' ";
 
     $gradesResult= $gradesListInfo->getBestGradesSemester($query,$professorName);
 
-$gradesResult = strtr(base64_encode($gradesResult), '+/=', '-_,');
+    $gradesResult = strtr(base64_encode($gradesResult), '+/=', '-_,');
 
-header("Location: ../gradesInfo.php?gradesResult=$gradesResult");
+//}
+
+    header("Location: ../gradesInfo.php?gradesResult=$gradesResult");
 
 ?>

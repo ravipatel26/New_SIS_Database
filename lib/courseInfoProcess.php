@@ -14,7 +14,7 @@ $semesterResult = base64_decode(strtr($semesterResult, '-_,', '+/='));
 
 $table='<div id="query01" class="row" style="width: 80%">
                 <div class="col-md-10 col-xs-offset-3">
-                    <table class="table">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Professor</th><th>Class taught</th><th>Semester</th>
@@ -33,7 +33,7 @@ $courseResult = base64_decode(strtr($courseResult, '-_,', '+/='));
 
 $table2='<div id="query02" class="row" style="width: 80%">
                 <div class="col-md-10 col-xs-offset-3">
-                    <table class="table">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Professor</th><th>Class taught</th><th>Semester</th><th>Year</th>

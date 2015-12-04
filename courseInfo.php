@@ -19,7 +19,7 @@ require("lib/courseInfoProcess.php");
             <?php require("navigation.php"); ?>
         </div>
     </div>
-    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%; height: 1500px;">
+    <div class="panel panel-default  col-lg-6 col-lg-offset-1" style="width: 80%; height: 1600px;">
         <div class="panel-heading h2 text-center">Course Info</div>
         <div class="panel-body">
             <div id="query01Title" class="row" >
