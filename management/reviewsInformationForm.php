@@ -42,7 +42,7 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 col-xs-offset-2 control-label" for="editorialBoardName">Editorial Boards's Name :</label>
+                    <label class="col-md-3 col-xs-offset-1 control-label" for="editorialBoardName">Editorial Boards's Name :</label>
                     <div class="col-md-4">
                         <select id="editorialBoardName" name="editorialBoardName" class="form-control" value="<?php echo htmlspecialchars($editorialBoardName); ?>">
                             <option value="" selected="selected">--- Select a Editorial Boards's Name ---</option>
@@ -63,7 +63,7 @@ if(!isset($_SESSION["manager"]))
                     <label for="journalYear" class="col-md-2 col-xs-offset-2 control-label">Journal Year :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="journalFormYear">
-                            <input id="journalYear" name="journalYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($journalYear); ?>"/>
+                            <input id="journalYear" name="journalYear" type="text" class="form-control datepicker" placeholder="Year of review" value="<?php echo htmlspecialchars($journalYear); ?>"/>
                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                     </div>

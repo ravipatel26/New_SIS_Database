@@ -15,7 +15,7 @@ require("lib/sqlQueries.php");
 if(isset($_SESSION["manager"]))
 {
     //already logged in so go back to desired page
-    header("location:/comp353/management/adminHome.php");
+    header("location:/management/adminHome.php");
     exit();
 }
 ?>
@@ -74,8 +74,7 @@ if(isset($_SESSION["manager"]))
 
 </div>
 
-<!--<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!--<script src="../js/bootstrap-datepicker.js"></script>-->
+
 
 <script src="js/functions.js"></script>
 

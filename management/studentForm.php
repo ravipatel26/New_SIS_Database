@@ -41,19 +41,19 @@ if(!isset($_SESSION["manager"]))
             <div class="panel-body">
                 <form id="studentInforamtion" method="post" role="form" class="form-horizontal" action="../lib/newStudentSQLProcess.php">
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="firstName">First Name :</label>
+                        <label class="col-md-2 col-xs-offset-2 control-label" for="firstName">First Name :</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" value="<?php echo htmlspecialchars($firstName); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="lastName">Last Name :</label>
+                        <label class="col-md-2 col-xs-offset-2 control-label" for="lastName">Last Name :</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" value="<?php echo htmlspecialchars($lastName); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="birthDate" >Date of Birth :</label>
+                        <label class="col-md-2 col-xs-offset-2 control-label" for="birthDate" >Date of Birth :</label>
 
                         <div class="col-md-3 date">
                             <div class="input-group input-append date" id="datePicker">
@@ -63,7 +63,7 @@ if(!isset($_SESSION["manager"]))
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="gender" class="col-md-2 control-label">Gender :</label>
+                        <label for="gender" class="col-md-2 col-xs-offset-2 control-label">Gender :</label>
                         <div class="col-md-4">
                             <label class="radio-inline">
                                 <input id="gender1" name="gender" value="Male" type="radio" <?php echo (isset($_POST['gender']) && $_POST['gender']=='Male'? 'checked' : '') ?>>Male</label>
@@ -72,30 +72,30 @@ if(!isset($_SESSION["manager"]))
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="address" class="col-md-2 control-label">Address :</label>
+                        <label for="address" class="col-md-2 col-xs-offset-2 control-label">Address :</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="address" name="address" placeholder="ex: 420 St. Elsewhere" value="<?php echo htmlspecialchars($address); ?>"></div>
                     </div>
                     <div class="form-group">
-                        <label for="city" class="col-md-2 control-label">City :</label>
+                        <label for="city" class="col-md-2 col-xs-offset-2 control-label">City :</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="city" name="city" placeholder="ex: Montreal" value="<?php echo htmlspecialchars($city); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="province" class="col-md-2 control-label">Province :</label>
+                        <label for="province" class="col-md-2 col-xs-offset-2 control-label">Province :</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="province" name="province" placeholder="ex: Quebec" value="<?php echo htmlspecialchars($province); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="postalCode" class="col-md-2 control-label">Code Postal :</label>
+                        <label for="postalCode" class="col-md-2 col-xs-offset-2 control-label">Code Postal :</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="postalCode" name="postalCode" placeholder="ex: H4B 1R6" value="<?php echo htmlspecialchars($postalCode); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="country" class="col-md-2 control-label">Country :</label>
+                        <label for="country" class="col-md-2 col-xs-offset-2 control-label">Country :</label>
                         <div class="col-md-4">
                             <select id="country" name="country" class="form-control" value="<?php echo htmlspecialchars($country); ?>">
                                 <option value="" selected="selected">--- Select a Country ---</option>
@@ -104,26 +104,26 @@ if(!isset($_SESSION["manager"]))
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="phoneNumber" class="col-md-2 control-label">Phone Number :</label>
+                        <label for="phoneNumber" class="col-md-2 col-xs-offset-2 control-label">Phone Number :</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="ex: 514-123-4567" value="<?php echo htmlspecialchars($phoneNumber); ?>" onchange="checkPhoneNumber()">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="col-md-2 control-label">Email</label>
+                        <label for="email" class="col-md-2 col-xs-offset-2 control-label">Email</label>
                         <div class="col-md-4">
                             <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($email); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="studentNumber" class="col-md-2 control-label">Student Number :</label>
+                        <label for="studentNumber" class="col-md-2 col-xs-offset-2 control-label">Student Number :</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="studentNumber" name="studentNumber" placeholder="ex: 12345678" value="<?php echo htmlspecialchars($studentNumber); ?>">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="type" class="col-md-2 control-label">Type :</label>
+                        <label for="type" class="col-md-2 col-xs-offset-2 control-label">Type :</label>
                         <div class="col-md-4">
                             <label class="radio-inline">
                                 <input id="inlineradio1" name="type" value="Local" type="radio" <?php echo (isset($_POST['type']) && $_POST['type']=='Local'? 'checked' : '') ?>>Local</label>
@@ -132,7 +132,7 @@ if(!isset($_SESSION["manager"]))
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="status" class="col-md-2 control-label">Status :</label>
+                        <label for="status" class="col-md-2 col-xs-offset-2 control-label">Status :</label>
                         <div class="col-md-6">
                             <label class="radio-inline" >
                                 <input id="fulltime" name="status" value="Full-Time" type="radio"  onclick="javascript:displayPositionDiv();" <?php echo (isset($_POST['status']) && $_POST['status']=='Full-Time'? 'checked' : '') ?>>Full-Time</label>
@@ -148,13 +148,13 @@ if(!isset($_SESSION["manager"]))
                         </div>
                     </div>
                     <div class="form-group" id="displayPosition" >
-                        <label for="position" class="col-md-2 control-label">Position :</label>
+                        <label for="position" class="col-md-2 col-xs-offset-2 control-label">Position :</label>
                         <div class="col-md-4">
                             <input type="text" class="form-control" id="position" name="position" placeholder="ex: Software Developer" value="<?php echo htmlspecialchars($position); ?>">
                         </div>
                     </div>
                     <div class="form-group" id="displayLevel">
-                        <label for="level" class="col-md-2 control-label">Level :</label>
+                        <label for="level" class="col-md-2 col-xs-offset-2 control-label">Level :</label>
                         <div class="col-md-4">
                             <select id="level" name="level" class="form-control" value="<?php echo htmlspecialchars($level); ?>" onchange="checkSummerStudent(this.value)">
                                 <option value="" selected="selected">--- Select a Level ---</option>
@@ -166,7 +166,7 @@ if(!isset($_SESSION["manager"]))
                         </div>
                     </div>
                     <div class="form-group" id="displaySummer" >
-                        <label for="summer" class="col-md-2 control-label">Summer Student :</label>
+                        <label for="summer" class="col-md-2 col-xs-offset-2 control-label">Summer Student :</label>
                         <div class="col-md-4">
                             <label class="radio-inline">
                                 <input id="yes" name="summer" value="Yes" type="radio" <?php echo (isset($_POST['summer']) && $_POST['summer']=='Yes'? 'checked' : '') ?>>Yes</label>
@@ -175,7 +175,7 @@ if(!isset($_SESSION["manager"]))
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="department" class="col-md-2 control-label">Department Name :</label>
+                        <label for="department" class="col-md-2 col-xs-offset-2 control-label">Department Name :</label>
                         <div class="col-md-4">
                                 <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>">
                                 <option value="" selected="selected">--- Select a Department ---</option>

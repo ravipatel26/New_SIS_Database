@@ -41,7 +41,7 @@ if(!isset($_SESSION["manager"]))
         <div class="panel-body">
             <form id="courseTaken" class="form-horizontal" role="form" method="post" action="../lib/courseTakenSQLProcess.php">
                 <div class="form-group">
-                    <label for="studentName" class="col-md-2 control-label">Student Name :</label>
+                    <label for="studentName" class="col-md-2 col-xs-offset-2 control-label">Student Name :</label>
                     <div class="col-md-4">
                         <select id="studentName" name="studentName" class="form-control" value="<?php echo htmlspecialchars($studentName); ?>" >
                             <option value="" selected="selected">--- Select a Student ---</option>
@@ -51,7 +51,7 @@ if(!isset($_SESSION["manager"]))
                 </div>
 
                 <div class="form-group">
-                    <label for="department" class="col-md-2 control-label">Department Name :</label>
+                    <label for="department" class="col-md-2 col-xs-offset-2 control-label">Department Name :</label>
                     <div class="col-md-4">
                         <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>" onchange="showDepartment(this.value)">
                             <option value="" selected="selected">--- Select a Department ---</option>
@@ -60,7 +60,7 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="semester">Semester :</label>
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="semester">Semester :</label>
                     <div class="col-md-4">
                         <select id="semester" name="semester" class="form-control" value="<?php echo htmlspecialchars($semester); ?>">
                             <option value="" selected="selected">--- Select a Semester ---</option>
@@ -69,7 +69,7 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="courseYear" class="col-md-2 control-label">Academic Year :</label>
+                    <label for="courseYear" class="col-md-2 col-xs-offset-2 control-label">Academic Year :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="courseYearFormYear">
                             <input id="courseYear" name="courseYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($courseYear); ?>"/>
@@ -79,13 +79,13 @@ if(!isset($_SESSION["manager"]))
                 </div>
 
                 <div id="encsCourses" class="form-group">
-                    <label for="course" class="col-md-2 control-label">SOEN Course Names :</label>
+                    <label for="course" class="col-md-2 col-xs-offset-2 control-label">SOEN Course Names :</label>
                     <div class="col-md-4">
                         <?php echo $courseTaken->getCoursesTaken('SOEN');?>
                     </div>
                 </div>
                 <div id="compCourses" class="form-group">
-                    <label for="course" class="col-md-2 control-label">COMP Course Names :</label>
+                    <label for="course" class="col-md-2 col-xs-offset-2 control-label">COMP Course Names :</label>
                     <div class="col-md-4">
                         <?php echo $courseTaken->getCoursesTaken('COMP');?>
                     </div>

@@ -57,7 +57,7 @@ if(!isset($_SESSION["manager"]))
                     <label for="year" class="col-md-3 col-xs-offset-1 control-label">Journal Publication Year :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="editorialBoardFormYear">
-                            <input id="editorialBoardYear" name="editorialBoardYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($journalYear); ?>"/>
+                            <input id="editorialBoardYear" name="editorialBoardYear" type="text" class="form-control datepicker" placeholder="Year of membership" value="<?php echo htmlspecialchars($journalYear); ?>"/>
                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                     </div>

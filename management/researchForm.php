@@ -69,7 +69,7 @@ if(!isset($_SESSION["manager"]))
                     <label class="col-md-2 col-xs-offset-2 control-label" for="researchStartDate" >Research Start Date :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="startDatePicker">
-                            <input id="researchStartDate" name="researchStartDate" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($researchStartDate); ?>"/>
+                            <input id="researchStartDate" name="researchStartDate" type="text" class="form-control datepicker" placeholder="Date research started" value="<?php echo htmlspecialchars($researchStartDate); ?>"/>
                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                     </div>
@@ -78,7 +78,7 @@ if(!isset($_SESSION["manager"]))
                     <label class="col-md-2 col-xs-offset-2 control-label" for="researchEndDate" >Research End Date  :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="endDatePicker">
-                            <input id="researchEndDate" name="researchEndDate" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($researchEndDate); ?>"/>
+                            <input id="researchEndDate" name="researchEndDate" type="text" class="form-control datepicker" placeholder="Date research ended" value="<?php echo htmlspecialchars($researchEndDate); ?>"/>
                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                      </div>

@@ -33,7 +33,7 @@ if(!isset($_SESSION["manager"]))
         <div class="panel-body">
             <form id="studenGrades" class="form-horizontal" role="form" method="post" action="../lib/studentGradesSQLProcess.php">
                 <div class="form-group">
-                    <label for="studentName" class="col-md-2 control-label">Student Name :</label>
+                    <label for="studentName" class="col-md-2 col-xs-offset-2 control-label">Student Name :</label>
                     <div class="col-md-4">
                         <select id="studentName" name="studentName" class="form-control" value="<?php echo htmlspecialchars($studentName); ?>">
                             <option value="" selected="selected">--- Select a Student ---</option>
@@ -42,7 +42,7 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="courses" class="col-md-2 control-label">Course Name :</label>
+                    <label for="courses" class="col-md-2 col-xs-offset-2 control-label">Course Name :</label>
                     <div class="col-md-4">
                         <select id="courses" name="courses" class="form-control" value="<?php echo htmlspecialchars($courses); ?>">
                             <option value="" selected="selected">--- Select a Course ---</option>
@@ -51,7 +51,7 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="department" class="col-md-2 control-label">Department Name :</label>
+                    <label for="department" class="col-md-2 col-xs-offset-2 control-label">Department Name :</label>
                     <div class="col-md-4">
                         <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>">
                             <option value="" selected="selected">--- Select a Department ---</option>
@@ -60,7 +60,7 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="semester">Semester :</label>
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="semester">Semester :</label>
                     <div class="col-md-4">
                         <select id="semester" name="semester" class="form-control" value="<?php echo htmlspecialchars($semester); ?>">
                             <option value="" selected="selected">--- Select a Semester ---</option>
@@ -71,39 +71,39 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="courseYear" class="col-md-2 control-label">Academic Year :</label>
+                    <label for="courseYear" class="col-md-2 col-xs-offset-2 control-label">Academic Year :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="studentGradesFormYear">
-                            <input id="courseYear" name="courseYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($courseYear); ?>"/>
+                            <input id="courseYear" name="courseYear" type="text" class="form-control datepicker" placeholder="Year of registration" value="<?php echo htmlspecialchars($courseYear); ?>"/>
                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="asignements" class="col-md-2 control-label">Assignements Grade :</label>
+                    <label for="asignements" class="col-md-2 col-xs-offset-2 control-label">Assignements Grade :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="asignements" name="asignements" placeholder="percentage grade" value="<?php echo htmlspecialchars($assignments); ?>">
                     </div>
                 </div><div class="form-group">
-                    <label for="projects" class="col-md-2 control-label">Projects Grade :</label>
+                    <label for="projects" class="col-md-2 col-xs-offset-2 control-label">Projects Grade :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="projects" name="projects" placeholder="percentage grade" value="<?php echo htmlspecialchars($projects); ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="midTerms" class="col-md-2 control-label">MidTerms Grade :</label>
+                    <label for="midTerms" class="col-md-2 col-xs-offset-2 control-label">MidTerms Grade :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="midTerms" name="midTerms" placeholder="percentage grade" value="<?php echo htmlspecialchars($midTerms); ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="finalExams" class="col-md-2 control-label">Final Exam Grade :</label>
+                    <label for="finalExams" class="col-md-2 col-xs-offset-2 control-label">Final Exam Grade :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="finalExams" name="finalExams" placeholder="percentage grade" value="<?php echo htmlspecialchars($finalExams); ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="finalLetterGrades" class="col-md-2 control-label">Final Letter Grade :</label>
+                    <label for="finalLetterGrades" class="col-md-2 col-xs-offset-2 control-label">Final Letter Grade :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="finalLetterGrades" name="finalLetterGrades" placeholder="Letter Grade" value="<?php echo htmlspecialchars($finalLetterGrades); ?>">
                     </div>

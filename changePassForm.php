@@ -42,7 +42,7 @@ require("lib/sqlQueries.php");
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="confirm_newPassword" class="col-md-2 col-xs-offset-2 control-label">Confirm New PassWord :</label>
+                    <label for="confirm_newPassword" class="col-md-3 col-xs-offset-1 control-label">Confirm New PassWord :</label>
                     <div class="col-md-4">
                         <input type="password" class="form-control" id="confirm_newPassword" name="confirm_newPassword" placeholder="PassWord New Confirmation" value="">
                     </div>

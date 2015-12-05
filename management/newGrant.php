@@ -34,7 +34,7 @@ if(!isset($_SESSION["manager"]))
         <div class="panel-body">
             <form id="newGrantForm" class="form-horizontal" role="form" method="post" action="../lib/newGrantSQLProcess.php">
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="professorName">Professor's Name :</label>
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="professorName">Professor's Name :</label>
                     <div class="col-md-4">
                         <select id="professorName" name="professorName" class="form-control" value="<?php echo htmlspecialchars($professorName); ?>">
                             <option value="" selected="selected">--- Select a Professor's Name ---</option>
@@ -43,13 +43,13 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="grantName" class="col-md-2 control-label">Grant Name :</label>
+                    <label for="grantName" class="col-md-2 col-xs-offset-2 control-label">Grant Name :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="grantName" name="grantName" placeholder="Enter Grant Name" value="<?php echo htmlspecialchars($grantName); ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="grantAmount" class="col-md-2 control-label">Grant Amount :</label>
+                    <label for="grantAmount" class="col-md-2 col-xs-offset-2 control-label">Grant Amount :</label>
                     <div class="col-md-3">
                         <div class="input-group input-append ">
                             <span class="input-group-addon add-on"><span>$</span></span>
@@ -58,10 +58,10 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="grantYear" class="col-md-2 control-label">Grant Year :</label>
+                    <label for="grantYear" class="col-md-2 col-xs-offset-2 control-label">Grant Year :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="grantYearForm">
-                            <input id="grantYear" name="grantYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($grantYear); ?>"/>
+                            <input id="grantYear" name="grantYear" type="text" class="form-control datepicker" placeholder="Year of attribution" value="<?php echo htmlspecialchars($grantYear); ?>"/>
                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                     </div>

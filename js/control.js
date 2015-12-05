@@ -1099,6 +1099,70 @@ var j = jQuery.noConflict();
             }
         });
 
+        var validator = j("#courseEdit").bootstrapValidator({
+            feedbackIcons: {
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            live: 'enabled',
+            submitButtons: 'button[type="submit"]',
+            submitHandler: function(validator, form, submitButton) {
+
+                j.ajax({
+                    type: "POST",
+                    url: "../lib/editCourseSQLProcess.php",
+                    data: $('#courseEdit').serialize(),
+                    success: function(msg){
+                        j("#courseEdit").addClass("hidden");
+                        j("#submission").addClass("hidden");
+                        j("#confirmation").removeClass("hidden");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });//close ajax
+            },
+            fields : {
+                courseName: {
+                    message: "Course Name is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Course Name"
+                        },
+                        regexp: {
+                            regexp: /^[a-z]+$/i,
+                            message: 'The Course name can consist of alphabetical characters'
+                        }
+                    }
+                },
+                courseCode: {
+                    message: "Course Code is required",
+                    validators: {
+                        notEmpty: {
+                            message: "Please provide a Course Code"
+                        },
+                        integer: {
+                            message: 'The Course Code must be numbers.'
+                        },
+                        stringLength: {
+                            min: 3,
+                            max: 3,
+                            message: "The Course Code must have 3 digits."
+                        }
+                    }
+                },
+                department:{
+                    message : "The department is required",
+                    validators : {
+                        notEmpty : {
+                            message : "Please provide the Department"
+                        }
+                    }
+                }
+
+            }
+        });
 
         var validator = j("#courseList").bootstrapValidator({
             feedbackIcons: {

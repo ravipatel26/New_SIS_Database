@@ -12,7 +12,6 @@ ob_start();
 $professorId = $coursesId = $semester = $professorName = $courseName = $year = '';
 
 
-
 $supportInfo = new AdminSystem();
 
 //echo print_r($_POST);

@@ -39,37 +39,37 @@ if(!isset($_SESSION["manager"]))
         <div class="panel-body">
             <form id="professorInformationForm" class="form-horizontal" role="form" method="post" action="../lib/newProfessorSQLProcess.php">
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="firstName">Professor First Name :</label>
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="firstName">Professor First Name :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" value="<?php echo htmlspecialchars($firstName); ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="lastName">Professor Last Name :</label>
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="lastName">Professor Last Name :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" value="<?php echo htmlspecialchars($lastName); ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="phoneNumber" class="col-md-2 control-label">Phone Number :</label>
+                    <label for="phoneNumber" class="col-md-2 col-xs-offset-2 control-label">Phone Number :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="ex: 514-123-4567" value="<?php echo htmlspecialchars($phoneNumber); ?>" onchange="checkPhoneNumber()">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="col-md-2 control-label">Email</label>
+                    <label for="email" class="col-md-2 col-xs-offset-2 control-label">Email</label>
                     <div class="col-md-4">
                         <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($email); ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="professorNumber" class="col-md-2 control-label">Professor  Number :</label>
+                    <label for="professorNumber" class="col-md-2 col-xs-offset-2 control-label">Professor  Number :</label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="professorNumber" name="professorNumber" placeholder="ex: 12345678" value="<?php echo htmlspecialchars($professorNumber); ?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="department" class="col-md-2 control-label">Department Name :</label>
+                    <label for="department" class="col-md-2 col-xs-offset-2 control-label">Department Name :</label>
                     <div class="col-md-4">
                         <select id="department" name="department" class="form-control" value="<?php echo htmlspecialchars($department); ?>">
                             <option value="" selected="selected">--- Select a Department ---</option>

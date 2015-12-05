@@ -33,7 +33,7 @@ if(!isset($_SESSION["manager"]))
         <div class="panel-body">
             <form id="grantUsage" class="form-horizontal" role="form" method="post" action="../lib/grantUsageSQLProcess.php">
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="grantName">Grant Name :</label>
+                    <label class="col-md-2 col-xs-offset-2 control-label" for="grantName">Grant Name :</label>
                     <div class="col-md-4">
                         <select id="grantName" name="grantName" class="form-control" value="<?php echo htmlspecialchars($grantName); ?>">
                             <option value="" selected="selected">--- Select a Grant Name : ---</option>
@@ -42,7 +42,7 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="grantAmountUsed" class="col-md-2 control-label">Grant Amount Used:</label>
+                    <label for="grantAmountUsed" class="col-md-2 col-xs-offset-2 control-label">Grant Amount Used:</label>
                     <div class="col-md-3">
                         <div class="input-group input-append ">
                             <span class="input-group-addon add-on"><span>$</span></span>
@@ -51,10 +51,10 @@ if(!isset($_SESSION["manager"]))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="grantUsedYear" class="col-md-2 control-label">Grant Year :</label>
+                    <label for="grantUsedYear" class="col-md-2 col-xs-offset-2 control-label">Grant Year :</label>
                     <div class="col-md-3 date">
                         <div class="input-group input-append date" id="grantUsageYearForm">
-                            <input id="grantUsedYear" name="grantUsedYear" type="text" class="form-control datepicker" value="<?php echo htmlspecialchars($grantUsedYear); ?>"/>
+                            <input id="grantUsedYear" name="grantUsedYear" type="text" class="form-control datepicker" placeholder="Year grant is used" value="<?php echo htmlspecialchars($grantUsedYear); ?>"/>
                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                     </div>

@@ -38,7 +38,7 @@ if(!isset($_SESSION["manager"]))
                 <div class="col-md-9 col-xs-offset-2 h4 bg-danger">No access to Student data entry, Course taken by student; Professor data entry, and New account creation.</div>
             </div>
             <div class="row">
-                <div class="col-md-5 col-xs-offset-2 h4 bg-danger">No access to Course data entry, and Department data entry.</div>
+                <div class="col-md-7 col-xs-offset-2 h4 bg-danger">No access to Course data entry, Course taught, and Department data entry.</div>
             </div>
 
         </div>
